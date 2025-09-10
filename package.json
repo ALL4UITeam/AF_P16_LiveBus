@@ -1,5 +1,5 @@
 {
-  "name": "vite-full-template",
+  "name": "livebus",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
@@ -12,5 +12,9 @@
     "vite-plugin-handlebars": "^2.0.0",
     "sass": "^1.70.0",
     "gh-pages": "^6.0.0"
-  }
+  },
+  "description": "AF_P16_LiveBus",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
