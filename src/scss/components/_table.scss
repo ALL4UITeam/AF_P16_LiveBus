@@ -1,0 +1,18 @@
+.tbl{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+
+    th,
+    td {
+        border: 1px solid #e5e7eb;
+        padding: 8px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    th {
+        background: #f1f5f9;
+        font-weight: 500;
+    }
+}

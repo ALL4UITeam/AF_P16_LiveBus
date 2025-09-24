@@ -1,3 +1,57 @@
-.button {
-  
+
+
+.btn{
+    width: 90px;
+    height: 48px;
+    border-radius: 10px;
+    border: none;
+    font-size: 17px;
+    font-weight: 300;;
+    &.primary {
+        background: #047bb6;
+        color: #fff;
+    }
+    &.danger {
+        background: #555555;
+        color: #fff;
+    }
+    &.border-primary{
+        border: 1px solid #047bb6;
+        color: #047bb6;
+        background: #fff;
+    }
+}
+
+.round--btn {
+    width: 106px;
+    height: 42px;
+    line-height: 42px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-group{
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+    &.center{
+        justify-content: center;
+    }
+    &.between{
+        justify-content: space-between;
+    }
+}
+.btn-down{
+    width: 150px;
+    background-color: #023f5e;  
+    color:#fff; 
+    font-size: 15px;
+    text-align: left;
+    padding-left: 45px;
+    background-image: url("@/assets/images/dash/ico-down.png");
+    background-repeat: no-repeat;
+    background-position: 20px center;
 }

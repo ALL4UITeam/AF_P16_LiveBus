@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LIVE BUS</title>
+    {{> meta}}
+</head>
+
+<body>
+
+    <div class="app">
+        {{> header}}
+        <!-- 컨텐츠 영역 -->
+        <main class="content" role="main" data-simplebar> 
+            <div class="page-header">
+                <!-- 브레드크럼 -->
+                <nav class="breadcrumb">
+                    <span>관리</span>
+                    <span class="divider">›</span>
+                    <span>기반관리</span>
+                    <span class="divider">›</span>
+                    <span class="current">운수업체 관리</span>
+                </nav>
+                <!-- 페이지 타이틀 -->
+                <h1 class="page-title">운수업체 관리</h1>
+            </div>
+            <div>
+                <!-- chart -->
+                <div class="chart-area" style="height: 300px;">
+                    차트영역
+                </div>
+                <!-- Grid.js 테이블 -->
+                <div id="grid"></div>
+            
+                <div class="btn-group between">
+                    <div>
+                        <button class="btn danger">삭제</button>
+                    </div>
+                    <div>
+                        <button class="btn border-primary">수정</button>
+                        <button class="btn primary">등록</button>
+                        <button class="btn btn-down">엑셀 다운로드</button>
+                    </div>
+                    
+                </div>
+            </div>
+            <button onclick="openModal('statsModal')">운행버스 현황 정보</button>
+            <button onclick="openModal('notice-regi-Modal')">공지사항 등록</button>
+            <button onclick="openModal('notice-detail-Modal')">공지사항 등록</button>
+        </main>
+    </div>
+
+    <script>
+        const data = [
+            [
+                gridjs.html('<input type="checkbox" id="chk1" class="checkbox__input" />'),
+                "10",
+                "은영리무진",
+                "033-542-5682",
+                "12대",
+                "2대",
+                "강원도 동해시 동해동 강원도 동해동...",
+                "홍길동",
+                "-"
+            ],
+            [
+                gridjs.html('<input type="checkbox" id="chk1" class="checkbox__input" />'),
+                "11",
+                "은영리무진",
+                "033-123-4567",
+                "5대",
+                "1대",
+                "강원도 동해시 동 로...",
+                "이순신",
+                "-"
+            ]
+        ];
+
+        // ✅ Grid 생성
+        new gridjs.Grid({
+            columns: [
+                {
+                    name: gridjs.html('<input type="checkbox" id="chk-all" class="checkbox__input" />'), // 헤더에 전체 선택 체크박스
+                    width: '80px'
+                },
+                { name: "NO", width: "120px" },
+                "운수업체명",
+                "전화번호",
+                "차량대수",
+                "예비대수",
+                "주소",
+                "대표자",
+                "비고"
+            ],
+            data: data,
+            pagination: {
+                enabled: true,
+                limit: 5
+            },
+            sort: true,
+            search: true,
+            language: {
+                'search': {
+                    'placeholder': '검색어를 입력해주세요.'
+                },
+                'pagination': {
+                    'previous': '이전',
+                    'next': '다음',
+                    'showing': '총',
+                    'results': () => '개'
+                }
+            }
+        }).render(document.getElementById("grid"));
+
+        // ✅ 전체선택 기능
+        document.addEventListener("change", function (e) {
+            if (e.target.id === "check-all") {
+                const checked = e.target.checked;
+                document.querySelectorAll(".row-check").forEach(cb => {
+                    cb.checked = checked;
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
