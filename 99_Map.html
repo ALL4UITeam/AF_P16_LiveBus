@@ -16,34 +16,14 @@
 
 <body>
 	
-	<div class="app">
-		<!-- 상단바 -->
-		<header class="topbar" role="banner">
-		    
-		    <div class="topbar__brand" aria-label="브랜드">
-		        <h2 class="brand__logo"><img src="./assets/images/logo.png" alt=""></h2>
-		    </div>
+	<div class="Map">
 		
-		    <div class="topbar__actions">
-		        <button class="icon-notice" onclick="openModal('alertModal')" aria-label="알림">
-		            <span>1</span>
-		        </button>
-		        <div class="avatar">
-		            <span class="avatar__circle" aria-hidden="true"></span>
-		            <span class="avatar__label">관리자님</span>
-		        </div>
-		        <label class="burger" for="nav-toggle" aria-label="메뉴 열기/닫기">
-		            <span class="burger"></span>
-		        </label>
-		    </div>
-		</header>
 		
 		<!-- 좌측 사이드바 -->
-		<aside class="sidenav" aria-label="주 메뉴">
+		<aside class="sidenav map--side" aria-label="주 메뉴">
 		    <div class="sidenav__logo">
 		        <a href=""><img src="./assets/images/white-logo.png" alt=""></a>
 		    </div>
-		
 		    <nav class="sidenav__nav" data-simplebar>
 		        <details class="nav-sec">
 		            <summary class="sec01">
@@ -190,13 +170,102 @@
 		            </details>
 		        </details>
 		    </nav>
-		</aside>		
-
-		<!-- 컨텐츠 영역 -->
-		<main class="content" role="main">
-			<div class="content__empty">여기에 페이지 컨텐츠가 표시됩니다.</div>
-		</main>
+		</aside>        
+        <div class="panel--wrap">
+            <div class="panel--header">
+                <label class="burger" for="nav-toggle" aria-label="메뉴 열기/닫기">
+                    <span class="burger"></span>
+                </label>
+                <h1 class="logo">
+                    <a href=""><img src="./assets/images/logo2.png" alt="로고"></a>
+                </h1>  
+            </div>
+            <div class="panel--mid">
+                <div class="tab--nav">
+                    <button class="tab--item active" data-tab="bus">버스</button>
+                    <button class="tab--item" data-tab="station">정류장</button>
+                    <button class="tab--item" data-tab="route">노선</button>
+                </div>
+                <h3 class="panel--title">10대 운영중</h3>
+                <div class="panel--search">
+                    <input type="text" class="search--input" placeholder="검색어를 입력해주세요." />
+                    <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
+                </div>
+            </div>
+            <hr />
+            <div class="panel--list">
+                <div class="tab--content">
+                    <div class="tab--panel active" id="bus">
+                        <!---- 패널 아이템 ---->
+                        <div class="panel--item">
+                            <header class="panel--item__header">
+                                <span class="panel--item__icon">🚌</span>
+                                <span class="panel--item__number">140</span>
+                                <span class="panel--item__plate">충남12사 3453</span>
+                            </header>
+                            <div class="panel--item--body">
+                                <p><strong>현재버스</strong> 차고지</p>
+                                <p><strong>기점</strong> 용인공영버스터미널, 용인드라마타운...</p>
+                                <p><strong>종점</strong> 신림리</p>
+                            </div>
+                            <footer class="panel--item--footer">
+                                <span class="status--tag green">OBE</span>
+                                <span class="status--tag green">GNSS</span>
+                                <span class="status--tag green">LED</span>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="tab--panel" id="station">
+                        <!---- 두번째 패널 아이템 ---->
+                        <div class="panel--item">
+                            <header class="panel--item__header">
+                                <span class="panel--item__icon">🚌</span>
+                                <span class="panel--item__number">140</span>
+                                <span class="panel--item__plate">충남12사 3453</span>
+                            </header>
+                            <div class="panel--item--body">
+                                <p><strong>현재버스</strong> 차고지</p>
+                                <p><strong>기점</strong> 용인공영버스터미널, 용인드라마타운...</p>
+                                <p><strong>종점</strong> 신림리</p>
+                            </div>
+                            <footer class="panel--item--footer">
+                                <span class="status--tag red">OBE</span>
+                                <span class="status--tag green">GNSS</span>
+                                <span class="status--tag red">LED</span>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="tab--panel" id="route">노선 패널 내용</div>
+                </div>
+            </div>
+        </div>
 	</div>
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll(".tab--item");
+        const panels = document.querySelectorAll(".tab--panel");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                const target = tab.getAttribute("data-tab");
+
+                // 탭 버튼 활성화 처리
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                // 패널 보이기/숨기기
+                panels.forEach(panel => {
+                    panel.classList.remove("active");
+                    if (panel.id === target) {
+                        panel.classList.add("active");
+                    }
+                });
+            });
+        });
+    });
+</script>
+
 
 </html>
