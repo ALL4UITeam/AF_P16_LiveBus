@@ -68,28 +68,29 @@ $topbar-h: 64px;
             color: #1d1d1d;
         }
     }
-    .burger {
-        width: 20px;
+}
+
+.burger {
+    width: 20px;
+    height: 2px;
+    background: #111827;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    &::before,
+    &::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
         height: 2px;
-        background: #111827;
-        position: relative;
-        display: block;
-        cursor: pointer;
-        &::before,
-        &::after{
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: currentColor;
-        }
-        &::before{
-            top: -6px;
-        }
-        &::after{
-            top: 6px;
-        }
+        background: currentColor;
+    }
+    &::before{
+        top: -6px;
+    }
+    &::after{
+        top: 6px;
     }
 }
 
@@ -99,13 +100,24 @@ $topbar-h: 64px;
     position: relative;
     background: #0a529d;
     color: #fff;
-    overflow: auto;
     font-weight: 300;
     &__logo {
+        position: relative;
         text-align: center;
 		padding: 60px 0 30px 0;
         margin: 0 20px;
         border-bottom: 1px solid rgba(255,255,255,0.15);
+        &:after{
+            z-index: 21;
+            position: absolute;
+            right: -64px;
+            top: 0;
+            display: block;
+            content: "";
+            width: 44px;
+            height: 53px;
+            background:url('@/assets/images/dash/nav-after.png') no-repeat center;
+        }   
     }
     &__nav {
         display: grid;

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>LIVE BUS</title>
+	{{> meta}}
+</head>
+
+<body>
+	
+	<div class="Map">
+		{{> map_header}} 
+        
+        <div class="panel--wrap">
+            <div class="panel--header">
+                <label class="burger" for="nav-toggle" aria-label="메뉴 열기/닫기">
+                    <span class="burger"></span>
+                </label>
+                <h1 class="logo">
+                    <a href=""><img src="./assets/images/map/logo.png" alt="로고"></a>
+                </h1>  
+            </div>
+            <div class="panel--mid">
+                <div class="tab--nav">
+                    <button class="tab--item active" data-tab="bus">버스</button>
+                    <button class="tab--item" data-tab="station">정류장</button>
+                    <button class="tab--item" data-tab="route">노선</button>
+                </div>
+                <h3 class="panel--title">10대 운영중</h3>
+                <div class="panel--search">
+                    <input type="text" class="search--input" placeholder="검색어를 입력해주세요." />
+                    <button class="search--button"><img src="./assets/images/map/ico-search.png" alt=""></button>
+                </div>
+            </div>
+            <hr />
+            <div class="panel--list">
+                <div class="tab--content">
+                    <div class="tab--panel active" id="bus">
+                        <!---- 패널 아이템 ---->
+                        <div class="panel--item">
+                            <header class="panel--item__header">
+                                <span class="panel--item__icon">🚌</span>
+                                <span class="panel--item__number">140</span>
+                                <span class="panel--item__plate">충남12사 3453</span>
+                            </header>
+                            <div class="panel--item--body">
+                                <p><strong>현재버스</strong> 차고지</p>
+                                <p><strong>기점</strong> 용인공영버스터미널, 용인드라마타운...</p>
+                                <p><strong>종점</strong> 신림리</p>
+                            </div>
+                            <footer class="panel--item--footer">
+                                <span class="status--tag green">OBE</span>
+                                <span class="status--tag green">GNSS</span>
+                                <span class="status--tag green">LED</span>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="tab--panel" id="station">
+                        <!---- 두번째 패널 아이템 ---->
+                        <div class="panel--item">
+                            <header class="panel--item__header">
+                                <span class="panel--item__icon">🚌</span>
+                                <span class="panel--item__number">140</span>
+                                <span class="panel--item__plate">충남12사 3453</span>
+                            </header>
+                            <div class="panel--item--body">
+                                <p><strong>현재버스</strong> 차고지</p>
+                                <p><strong>기점</strong> 용인공영버스터미널, 용인드라마타운...</p>
+                                <p><strong>종점</strong> 신림리</p>
+                            </div>
+                            <footer class="panel--item--footer">
+                                <span class="status--tag red">OBE</span>
+                                <span class="status--tag green">GNSS</span>
+                                <span class="status--tag red">LED</span>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="tab--panel" id="route">노선 패널 내용</div>
+                </div>
+            </div>
+        </div>
+	</div>
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll(".tab--item");
+        const panels = document.querySelectorAll(".tab--panel");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                const target = tab.getAttribute("data-tab");
+
+                // 탭 버튼 활성화 처리
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                // 패널 보이기/숨기기
+                panels.forEach(panel => {
+                    panel.classList.remove("active");
+                    if (panel.id === target) {
+                        panel.classList.add("active");
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+
+</html>
