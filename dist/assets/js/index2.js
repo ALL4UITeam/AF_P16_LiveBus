@@ -70,3 +70,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", function() {
+  const toggles = document.querySelectorAll("[data-toggle]");
+  toggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const group = toggle.dataset.group;
+      if (group) {
+        document.querySelectorAll(`[data-group="${group}"]`).forEach((el) => {
+          el.classList.remove("active");
+        });
+        toggle.classList.add("active");
+      } else {
+        toggle.classList.toggle("active");
+      }
+    });
+  });
+});

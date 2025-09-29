@@ -7,6 +7,7 @@
 	<title>LIVE BUS</title>
 	<link rel="stylesheet" href="styles.css" />
 	<link rel="stylesheet" href="./assets/fonts/esamanru.css">
+	<link rel="stylesheet" href="./assets/fonts/Freesentation.css">
 	<link rel="stylesheet" href="./lib/simplebar/simplebar.css">
 	<link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
 	<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
@@ -170,10 +171,26 @@
 		            </details>
 		        </details>
 		    </nav>
-		</aside>        
+		</aside>        <!-- 툴 -->
+        <div class=" Map--mode__top">
+            <div class="Map--mode">
+                <button type="button" class=" btn--mode active" data-toggle data-group="mapModeTop">일반</button>
+                <button type="button" class=" btn--mode" data-toggle data-group="mapModeTop">위성</button>
+            </div>
+        </div>
+        <div class="Map--mode__bottom">
+            <div class="Map--mode">
+                <button type="button" class=" btn--mode location" title="위치"></button>
+            </div>
+            <div class="Map--mode zoom">
+                <button type="button" class=" btn--mode zoomin" title="확대" ></button>
+                <button type="button" class=" btn--mode zoomout" title="축소"></button>
+            </div>
+        </div>
+        <!-- 패널 -->
         <div class="panel--wrap">
             <div class="panel--header">
-                <label class="burger" for="nav-toggle" aria-label="메뉴 열기/닫기">
+                <label class="burger-btn" for="nav-toggle" aria-label="메뉴 열기/닫기">
                     <span class="burger"></span>
                 </label>
                 <h1 class="logo">
@@ -193,25 +210,124 @@
                 </div>
             </div>
             <hr />
-            <div class="panel--list">
+            <div class="panel--list" data-simplebar>
                 <div class="tab--content">
                     <div class="tab--panel active" id="bus">
                         <!---- 패널 아이템 ---->
                         <div class="panel--item">
                             <header class="panel--item__header">
-                                <span class="panel--item__icon">🚌</span>
                                 <span class="panel--item__number">140</span>
                                 <span class="panel--item__plate">충남12사 3453</span>
                             </header>
                             <div class="panel--item--body">
-                                <p><strong>현재버스</strong> 차고지</p>
-                                <p><strong>기점</strong> 용인공영버스터미널, 용인드라마타운...</p>
-                                <p><strong>종점</strong> 신림리</p>
+                                <div class="info">
+                                    <dl>
+                                        <dt>현재버스</dt>
+                                        <dd>차고지</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>기점</dt>
+                                        <dd>용인공영버스터미널.용인드마크데라이</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>종점</dt>
+                                        <dd>신평리</dd>
+                                    </dl>
+                                </div>
                             </div>
                             <footer class="panel--item--footer">
-                                <span class="status--tag green">OBE</span>
-                                <span class="status--tag green">GNSS</span>
-                                <span class="status--tag green">LED</span>
+                                <div class="round-wrap">
+                                    <span class="status--tag ">OBE</span>
+                                    <span class="status--tag green">GNSS</span>
+                                    <span class="status--tag red">LED</span>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="panel--item">
+                            <header class="panel--item__header">
+                                <span class="panel--item__number">140</span>
+                                <span class="panel--item__plate">충남12사 3453</span>
+                            </header>
+                            <div class="panel--item--body">
+                                <div class="info">
+                                    <dl>
+                                        <dt>현재버스</dt>
+                                        <dd>차고지</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>기점</dt>
+                                        <dd>용인공영버스터미널.용인드마크데라이</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>종점</dt>
+                                        <dd>신평리</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <footer class="panel--item--footer">
+                                <div class="round-wrap">
+                                    <span class="status--tag">OBE</span>
+                                    <span class="status--tag">GNSS</span>
+                                    <span class="status--tag">LED</span>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="panel--item">
+                            <header class="panel--item__header">
+                                <span class="panel--item__number">140</span>
+                                <span class="panel--item__plate">충남12사 3453</span>
+                            </header>
+                            <div class="panel--item--body">
+                                <div class="info">
+                                    <dl>
+                                        <dt>현재버스</dt>
+                                        <dd>차고지</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>기점</dt>
+                                        <dd>용인공영버스터미널.용인드마크데라이</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>종점</dt>
+                                        <dd>신평리</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <footer class="panel--item--footer">
+                                <div class="round-wrap">
+                                    <span class="status--tag">OBE</span>
+                                    <span class="status--tag">GNSS</span>
+                                    <span class="status--tag">LED</span>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="panel--item">
+                            <header class="panel--item__header">
+                                <span class="panel--item__number">140</span>
+                                <span class="panel--item__plate">충남12사 3453</span>
+                            </header>
+                            <div class="panel--item--body">
+                                <div class="info">
+                                    <dl>
+                                        <dt>현재버스</dt>
+                                        <dd>차고지</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>기점</dt>
+                                        <dd>용인공영버스터미널.용인드마크데라이</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>종점</dt>
+                                        <dd>신평리</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <footer class="panel--item--footer">
+                                <div class="round-wrap">
+                                    <span class="status--tag">OBE</span>
+                                    <span class="status--tag">GNSS</span>
+                                    <span class="status--tag">LED</span>
+                                </div>
                             </footer>
                         </div>
                     </div>
@@ -219,23 +335,258 @@
                         <!---- 두번째 패널 아이템 ---->
                         <div class="panel--item">
                             <header class="panel--item__header">
-                                <span class="panel--item__icon">🚌</span>
+                                <span class="panel--item__number">성우스타A</span>
+                            </header>
+                            <div class="panel--item--body">
+                                <div class="info row">
+                                    <dl>
+                                        <dt>온도</dt>
+                                        <dd>39°</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>습도</dt>
+                                        <dd>30%</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <footer class="panel--item--footer">
+                                <ul class="option-list">
+                                    <li class="option-item" data-toggle>
+                                        <span class="option-icon" aria-hidden="true"></span>
+                                        <span class="option-label">통신</span>
+                                    </li>
+                                    <li class="option-item" data-toggle>
+                                        <span class="option-icon" aria-hidden="true"></span>
+                                        <span class="option-label">LCD</span>
+                                    </li>
+                                    <li class="option-item" data-toggle>
+                                        <span class="option-icon" aria-hidden="true"></span>
+                                        <span class="option-label">RTU</span>
+                                    </li>
+                                </ul>
+                                <div class="round-wrap">
+                                    <span class="status--tag">도어상태</span>
+                                    <span class="status--tag green">배전도어</span>
+                                    <span class="status--tag red">관리도어</span>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="panel--item">
+                            <header class="panel--item__header">
+                                <span class="panel--item__number">성우스타A</span>
+                            </header>
+                            <div class="panel--item--body">
+                                <div class="info row">
+                                    <dl>
+                                        <dt>온도</dt>
+                                        <dd>39°</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>습도</dt>
+                                        <dd>30%</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <footer class="panel--item--footer">
+                                <ul class="option-list">
+                                    <li class="option-item" data-toggle>
+                                        <span class="option-icon" aria-hidden="true"></span>
+                                        <span class="option-label">통신</span>
+                                    </li>
+                                    <li class="option-item" data-toggle>
+                                        <span class="option-icon" aria-hidden="true"></span>
+                                        <span class="option-label">LCD</span>
+                                    </li>
+                                    <li class="option-item" data-toggle>
+                                        <span class="option-icon" aria-hidden="true"></span>
+                                        <span class="option-label">RTU</span>
+                                    </li>
+                                </ul>
+                                <div class="round-wrap">
+                                    <span class="status--tag">도어상태</span>
+                                    <span class="status--tag green">배전도어</span>
+                                    <span class="status--tag red">관리도어</span>
+                                </div>
+                            </footer>
+                        </div>
+                        <div class="panel--item">
+                            <header class="panel--item__header">
+                                <span class="panel--item__number">성우스타A</span>
+                            </header>
+                            <div class="panel--item--body">
+                                <div class="info row">
+                                    <dl>
+                                        <dt>온도</dt>
+                                        <dd>39°</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>습도</dt>
+                                        <dd>30%</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <footer class="panel--item--footer">
+                                <ul class="option-list">
+                                    <li class="option-item" data-toggle>
+                                        <span class="option-icon" aria-hidden="true"></span>
+                                        <span class="option-label">통신</span>
+                                    </li>
+                                    <li class="option-item" data-toggle>
+                                        <span class="option-icon" aria-hidden="true"></span>
+                                        <span class="option-label">LCD</span>
+                                    </li>
+                                    <li class="option-item" data-toggle>
+                                        <span class="option-icon" aria-hidden="true"></span>
+                                        <span class="option-label">RTU</span>
+                                    </li>
+                                </ul>
+                                <div class="round-wrap">
+                                    <span class="status--tag">도어상태</span>
+                                    <span class="status--tag green">배전도어</span>
+                                    <span class="status--tag red">관리도어</span>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="tab--panel" id="route">
+                        <div class="panel--item">
+                            <header class="panel--item__header">
                                 <span class="panel--item__number">140</span>
                                 <span class="panel--item__plate">충남12사 3453</span>
                             </header>
                             <div class="panel--item--body">
-                                <p><strong>현재버스</strong> 차고지</p>
-                                <p><strong>기점</strong> 용인공영버스터미널, 용인드라마타운...</p>
-                                <p><strong>종점</strong> 신림리</p>
+                                <div class="info">
+                                    <dl>
+                                        <dt>현재버스</dt>
+                                        <dd>차고지</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>기점</dt>
+                                        <dd>용인공영버스터미널.용인드마크데라이</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>종점</dt>
+                                        <dd>신평리</dd>
+                                    </dl>
+                                </div>
                             </div>
-                            <footer class="panel--item--footer">
-                                <span class="status--tag red">OBE</span>
-                                <span class="status--tag green">GNSS</span>
-                                <span class="status--tag red">LED</span>
-                            </footer>
                         </div>
                     </div>
-                    <div class="tab--panel" id="route">노선 패널 내용</div>
+                </div>
+            </div>
+        </div>
+        <!-- 패널 우측 확장 -->
+        <div class="panel--expand">
+            <div class="panel--expand__head">
+                <button class="back"></button>
+                <span>일반형 시내버스</span>
+                <button class="close"></button>
+            </div>
+            <div class="panel--expand__content">
+                <div class="bus-type-inner">
+                    <div class="bus-type">
+                        <span class="bus-type-badge">140</span>
+                        <span class="bus-type-label">일반형 시내버스</span>
+                    </div>
+                </div>
+                <div class="bus-info-inner">
+                    <div class="bus-info">
+                        <dl>
+                            <dt>기점</dt>
+                            <dd>용인공영버스터미널.용인드마크데</dd>
+                        </dl>
+                        <dl>
+                            <dt>종점</dt>
+                            <dd>신평리</dd>
+                        </dl>
+                        <dl>
+                            <dt>운행시간</dt>
+                            <dd>
+                                평일 06:00~09:50<br>
+                                주말 06:00~09:50<br>
+                                공휴일 06:00~09:50
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>배차간격</dt>
+                            <dd>
+                                평일 120~150분<br>
+                                주말 120~125분<br>
+                                공휴일 120~125분
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="section--meta">
+                    <h2 class="section--meta__title">라이브 버스 경로</h2>
+                
+                    <div class="section--meta__info">
+                        <span class="section--meta__status">1대 운행중</span>
+                        <span class="section--meta__timestamp">오후 01:55:36 기준</span>
+                        <button class="section--meta__refresh" aria-label="새로고침"></button>
+                    </div>
+                </div>
+                <div class="route-timeline-inner" data-simplebar>
+                    <!-- 타임라인 컨테이너 -->
+                    <div class="route-timeline">
+                        <!-- 버스들 (정류장과 별개, 유동적) -->
+                        <div class="buses">
+                            <div class="bus" style="top: 20%;" data-tooltip="78아1514"><img src="./assets/images/blue-bus.png" alt=""></div>
+                            <div class="bus" style="top: 45%;" data-tooltip="78아1513"><img src="./assets/images/blue-bus.png" alt=""></div>
+                        </div>
+                    
+                        <!-- 정류장 목록 -->
+                        <ol class="stops">
+                            <li class="stop">
+                                <div class="stop-marker"></div>
+                                <div class="stop-info">
+                                    <div class="stop-name">용인공영버스터미널</div>
+                                    <div class="stop-code">29434 | 상행</div>
+                                    <div class="stop-status">도착 예정 정보 없음</div>
+                                </div>
+                            </li>
+                            <li class="stop">
+                                <div class="stop-marker"></div>
+                                <div class="stop-info">
+                                    <div class="stop-name">용인드마크데..</div>
+                                    <div class="stop-code">29435 | 상행</div>
+                                    <div class="stop-status">도착 예정 정보 없음</div>
+                                </div>
+                            </li>
+                            <li class="stop">
+                                <div class="stop-marker"></div>
+                                <div class="stop-info">
+                                    <div class="stop-name">용인드마크데..</div>
+                                    <div class="stop-code">29435 | 상행</div>
+                                    <div class="stop-status">도착 예정 정보 없음</div>
+                                </div>
+                            </li>
+                            <li class="stop">
+                                <div class="stop-marker"></div>
+                                <div class="stop-info">
+                                    <div class="stop-name">용인드마크데..</div>
+                                    <div class="stop-code">29435 | 상행</div>
+                                    <div class="stop-status">도착 예정 정보 없음</div>
+                                </div>
+                            </li>
+                            <li class="stop">
+                                <div class="stop-marker"></div>
+                                <div class="stop-info">
+                                    <div class="stop-name">용인드마크데..</div>
+                                    <div class="stop-code">29435 | 상행</div>
+                                    <div class="stop-status">도착 예정 정보 없음</div>
+                                </div>
+                            </li>
+                            <li class="stop">
+                                <div class="stop-marker"></div>
+                                <div class="stop-info">
+                                    <div class="stop-name">용인드마크데..</div>
+                                    <div class="stop-code">29435 | 상행</div>
+                                    <div class="stop-status">도착 예정 정보 없음</div>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
@@ -264,6 +615,42 @@
                 });
             });
         });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const burgerBtn = document.querySelector(".burger-btn");
+        const map = document.querySelector(".Map");
+
+        if (burgerBtn && map) {
+            burgerBtn.addEventListener("click", function () {
+                map.classList.toggle("nav-open");
+
+                if (map.classList.contains("nav-open")) {
+                    if (!map.querySelector(".dimmed")) {
+                        const dimmed = document.createElement("div");
+                        dimmed.classList.add("dimmed");
+                        map.appendChild(dimmed);
+
+                        // DOM 추가 후 강제로 리플로우 → 애니메이션 시작
+                        requestAnimationFrame(() => {
+                            dimmed.classList.add("show");
+                        });
+
+                        dimmed.addEventListener("click", function () {
+                            map.classList.remove("nav-open");
+                            dimmed.classList.remove("show");
+                            setTimeout(() => dimmed.remove(), 300); // transition 끝난 후 제거
+                        });
+                    }
+                } else {
+                    const dimmed = map.querySelector(".dimmed");
+                    if (dimmed) {
+                        dimmed.classList.remove("show");
+                        setTimeout(() => dimmed.remove(), 300);
+                    }
+                }
+            });
+        }
     });
 </script>
 

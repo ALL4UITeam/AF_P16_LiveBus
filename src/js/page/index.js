@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.openModal = openModal;
   window.closeModal = closeModal;
 
+  // form 모달이 많아 불편해서 제거 
   // 배경 클릭 시 닫기
   // document.addEventListener("click", function(e) {
   //   if (e.target.classList.contains("modal")) {
@@ -53,3 +54,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });	
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const toggles = document.querySelectorAll("[data-toggle]");
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener("click", () => {
+      const group = toggle.dataset.group;
+
+      if (group) {
+        document.querySelectorAll(`[data-group="${group}"]`).forEach(el => {
+          el.classList.remove("active");
+        });
+        toggle.classList.add("active");
+      } else {
+        toggle.classList.toggle("active");
+      }
+    });
+  });
+});

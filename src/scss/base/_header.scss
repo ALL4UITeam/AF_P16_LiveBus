@@ -70,13 +70,17 @@ $topbar-h: 64px;
     }
 }
 
+.burger-btn{
+    cursor: pointer;
+    padding: 7px 1px;
+}
 .burger {
     width: 20px;
     height: 2px;
     background: #111827;
     position: relative;
     display: block;
-    cursor: pointer;
+    
     &::before,
     &::after{
         content: "";
@@ -132,6 +136,7 @@ $topbar-h: 64px;
         border-radius: 12px;
         >summary {
             position: relative;
+            
             &::after {
                 position: absolute;
                 top: 45%;
@@ -173,6 +178,7 @@ $topbar-h: 64px;
                 border-radius: 25px 0 0 25px;
                 height: 50px;
                 padding-left: 20px;
+                color:rgba(255,255,255,0.8);
                 &>i{
                     width: 16px;
                     display: inline-block;
@@ -185,35 +191,30 @@ $topbar-h: 64px;
                     height: 13px;
                     background-image: url("@/assets/images/dash/ico-nav-sec01.png");
                 }
-                
             }
             &.sec02{
                 i{
                     height: 19px;
                     background-image: url("@/assets/images/dash/ico-nav-sec02.png");
                 }
-                
             }
             &.sec03{
                 i{
                     height: 16px;
                     background-image: url("@/assets/images/dash/ico-nav-sec03.png");
                 }
-                
             }
             &.sec04{
                 i{
                     height: 16px;
                     background-image: url("@/assets/images/dash/ico-nav-sec04.png");
                 }
-                
             }
             &.sec05{
                 i{
                     height: 18px;
                     background-image: url("@/assets/images/dash/ico-nav-sec05.png");
                 }
-                
             }
             & + .nav-sub{
                 margin-top: 20px;
@@ -235,31 +236,26 @@ $topbar-h: 64px;
                     i{
                         background-image: url("@/assets/images/dash/ico-nav-sec01-on.png");
                     }
-                    
                 }
                 &.sec02{
                     i{
                         background-image: url("@/assets/images/dash/ico-nav-sec02-on.png");
                     }
-                    
                 }
                 &.sec03{
                     i{
                         background-image: url("@/assets/images/dash/ico-nav-sec03-on.png");
                     }
-                    
                 }
                 &.sec04{
                     i{
                         background-image: url("@/assets/images/dash/ico-nav-sec04-on.png");
                     }
-                    
                 }
                 &.sec05{
                     i{
                         background-image: url("@/assets/images/dash/ico-nav-sec05-on.png");
-                    }
-                    
+                    }   
                 }
             }
             .round-top,
@@ -305,6 +301,7 @@ $topbar-h: 64px;
                 height: 35px;
                 padding-left: 20px;
                 border-radius: 18px;
+                color:rgba(255,255,255,0.8);
                 &:after{
                     right: 20px;
                 }

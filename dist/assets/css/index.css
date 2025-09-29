@@ -10,7 +10,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-weight: 300;
+  font-weight: 500;
+  color: #1d1d1d;
 }
 
 body {
@@ -131,13 +132,17 @@ button, a {
   color: #1d1d1d;
 }
 
+.burger-btn {
+  cursor: pointer;
+  padding: 7px 1px;
+}
+
 .burger {
   width: 20px;
   height: 2px;
   background: #111827;
   position: relative;
   display: block;
-  cursor: pointer;
 }
 .burger::before, .burger::after {
   content: "";
@@ -240,6 +245,7 @@ button, a {
   border-radius: 25px 0 0 25px;
   height: 50px;
   padding-left: 20px;
+  color: rgba(255, 255, 255, 0.8);
 }
 .sidenav .nav-sec > summary span > i {
   width: 16px;
@@ -337,6 +343,7 @@ button, a {
   height: 35px;
   padding-left: 20px;
   border-radius: 18px;
+  color: rgba(255, 255, 255, 0.8);
 }
 .sidenav .nav-sec .nav-sub > summary:after {
   right: 20px;
@@ -443,6 +450,9 @@ summary::-webkit-details-marker {
   align-items: center;
   font-size: 19px;
   font-weight: 300;
+}
+.modal .modal-dialog .modal-header span {
+  color: #fff;
 }
 .modal .modal-dialog .modal-header button {
   background-color: transparent;
@@ -642,7 +652,7 @@ summary::-webkit-details-marker {
 }
 
 .btn-down {
-  width: 150px;
+  width: 135px;
   background-color: #023f5e;
   color: #fff;
   font-size: 15px;
@@ -1048,14 +1058,101 @@ select {
 }
 
 .Map {
+  position: relative;
   height: 100%;
   width: 100%;
+}
+.Map.nav-open .map--side {
+  left: 0;
+}
+.Map--mode {
+  border: 1px solid #b9b9b9;
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  gap: 4px;
+  border-radius: 10px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.Map--mode__top {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.Map--mode__bottom {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+.Map--mode.zoom .btn--mode + .btn--mode {
+  position: relative;
+}
+.Map--mode.zoom .btn--mode + .btn--mode:after {
+  position: absolute;
+  top: -2px;
+  left: -4px;
+  right: -4px;
+  display: block;
+  content: "";
+  width: calc(100% + 8px);
+  height: 1px;
+  border-top: 1px solid #D8D8D8;
+}
+.Map--mode + .Map--mode {
+  margin-top: 12px;
+}
+
+.btn--mode {
+  display: block;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  font-weight: 300;
+  font-size: 15px;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  border: none;
+}
+.btn--mode.active {
+  background: #0a529d;
+  color: #fff;
+}
+.btn--mode.location {
+  background-image: url("../images/tool-loction.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.btn--mode.zoomin {
+  background-image: url("../images/tool-zoomin.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.btn--mode.zoomout {
+  background-image: url("../images/tool-zoomout.png");
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .map--side {
   position: absolute;
+  z-index: 100;
   left: -314px;
   width: 270px;
+  transition: all 0.3s;
+}
+
+.dimmed {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.dimmed.show {
+  opacity: 1;
 }
 
 .tab--nav {
@@ -1073,7 +1170,7 @@ select {
   font-size: 17px;
   cursor: pointer;
   border-left: 1px solid #d8d8d8;
-  font-weight: 300;
+  font-weight: 500;
 }
 .tab--nav .tab--item:first-child {
   border-radius: 5px 0 0 5px;
@@ -1160,71 +1257,437 @@ select {
 }
 
 .panel--list {
+  height: calc(100% - 175px - 75px - 3px);
   border-top: 1px solid #f0f0f0;
   padding: 20px;
 }
 .panel--list .panel--item {
   background: #fff;
-  border: 1px solid #eee;
+  border: 1px solid #d8d8d8;
   border-radius: 10px;
-  padding: 15px;
+  padding: 20px;
   margin-bottom: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
-.panel--list .panel--item--header {
+.panel--list .panel--item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d8d8d8;
+}
+.panel--list .panel--item__header .panel--item__number {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-}
-.panel--list .panel--item--header .panel--item__icon {
-  margin-right: 8px;
-  font-size: 18px;
-}
-.panel--list .panel--item--header .panel--item__number {
-  font-size: 20px;
+  gap: 9px;
+  font-size: 32px;
   font-weight: bold;
-  margin-right: 10px;
 }
-.panel--list .panel--item--header .panel--item__plate {
-  font-size: 14px;
-  color: #666;
+.panel--list .panel--item__header .panel--item__number::before {
+  display: block;
+  content: "";
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #deecf8;
+  background-image: url("../images/blue-bus.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.panel--list .panel--item__header .panel--item__plate {
+  font-size: 17px;
 }
 .panel--list .panel--item--body {
   font-size: 13px;
   color: #333;
   margin-bottom: 10px;
 }
-.panel--list .panel--item--body p {
-  margin: 2px 0;
-}
-.panel--list .panel--item--body strong {
-  margin-right: 5px;
-}
-.panel--list .panel--item--footer {
+.panel--list .panel--item--body .info {
   display: flex;
-  gap: 6px;
+  flex-direction: column;
+  gap: 10px;
+}
+.panel--list .panel--item--body .info.row {
+  flex-direction: row;
+}
+.panel--list .panel--item--body .info.row dl {
+  gap: 10px;
+}
+.panel--list .panel--item--body .info.row dl dt {
+  width: auto;
+}
+.panel--list .panel--item--body dl {
+  display: flex;
+  font-size: 15px;
+}
+.panel--list .panel--item--body dl dt {
+  position: relative;
+  width: 80px;
+  padding-left: 10px;
+}
+.panel--list .panel--item--body dl dt:after {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  display: block;
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #000;
+}
+.panel--list .panel--item--body dl dd {
+  color: #717171;
+}
+.panel--list .panel--item--footer .option-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 20px 0 30px 0;
+}
+.panel--list .panel--item--footer .option-list .option-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+}
+.panel--list .panel--item--footer .option-list .option-item .option-icon {
+  margin-right: 4px;
+  width: 14px;
+  height: 14px;
+  background-image: url("../images/ico-check.png");
+}
+.panel--list .panel--item--footer .option-list .option-item.active .option-icon {
+  background-image: url("../images/ico-check-on.png");
+}
+.panel--list .panel--item--footer .option-list .option-item.active .option-label {
+  color: #047bb6;
+}
+.panel--list .panel--item--footer .option-list .option-item + .option-item {
+  position: relative;
+}
+.panel--list .panel--item--footer .option-list .option-item + .option-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 14px;
+  background: #ccc;
+}
+.panel--list .panel--item--footer .round-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 .panel--list .panel--item--footer .status--tag {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 10px 10px;
   border-radius: 15px;
-  font-size: 12px;
+  font-size: 15px;
+  text-align: center;
   border: 1px solid;
+  border-color: #d8d8d8;
+  line-height: 1;
 }
 .panel--list .panel--item--footer .status--tag.green {
-  color: #2e7d32;
-  border-color: #2e7d32;
+  color: #2ba45b;
+  border-color: #2ba45b;
+  background: #eafff0;
 }
 .panel--list .panel--item--footer .status--tag.red {
-  color: #d32f2f;
-  border-color: #d32f2f;
+  color: #e64f58;
+  border-color: #e64f58;
+  background: #fff1f1;
+}
+
+.panel--expand {
+  position: absolute;
+  left: 420px;
+  height: calc(100% - 20px - 20px);
+  top: 20px;
+  background: #ecf0f2;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 400px;
+  overflow: hidden;
+}
+.panel--expand__head {
+  background: #047bb6;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 19px;
+  font-weight: 300;
+}
+.panel--expand__head span {
+  color: #fff;
+}
+.panel--expand__head .back {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 9px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-image: url("../images/panel-expand-back.png");
+}
+.panel--expand__head .close {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-image: url("../images/modal-close.png");
+}
+.panel--expand__content {
+  background: #fff;
+  height: 100%;
+}
+.panel--expand__content .bus-type-inner {
+  padding: 30px 50px;
+}
+.panel--expand__content .bus-type {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  gap: 50px;
+  padding: 8px 8px;
+  border: 2px solid #0758ac;
+  border-radius: 30px;
+  background: #fff;
+  font-size: 14px;
+}
+.panel--expand__content .bus-type::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 36px;
+}
+.panel--expand__content .bus-type .bus-type-badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #0758ac;
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+}
+.panel--expand__content .bus-type .bus-type-label {
+  font-size: 22px;
+  color: #0758ac;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.panel--expand__content .bus-info-inner {
+  padding: 0 20px 30px 20px;
+}
+.panel--expand__content .bus-info {
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f9f9f9;
+  border: 1px solid #d8d8d8;
+  padding: 20px;
+  border-radius: 10px;
+}
+.panel--expand__content .bus-info dl {
+  display: flex;
+  font-size: 15px;
+}
+.panel--expand__content .bus-info dl dt {
+  position: relative;
+  width: 80px;
+  padding-left: 10px;
+}
+.panel--expand__content .bus-info dl dt:after {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  display: block;
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #000;
+}
+.panel--expand__content .bus-info dl dd {
+  color: #717171;
+}
+.panel--expand__content .section--meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 20px;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #f7f7f7;
+}
+.panel--expand__content .section--meta__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+}
+.panel--expand__content .section--meta__info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 15px;
+}
+.panel--expand__content .section--meta__status {
+  font-weight: 600;
+  color: #555555;
+}
+.panel--expand__content .section--meta__timestamp {
+  font-size: 13px;
+  color: #999999;
+}
+.panel--expand__content .section--meta__refresh {
+  background: none;
+  border: none;
+  width: 12px;
+  height: 12px;
+  background-image: url("../images/ico-refresh.png");
+  cursor: pointer;
+  font-size: 1rem;
+  color: #666;
+  transition: transform 0.2s ease;
+}
+.panel--expand__content .section--meta__refresh:hover {
+  color: #000;
+  transform: rotate(90deg);
+}
+.panel--expand__content .section--meta__refresh:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+.panel--expand__content .route-timeline-inner {
+  padding: 20px;
+  height: calc(100% - 54px - 118px - 250px - 37px);
+}
+.panel--expand__content .route-timeline {
+  position: relative;
+  padding-left: 90px;
+  /* 정류장 목록 */
+  /* 버스 아이콘 (유동적) */
+}
+.panel--expand__content .route-timeline .stops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.panel--expand__content .route-timeline .stops .stop {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  padding: 16px 0;
+  border-top: 1px solid #d8d8d8;
+}
+.panel--expand__content .route-timeline .stops .stop:first-child {
+  border-top: none;
+}
+.panel--expand__content .route-timeline .stops .stop::before {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #cbd5e1;
+}
+.panel--expand__content .route-timeline .stops .stop:first-child::before {
+  top: 50%;
+}
+.panel--expand__content .route-timeline .stops .stop:last-child::before {
+  bottom: 50%;
+}
+.panel--expand__content .route-timeline .stops .stop .stop-marker {
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #848484;
+  background-image: url("../images/marker-arrow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.panel--expand__content .route-timeline .stops .stop .stop-info .stop-name {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.panel--expand__content .route-timeline .stops .stop .stop-info .stop-code {
+  font-size: 15px;
+  color: #555555;
+  margin-top: 2px;
+}
+.panel--expand__content .route-timeline .stops .stop .stop-info .stop-status {
+  font-size: 15px;
+  color: #999999;
+  margin-top: 2px;
+}
+.panel--expand__content .route-timeline .buses {
+  position: absolute;
+  left: -6px;
+  top: 0;
+  bottom: 0;
+  width: 0;
+}
+.panel--expand__content .route-timeline .buses .bus {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 16px;
+  z-index: 10;
+  left: 80px;
+  transform: translateX(-50%);
+  cursor: default;
+  /* 툴팁 */
+}
+.panel--expand__content .route-timeline .buses .bus::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 24px;
+  /* 기본은 오른쪽 */
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ebf5fd;
+  border: 1px solid #a6c3e1;
+  border-radius: 6px;
+  padding: 2px 2px;
+  font-size: 10px;
+  color: #111827;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.panel--expand__content .route-timeline .buses .bus.tooltip-left::after {
+  left: auto;
+  right: 24px;
+  /* 왼쪽으로 표시 */
 }
 
 /* ====== Design tokens ====== */
 body {
   min-width: 1200px;
   height: 100vh;
-  font-family: "esamanru", Segoe UI, Roboto, Noto Sans KR, Apple SD Gothic Neo, "Malgun Gothic", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: "Freesentation", Segoe UI, Roboto, Noto Sans KR, Apple SD Gothic Neo, "Malgun Gothic", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 .a11y-hidden {
