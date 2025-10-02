@@ -206,9 +206,104 @@
                 <h1 class="page-title">운수업체 관리</h1>
             </div>
             <div>
-                <!-- Grid.js 테이블 -->
-                <div id="grid"></div>
-            
+                
+                <div class="form--tbl__header">
+                    <select class="form-control" name="" id="">
+                        <option value="">전체</option>
+                    </select>
+                    <div class="search-box">
+                        <input type="text" placeholder="검색어를 입력해주세요.">
+                        <button class="search-btn">
+                            <img src="./assets/images/ico-search.png" alt="">
+                        </button>
+                    </div>
+                    
+                </div>
+                <div class="form--tbl__util">
+                    <div class="total">
+                        <p>총<span>12</span>대</p>
+                        <p>예비<span>2</span>대</p>
+                    </div>
+                    <div class="util-btn">
+                        <select class="form-control" name="" id="">
+                            <option value="">전체</option>
+                        </select>
+                        <button class="btn-refresh" title="새로고침"></button>
+                        <button class="btn btn-down">엑셀 다운로드</button>
+                    </div>
+                </div>
+                <div class="form-tbl">
+                    <table>
+                        <colgroup>
+                            <col style="width: 3%;">
+                            <col style="width: 4%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="chk1" class="checkbox__input"/>
+                                    </div>
+                                </th>
+                                <th><div class="tbl-th"><i class="icon ico-no"></i>NO</div></th>
+                                <th><div class="tbl-th"><i class="icon ico-list"></i>운수업체명</div></th>
+                                <th><div class="tbl-th"><i class="icon ico-call"></i>전화번호</div></th>
+                                <th><div class="tbl-th"><i class="icon ico-car"></i>차량대수</div></th>
+                                <th><div class="tbl-th"><i class="icon ico-cars"></i>예비대수</div></th>
+                                <th><div class="tbl-th"><i class="icon ico-address"></i>주소</div></th>
+                                <th><div class="tbl-th"><i class="icon ico-ceo"></i>대표자</div></th>
+                                <th><div class="tbl-th"><i class="icon ico-empty"></i>비고</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="chk1" class="checkbox__input" />
+                                    </div>
+                                </td>
+                                <td>10</td>
+                                <td>은영리무진</td>
+                                <td>033-542-5682</td>
+                                <td>12대</td>
+                                <td>2대</td>
+                                <td>강원도 동해시 동해동</td>
+                                <td>홍길동</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="chk1" class="checkbox__input" />
+                                    </div>
+                                </td>
+                                <td>10</td>
+                                <td>은영리무진</td>
+                                <td>033-542-5682</td>
+                                <td>12대</td>
+                                <td>2대</td>
+                                <td>강원도 동해시 동해동</td>
+                                <td>홍길동</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="chk1" class="checkbox__input" />
+                                    </div>
+                                </td>
+                                <td>10</td>
+                                <td>은영리무진</td>
+                                <td>033-542-5682</td>
+                                <td>12대</td>
+                                <td>2대</td>
+                                <td>강원도 동해시 동해동</td>
+                                <td>홍길동</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="btn-group between">
                     <div>
                         <button class="btn danger">삭제</button>
@@ -216,11 +311,21 @@
                     <div>
                         <button class="btn border-primary">수정</button>
                         <button class="btn primary">등록</button>
-                        <button class="btn btn-down">엑셀 다운로드</button>
-                    </div>
-                    
+                    </div>  
                 </div>
-            </div>
+                <nav class="board--paging pagination">
+                    <!-- <a href="#" class="fir" title="맨 처음"><i class="material-symbols-outlined">keyboard_double_arrow_left</i></a> -->
+                    <a href="#" class="prev" title="이전"><i class="material-symbols-outlined"><img src="./assets/images/paging-arrow-left.png" alt="다음"></i><span>이전</span></a>
+                    <span class="paging">
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <strong title="현재 페이지">4</strong>
+                        <a href="#">5</a>
+                    </span>
+                    <a href="#" class="next" title="다음"><span>다음</span><i class="material-symbols-outlined"><img src="./assets/images/paging-arrow-right.png" alt="다음"></i></a>
+                    <!-- <a href="#" class="last" title="맨 끝"><i class="material-symbols-outlined">keyboard_double_arrow_right</i></a> -->
+                </nav>            </div>
             <button onclick="openModal('statsModal')">운행버스 현황 정보</button>
             <button onclick="openModal('notice-regi-Modal')">공지사항 등록</button>
             <button onclick="openModal('notice-detail-Modal')">공지사항 등록</button>
@@ -533,79 +638,6 @@
     		</div>
     	</div>
     </div>
-    <script>
-        const data = [
-            [
-                gridjs.html('<input type="checkbox" id="chk1" class="checkbox__input" />'),
-                "10",
-                "은영리무진",
-                "033-542-5682",
-                "12대",
-                "2대",
-                "강원도 동해시 동해동 강원도 동해동...",
-                "홍길동",
-                "-"
-            ],
-            [
-                gridjs.html('<input type="checkbox" id="chk1" class="checkbox__input" />'),
-                "11",
-                "은영리무진",
-                "033-123-4567",
-                "5대",
-                "1대",
-                "강원도 동해시 동 로...",
-                "이순신",
-                "-"
-            ]
-        ];
-
-        // ✅ Grid 생성
-        new gridjs.Grid({
-            columns: [
-                {
-                    name: gridjs.html('<input type="checkbox" id="chk-all" class="checkbox__input" />'), // 헤더에 전체 선택 체크박스
-                    width: '80px'
-                },
-                { name: "NO", width: "120px" },
-                "운수업체명",
-                "전화번호",
-                "차량대수",
-                "예비대수",
-                "주소",
-                "대표자",
-                "비고"
-            ],
-            data: data,
-            pagination: {
-                enabled: true,
-                limit: 5
-            },
-            sort: true,
-            search: true,
-            language: {
-                'search': {
-                    'placeholder': '검색어를 입력해주세요.'
-                },
-                'pagination': {
-                    'previous': '이전',
-                    'next': '다음',
-                    'showing': '총',
-                    'results': () => '개'
-                }
-            }
-        }).render(document.getElementById("grid"));
-
-        // ✅ 전체선택 기능
-        document.addEventListener("change", function (e) {
-            if (e.target.id === "check-all") {
-                const checked = e.target.checked;
-                document.querySelectorAll(".row-check").forEach(cb => {
-                    cb.checked = checked;
-                });
-            }
-        });
-    </script>
-
 </body>
 
 </html>
