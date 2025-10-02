@@ -31,6 +31,7 @@
     border: 1px solid #c6c6c6;
     color:#1d1d1d;
     font-size: 15px;
+    background-color: #fff;
     &:focus {
         border-color: #005bac;
     }
@@ -257,6 +258,76 @@ select{
             img{
                 vertical-align: middle;
             }
+        }
+    }
+}
+
+.form{
+    &--tbl{
+        &__header{
+            display: flex;
+            gap:10px;
+            margin-bottom: 30px;
+            select{
+                width: 150px;
+                height: 48px;
+            }
+        }
+        &__util{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            select{
+                width: 150px;
+                height: 48px;
+            }
+            .total{
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                gap:10px;
+                span{
+                    display: inline-block;
+                    margin: 0 2px;
+                    color:#047bb6;
+                    font-weight: bold;
+                }
+            }
+            .util-btn{
+                display: flex;
+                align-items: center;
+                gap:10px;
+            }
+        }
+    }
+}
+.search-box {
+    display: flex;
+    align-items: center;
+    width: 400px; /* 원하는 너비 */
+    border: 1px solid #c6c6c6;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+    input {
+        flex: 1;
+        padding: 10px 12px;
+        border: none;
+        outline: none;
+        font-size: 14px;
+    }
+
+    .search-btn {
+        padding: 0 12px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 16px;
+        color: #555;
+
+        &:hover {
+        color: #000;
         }
     }
 }
