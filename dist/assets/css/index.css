@@ -1329,7 +1329,7 @@ select {
 }
 
 .panel--wrap {
-  width: 400px;
+  width: 350px;
   height: 100%;
   border-radius: 0 50px 0 0;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -1543,13 +1543,13 @@ select {
 
 .panel--expand {
   position: absolute;
-  left: 420px;
-  height: calc(100% - 20px - 20px);
-  top: 20px;
+  left: 0px;
+  height: 100%;
+  top: 0px;
   background: #ecf0f2;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  min-width: 400px;
+  width: 350px;
   overflow: hidden;
 }
 .panel--expand__head {
@@ -1817,6 +1817,11 @@ select {
   left: auto;
   right: 24px;
   /* 왼쪽으로 표시 */
+}
+
+.Mac-container {
+  overflow: hidden;
+  padding: 0px !important;
 }
 
 .ico-no {
