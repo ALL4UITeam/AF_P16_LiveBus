@@ -207,23 +207,80 @@
                 <!-- 페이지 타이틀 -->
                 <h1 class="page-title">운수업체 관리</h1>
             </div>
-            <div>
-                <!-- chart -->
-                <div class="chart-area" style="height: 300px;">
-                    차트영역
+            <div class="dash-flex">
+                <div class="dash-flex-col terminal-first">
+                    <div class="dash--card">
+                        <div class="dash--card__header">
+                            <h3 class="dash--card__title">OBE 통계 (금일)</h3>
+                        </div>
+                        <div class="dash--card__con">
+                        </div>
+                    </div>
+                    <div class="dash--card">
+                        <div class="dash--card__header">
+                            <h3 class="dash--card__title">서브 단말기 통계 (금일)</h3>
+                        </div>
+                        <div class="dash--card__con">
+
+                        </div>
+                    </div>
                 </div>
-                <!-- Grid.js 테이블 -->
-            
-                <div class="btn-group between">
-                    <div>
-                        <button class="btn danger">삭제</button>
+                <div class="dash-flex-col terminal-second">
+                    <div class="dash--card">
+                        <div class="dash--card__header">
+                            <h3 class="dash--card__title">단말기 현황 통계</h3>
+                            <div class="util">
+                                <select class="form-control select mw150" name="" id="">
+                                    <option value="">3개월</option>
+                                </select>
+                                <select class="form-control select mw150" name="" id="">
+                                    <option value="">검색조건</option>
+                                </select>
+                                <select class="form-control select mw150" name="" id="">
+                                    <option value="">전체노선</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="stats__row grid-six">
+                                <div class="stat blue">
+                                    <div class="stat__label">전원</div>
+                                    <div class="stat__value">10<span class="stat__unit">개</span></div>
+                                </div>
+                                <div class="stat blue">
+                                    <div class="stat__label">GPS</div>
+                                    <div class="stat__value">1<span class="stat__unit">개</span></div>
+                                </div>
+                                <div class="stat blue">
+                                    <div class="stat__label">노선</div>
+                                    <div class="stat__value">1<span class="stat__unit">개</span></div>
+                                </div>
+                                <div class="stat blue">
+                                    <div class="stat__label">승객용</div>
+                                    <div class="stat__value">1<span class="stat__unit">개</span></div>
+                                </div>
+                                <div class="stat blue">
+                                    <div class="stat__label">측면</div>
+                                    <div class="stat__value">1<span class="stat__unit">개</span></div>
+                                </div>
+                                <div class="stat blue">
+                                    <div class="stat__label">후면</div>
+                                    <div class="stat__value">1<span class="stat__unit">개</span></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <button class="btn border-primary">수정</button>
-                        <button class="btn primary">등록</button>
-                        <button class="btn btn-down">엑셀 다운로드</button>
+                    <div class="dash--card">
+                        <div class="dash--card__header">
+                            <h3 class="dash--card__title">버스정보 현황</h3>
+                            <div class="util">
+                                <button class="icon-refresh"></button>
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
                     </div>
-                    
                 </div>
             </div>
         </main>
@@ -295,6 +352,7 @@
     			</div>
     		</div>
     	</div>
-    </div></body>
+    </div>
+</body>
 
 </html>
