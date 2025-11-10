@@ -17,6 +17,9 @@
 @use 'components/map';
 @use 'components/icon';
 @use 'components/paging';
+@use 'components/tab';
+@use 'components/accordion';
+
 
 
 
@@ -177,6 +180,27 @@ body {
                 background-color: #8081da;
             }
         }
+        .util{
+            display: flex;
+            gap:10px;
+            select{
+                &.mw150{
+                    width: 150px;
+                }
+            }
+            .icon-refresh{
+                width: 36px;
+                height: 36px;
+                background-repeat: no-repeat;
+                background-position: center;
+                border-radius: 5px;
+                border: 1px solid #cccccc;
+                background-color: #fff;
+                background-image: url("@/assets/images/common/ico-refresh.png");
+                 &:hover{
+                 }
+            }
+        }
     }
     &__title {
         margin: 0;
@@ -216,6 +240,12 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
+    &.grid-six{
+        grid-template-columns: repeat(6, 1fr);
+    }
+    &.grid-seven{
+        grid-template-columns: repeat(7, 1fr);
+    }
 }
 
 .stats__row--tight {
@@ -462,3 +492,111 @@ body {
     margin-bottom: 20px;
 }
 
+
+.dash-flex{
+    display: flex;
+    gap:20px;
+    .dash-flex-col{
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+        &.terminal-first{
+            flex: 0 0 650px;
+            .dash--card{
+                height: 403px;
+            }
+        }
+        &.terminal-second{
+            min-width: 850px;
+            flex: 1;
+            .dash--card{
+                & + .dash--card{
+                    flex: 1;
+                }
+            }
+        }
+        &.unexpected-first{
+            flex: 0 0 520px;
+            .dash--card{
+                height: 826px;
+                border: 1px solid #c9def7;
+                background: #eff6ff;
+                &__con{
+                    height: calc(100% - 45px);
+                }
+            }
+        }
+        &.unexpected-second{
+            min-width: 850px;
+            flex: 1;
+            .dash--grid{
+                flex: 1;
+            }
+        }
+    }
+}
+
+.dashcard--alert{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    &__icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        background-image: url("@/assets/images/common/ico-unexpected.png");
+    }
+    &__content {
+        flex: 1;
+        margin-left: 12px;
+        .plate {
+            font-weight: 700;
+            font-size: 19px;
+            margin-bottom: 4px;
+        }
+        .info {
+            font-size: 17px;
+            color: #333;
+            .label {
+                color: #666;
+                margin-right: 4px;
+            }
+            .bold {
+                font-weight: 600;
+            }
+            p {
+                margin: 2px 0;
+            }
+        }
+    }
+    &__status {
+        background: #ffeaea;
+        font-weight: 600;
+        font-size: 15px;
+        border-radius: 12px;
+        padding: 4px 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        height: fit-content;
+        white-space: nowrap;
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #d32f2f;
+            border-radius: 50%;
+            display: inline-block;
+        }
+    }
+    & + .dashcard--alert{
+        margin-top: 20px;
+    }
+}

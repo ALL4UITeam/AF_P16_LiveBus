@@ -56,6 +56,33 @@ document.addEventListener("DOMContentLoaded", () => {
 });	
 
 
+// Tab
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".tab--container").forEach(initTabGroup);
+});
+
+function initTabGroup(groupEl) {
+  const tabs   = groupEl.querySelectorAll(".tab--item");
+  const panels = groupEl.querySelectorAll(".tab--panel");
+
+  groupEl.addEventListener("click", (e) => {
+    const tab = e.target.closest(".tab--item");
+    if (!tab || !groupEl.contains(tab)) return;
+
+    const targetId = tab.getAttribute("data-tab");
+    if (!targetId) return;
+
+    tabs.forEach((t) => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    panels.forEach((panel) => {
+      panel.classList.toggle("active", panel.id === targetId);
+    
+    });
+  });
+}
+
+// Toggle
 document.addEventListener("DOMContentLoaded", function () {
   const toggles = document.querySelectorAll("[data-toggle]");
 
@@ -74,3 +101,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+//accordion 
+const accItems = document.querySelectorAll(".acc-item");
+
+  accItems.forEach((item) => {
+    const btn = item.querySelector(".acc-btn");
+    const panel = item.querySelector(".acc-panel");
+
+    btn.addEventListener("click", () => {
+      const isActive = item.classList.contains("is-active");
+
+      // 다른 항목 닫기
+      accItems.forEach((other) => {
+        if (other !== item) {
+          other.classList.remove("is-active");
+          const otherPanel = other.querySelector(".acc-panel");
+          otherPanel.style.height = 0;
+        }
+      });
+
+      // 현재 항목 토글
+      if (isActive) {
+        // 닫기
+        item.classList.remove("is-active");
+        panel.style.height = 0;
+      } else {
+        // 열기
+        item.classList.add("is-active");
+        panel.style.height = panel.scrollHeight + "px"; // 실제 내용 높이 계산
+      }
+    });
+  });
+
+
+  //dragArea
+  dragula([document.getElementById('dragArea')]);

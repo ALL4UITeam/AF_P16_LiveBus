@@ -70,6 +70,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".tab--container").forEach(initTabGroup);
+});
+function initTabGroup(groupEl) {
+  const tabs = groupEl.querySelectorAll(".tab--item");
+  const panels = groupEl.querySelectorAll(".tab--panel");
+  groupEl.addEventListener("click", (e) => {
+    const tab = e.target.closest(".tab--item");
+    if (!tab || !groupEl.contains(tab)) return;
+    const targetId = tab.getAttribute("data-tab");
+    if (!targetId) return;
+    tabs.forEach((t) => t.classList.remove("active"));
+    tab.classList.add("active");
+    panels.forEach((panel) => {
+      panel.classList.toggle("active", panel.id === targetId);
+    });
+  });
+}
 document.addEventListener("DOMContentLoaded", function() {
   const toggles = document.querySelectorAll("[data-toggle]");
   toggles.forEach((toggle) => {
@@ -86,3 +104,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+const accItems = document.querySelectorAll(".acc-item");
+accItems.forEach((item) => {
+  const btn = item.querySelector(".acc-btn");
+  const panel = item.querySelector(".acc-panel");
+  btn.addEventListener("click", () => {
+    const isActive = item.classList.contains("is-active");
+    accItems.forEach((other) => {
+      if (other !== item) {
+        other.classList.remove("is-active");
+        const otherPanel = other.querySelector(".acc-panel");
+        otherPanel.style.height = 0;
+      }
+    });
+    if (isActive) {
+      item.classList.remove("is-active");
+      panel.style.height = 0;
+    } else {
+      item.classList.add("is-active");
+      panel.style.height = panel.scrollHeight + "px";
+    }
+  });
+});
+dragula([document.getElementById("dragArea")]);

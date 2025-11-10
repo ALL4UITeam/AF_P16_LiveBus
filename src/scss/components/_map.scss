@@ -103,50 +103,11 @@
     }
 }
 
-// Tab
-.tab--nav {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 10px;
-    border: 1px solid #d8d8d8;    
-    border-radius: 5px;
-    .tab--item {
-        flex: 1;
-        padding: 10px;
-        border: none;
-        background: #f5f5f5;
-        font-size: 17px;
-        cursor: pointer;
-        border-left: 1px solid #d8d8d8;
-        font-weight: 500;
-        &:first-child{
-            border-radius:5px 0 0 5px;
-            border-left: none;
-        }
-        &:last-child{
-            border-radius:0 5px 5px 0;
-        }
-        &.active {
-            background: #047bb6;
-            color: #fff;
-            border-left: none;
-        }
-    }
-}
-.tab--content {
-    .tab--panel {
-        display: none;
-        &.active {
-            display: block;
-        }
-    }
-}
 
 // panel
 .panel--wrap{
     width: 350px;
     height: 100%;
-    border-radius: 0 50px 0 0;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .panel--header{
@@ -224,18 +185,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap:10px;
             padding-bottom: 20px;
             margin-bottom: 20px;
             border-bottom: 1px solid #d8d8d8;
             .panel--item__number {
                 display: flex;
                 align-items: center;
+                word-break: break-all;
                 gap:9px;
                 font-size: 32px;
                 font-weight: bold;
                 &::before{
                     display: block;
                     content:'';
+                    flex:0 0 40px;
                     width: 40px;
                     height: 40px;
                     border-radius: 50%;
@@ -371,13 +335,12 @@
     left: 0px;
     height:calc(100%);
     top: 0px;
-    background: #ecf0f2; // gray-100
-    border-radius: 0 10px 10px 0;
+    background: #f6f7fb;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     width: 350px;
     overflow: hidden;
     &__head {
-        background: #047bb6; // 파란 헤더
+        background: #047bb6;
         color: #fff;
         padding: 15px 20px;
         display: flex;
@@ -408,7 +371,8 @@
         }
     }
     &__content {
-        background: #fff;
+        position: relative;
+        background: #f6f7fb;
         height:100%;
         .bus-type-inner{
             padding: 30px 50px;
@@ -533,9 +497,13 @@
                 }
             }
         }
+        .route-event-inner{
+            padding: 20px;
+            height: calc(100% - 54px - 118px - 338px);
+        }
         .route-timeline-inner{
             padding: 20px;
-            height: calc(100% - 54px - 118px - 250px - 37px);
+            height: calc(100% - 54px - 118px - 338px);
         }
         .route-timeline {
             position: relative;
@@ -559,7 +527,7 @@
                         content: "";
                         position: absolute;
                         left: -16px;
-                        top: 0;
+                        top: -1px;
                         bottom: 0;
                         width: 2px;
                         background: #cbd5e1;
@@ -589,6 +557,7 @@
                             font-size: 15px;
                             font-weight: 600;
                             margin-bottom: 10px;
+                            word-break: break-all;
                         }
                         .stop-code {
                             font-size: 15px;
@@ -647,6 +616,31 @@
         }
     }
 }
+
+
+.bus-typenumber-inner{
+    padding: 20px 30px;
+}
+.bus-typenumber {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    .bus-type-badge {
+        padding: 5px 25px;
+        border-radius: 5px;
+        background: #047bb6;
+        color:#fff;
+    }
+    .bus-type-label {
+        font-size: 30px;
+        font-weight: bold;
+    }
+}
+
+
+
 .Mac-container{
     overflow: hidden;
     padding: 0px !important;
