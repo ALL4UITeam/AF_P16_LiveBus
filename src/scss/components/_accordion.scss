@@ -94,17 +94,24 @@
         display: flex;
         gap:5px;
         align-items: center;
+        justify-content: space-between;
         padding: 16px;
         font-size: 17px;
         font-weight: 600;
         cursor: pointer;
         transition: background 0.3s ease;
+        &__inner{
+            display: flex;
+            gap:5px;
+            align-items: center;
+        }
         &__num{
             color:#0758ac;
             font-weight: bold;
         }
-        &__title{
-
+        &__complet{
+            font-size: 13px;
+            color:#0758ac;
         }
     }
 

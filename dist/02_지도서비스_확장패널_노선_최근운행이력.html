@@ -214,182 +214,121 @@
                     </div>
                 </div>
                 <!-- 패널 우측 확장 -->
-                <div class="panel--expand">
+                <div class="panel--expand" style="width:700px">
                     <div class="panel--expand__head">
-                        <button class="back"></button>
-                        <span>노선 추가</span>
+                        <span>4월 운행 현황</span>
                         <button class="close"></button>
                     </div>
-                    <div class="panel--expand__content">
-                        
-                        <div class="route--add" data-simplebar>
-                            <div class="route--add__inner">
-                                <div class="acc-item">
-                                    <div class="acc-btn" type="button">
-                                        <div class="acc-btn__inner">
-                                            <span class="acc-btn__num">01</span>
-                                            <span class="acc-btn__title">노선 데이터 검증</span>
-                                        </div>
-                                        <span class="acc-btn__complet">[입력완료]</span>
-                                    </div>
-                                    <div class="acc-panel">
-                                        <div class="acc-box">
-                                            <div class="step-section__content">
-                                                <div class="step-dropzone">
-                                                    <p class="step-dropzone__desc">
-                                                        첨부할 파일을 여기에 끌어다 놓거나.<br>
-                                                        파일 업로드 버튼을 직접 선택해 주세요.
-                                                    </p>
-                                                    <label class="step-dropzone__btn" for="fileInput">
-                                                        노선 업로드
-                                                        <input type="file" id="fileInput" class="sr-only" >
-                                                    </label>
-                                                </div>
-                                        
-                                            </div>
-                                            <button class="acc-panel__btn">검증완료</button>
-                                        </div>
-                                        <div class="acc-box">
-                                            <div class="acc-box__list">
-                                                <div class="acc-box__item">
-                                                    <p class="desc">
-                                                        노선 검증 데이터 [CSV, 15KB]
-                                                    </p>
-                                                    <button class="del"></button>
-                                                </div>
-                                                <div class="acc-box__item">
-                                                    <p class="desc">
-                                                        노선 검증 데이터 [CSV, 15KB]
-                                                    </p>
-                                                    <button class="del"></button>
-                                                </div>
-                                            </div>
-                                            <div class="acc-box-btn btn-group center">
-                                                <button type="button" class="btn small cancle">재선택</button>
-                                                <button type="button" class="btn small primary">확인</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                    
-                                <div class="acc-item">
-                                    <div class="acc-btn" type="button">
-                                        <div class="acc-btn__inner">
-                                            <span class="acc-btn__num">02</span>
-                                            <span class="acc-btn__title">노선 정보 입력</span>
-                                        </div>
-                                        <span class="acc-btn__complet">[입력완료]</span>
-                                    </div>
-                                    <div class="acc-panel">
-                                        <div class="acc-box">
-                                            <div class="acc-form__list">
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="정류장명 (예 : 하남아파트 앞)">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="정류장 ID (예 : 12345)">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="버스유형">
-                                                    <input class="form-control" type="text" placeholder="관리지역">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="노선 ID">
-                                                    <input class="form-control" type="text" placeholder="상행 / 하행">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="시작 정류장 ID">
-                                                    <input class="form-control" type="text" placeholder="종료 정류장 ID">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="시작 정류장 첫차 시간">
-                                                    <input class="form-control" type="text" placeholder="종료 정류장 마지막 시간">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="시작 정류장 마지막 시간">
-                                                    <input class="form-control" type="text" placeholder="종료 정류장 첫차 시간">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="마지막 정류장 첫차 시간">
-                                                    <input class="form-control" type="text" placeholder="마지막 정류장 마지막 시간">
-                                                </div>
-
-                                                <div class="acc-box-btn btn-group center">
-                                                    <button type="button" class="btn small cancle">재선택</button>
-                                                    <button type="button" class="btn small primary">확인</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="acc-box">
-                                            <p class="acc-panel__desc">클릭해서 노선 검증 데이터 선택</p>
-                                            <button class="acc-panel__btn">[100] 노선 확인</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="acc-item">
-                                    <div class="acc-btn" type="button">
-                                        <div class="acc-btn__inner">
-                                            <span class="acc-btn__num">03</span>
-                                            <span class="acc-btn__title">노선에 해당하는 정류소</span>
-                                        </div>
-                                    </div>
-                                    <div class="acc-panel">
-                                        <div class="acc-box">
-                                            <div class="panel--search small">
-                                                <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
-                                                <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
-                                            </div>
-                                            <div class="acc-box__top">
-                                                <span>구분</span>
-                                                <span>정류소명</span>
-                                                <span>순번</span>
-                                            </div>
-                                            <div class="acc-box__list" id="dragArea">
-                                                <div class="acc-box__item">
-                                                    <div class="info">
-                                                        <span>상행</span>
-                                                        <span>용인 휴게소 정류소</span>
-                                                        <span>1</span>
-                                                    </div>
-                                                </div>
-                                                <div class="acc-box__item is-active">
-                                                    <div class="info">
-                                                        <span>상행</span>
-                                                        <span>용인 휴게소 정류소</span>
-                                                        <span>2</span>
-                                                    </div>
-                                                    <button class="del"></button>
-                                                </div>
-                                                <div class="acc-box__item is-active">
-                                                    <div class="info">
-                                                        <span>상행</span>
-                                                        <span>용인 휴게소 정류소</span>
-                                                        <span>3</span>
-                                                    </div>
-                                                    <button class="del"></button>
-                                                </div>
-                                                <div class="acc-box__item">
-                                                    <div class="info">
-                                                        <span>상행</span>
-                                                        <span>용인 휴게소 정류소</span>
-                                                        <span>4</span>
-                                                    </div>
-                                                    <button class="del"></button>
-                                                </div>
-                                            </div>
-                                            <div class="acc-box-btn btn-group center">
-                                                <button type="button" class="btn small cancle">초기화</button>
-                                                <button type="button" class="btn small primary">확인</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="panel--expand__content" style="height: calc(100% - 54px);"  data-simplebar>
+                        <div class="operation operation--inner">
+                            <div style="height: 500px;">
+                                캘린더 영역 캘린더 사이즈에 맞게 Height값 적용해주세요
                             </div>
-                        </div>
-                        <div class="route--add__btn btn-group center">
-                            <button type="button" class="btn cancle">취소</button>
-                            <button type="button" class="btn primary">등록</button>
+                            <hr class="hr">
+                            <div class="operation--search">
+                                <div class="operation--search__col">
+                                    <div class="search--line">
+                                        <select class="form-control select small" name="" id="">
+                                            <option value="">전체</option>    
+                                        </select>
+                                        <div class="panel--search small">
+                                            <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
+                                            <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
+                                        </div>
+                                    </div>
+                                    <div class="tbl">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>차량유형</th>
+                                                    <th>차량번호</th>
+                                                    <th>예비여부</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>경형</td>
+                                                    <td>71경기4321</td>
+                                                    <td>N</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>경형</td>
+                                                    <td>71경기4321</td>
+                                                    <td>N</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>경형</td>
+                                                    <td>71경기4321</td>
+                                                    <td>N</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>경형</td>
+                                                    <td>71경기4321</td>
+                                                    <td>N</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>경형</td>
+                                                    <td>71경기4321</td>
+                                                    <td>N</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="operation--search__col">
+                                    <dl class="search--optionline">
+                                        <dt>운행시작</dt>
+                                        <dd>
+                                            <select class="form-control select" name="" id="">
+                                                <option value="">10:00</option>
+                                            </select>
+                                        </dd>
+                                    </dl>
+                                    <dl class="search--optionline">
+                                        <dt>운행종료</dt>
+                                        <dd>
+                                            <select class="form-control select" name="" id="">
+                                                <option value="">14:00</option>
+                                            </select>
+                                        </dd>
+                                    </dl>
+                                    <dl class="search--optionline">
+                                        <dt>배속</dt>
+                                        <dd>
+                                            <select class="form-control select" name="" id="">
+                                                <option value="">1배속 1초</option>
+                                            </select>
+                                        </dd>
+                                    </dl>
+
+                                    <div class="operation--player">
+                                        <div class="operation--player__top">
+                                            <button class="play-btn">
+                                                ▶
+                                            </button>
+                                            <button class="pause-btn">
+                                                ❚❚
+                                            </button>
+                                        
+                                            <div class="progress-bar">
+                                                <div class="progress"></div>
+                                                <div class="handle"></div>
+                                            </div>
+                                        </div>
+                                        <div class="time-display">0000-00-00 00:00:00</div>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <button class="btn small primary">이동경로 조회</button>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                            <label for="chk1">경로추적</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -464,5 +403,6 @@
 		</div>
 	</div>
 </body>
+
 
 </html>

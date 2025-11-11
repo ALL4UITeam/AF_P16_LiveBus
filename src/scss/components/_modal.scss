@@ -200,3 +200,24 @@
     }
 }
 
+.small--pop{
+    position: absolute;
+    background:#fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    &__head{
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
+    .line-flex-item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px;
+        border: 1px solid #c6c6c6;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+}

@@ -36,7 +36,7 @@
                 <div class="panel--expand">
                     <div class="panel--expand__head">
                         <button class="back"></button>
-                        <span>노선 추가</span>
+                        <span>정류장 추가</span>
                         <button class="close"></button>
                     </div>
                     <div class="panel--expand__content">
@@ -47,7 +47,7 @@
                                     <div class="acc-btn" type="button">
                                         <div class="acc-btn__inner">
                                             <span class="acc-btn__num">01</span>
-                                            <span class="acc-btn__title">노선 데이터 검증</span>
+                                            <span class="acc-btn__title">지도에서 정류장 위치 선택</span>
                                         </div>
                                         <span class="acc-btn__complet">[입력완료]</span>
                                     </div>
@@ -60,13 +60,13 @@
                                                         파일 업로드 버튼을 직접 선택해 주세요.
                                                     </p>
                                                     <label class="step-dropzone__btn" for="fileInput">
-                                                        노선 업로드
+                                                        위치 선택하기
                                                         <input type="file" id="fileInput" class="sr-only" >
                                                     </label>
                                                 </div>
                                         
                                             </div>
-                                            <button class="acc-panel__btn">검증완료</button>
+                                            <button class="acc-panel__btn">선택완료</button>
                                         </div>
                                         <div class="acc-box">
                                             <div class="acc-box__list">
@@ -95,7 +95,7 @@
                                     <div class="acc-btn" type="button">
                                         <div class="acc-btn__inner">
                                             <span class="acc-btn__num">02</span>
-                                            <span class="acc-btn__title">노선 정보 입력</span>
+                                            <span class="acc-btn__title">정류장 정보 입력</span>
                                         </div>
                                         <span class="acc-btn__complet">[입력완료]</span>
                                     </div>
@@ -150,57 +150,19 @@
                                     <div class="acc-btn" type="button">
                                         <div class="acc-btn__inner">
                                             <span class="acc-btn__num">03</span>
-                                            <span class="acc-btn__title">노선에 해당하는 정류소</span>
+                                            <span class="acc-btn__title">정류장 감지영역 그리기</span>
                                         </div>
                                     </div>
                                     <div class="acc-panel">
                                         <div class="acc-box">
-                                            <div class="panel--search small">
-                                                <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
-                                                <button class="search--button"><img src="./assets/images/map/ico-search.png" alt=""></button>
-                                            </div>
-                                            <div class="acc-box__top">
-                                                <span>구분</span>
-                                                <span>정류소명</span>
-                                                <span>순번</span>
-                                            </div>
-                                            <div class="acc-box__list" id="dragArea">
-                                                <div class="acc-box__item">
-                                                    <div class="info">
-                                                        <span>상행</span>
-                                                        <span>용인 휴게소 정류소</span>
-                                                        <span>1</span>
-                                                    </div>
-                                                </div>
-                                                <div class="acc-box__item is-active">
-                                                    <div class="info">
-                                                        <span>상행</span>
-                                                        <span>용인 휴게소 정류소</span>
-                                                        <span>2</span>
-                                                    </div>
-                                                    <button class="del"></button>
-                                                </div>
-                                                <div class="acc-box__item is-active">
-                                                    <div class="info">
-                                                        <span>상행</span>
-                                                        <span>용인 휴게소 정류소</span>
-                                                        <span>3</span>
-                                                    </div>
-                                                    <button class="del"></button>
-                                                </div>
-                                                <div class="acc-box__item">
-                                                    <div class="info">
-                                                        <span>상행</span>
-                                                        <span>용인 휴게소 정류소</span>
-                                                        <span>4</span>
-                                                    </div>
-                                                    <button class="del"></button>
-                                                </div>
+                                            <div class="acc-box-btn btn-group center mt0">
+                                                <button type="button" class="btn small cancle">초기화</button>
+                                                <button type="button" class="btn small primary">그리기</button>
                                             </div>
                                             <div class="acc-box-btn btn-group center">
-                                                <button type="button" class="btn small cancle">초기화</button>
-                                                <button type="button" class="btn small primary">확인</button>
+                                                <button type="button" class="btn small primary block">그리기 완료</button>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -210,6 +172,29 @@
                             <button type="button" class="btn cancle">취소</button>
                             <button type="button" class="btn primary">등록</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="small--pop" style="right: 100px;top: 80px;">
+                <div class="small--pop__head">
+                    <h3 class="small--pop__ti">경로궤적 보기</h3>
+                </div>
+                <div class="small--pop__con">
+                    <div class="line-flex-item">
+                        <span>100번</span>
+                        <span>상행</span>
+                        <span>충남71가1234</span>
+                    </div>
+                    <div>
+                        <select class="form-control select" name="" id="">
+                            <option value="">최근 1시간</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="small--pop__foot">
+                    <div class="acc-box-btn btn-group center">
+                        <button type="button" class="btn small round--btn cancle">닫기</button>
+                        <button type="button" class="btn small round--btn primary">활성화</button>
                     </div>
                 </div>
             </div>

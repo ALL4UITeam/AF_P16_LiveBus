@@ -33,13 +33,16 @@
     }
     &.small{
         height: 36px;
+        font-size: 15px;
+    }
+    &.border{
+        border: 1px solid #d8d8d8;
     }
 }
 
 .round--btn {
     width: 106px;
     height: 42px;
-    line-height: 42px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -51,6 +54,9 @@
     justify-content: flex-end;
     gap: 8px;
     margin-top: 20px;
+    &.mt0{
+        margin-top: 0;
+    }
     &.center{
         justify-content: center;
     }
@@ -61,7 +67,7 @@
         & + button{
             margin-left: 5px;
         }
-    }
+    }    
 }
 .btn-refresh{
     width: 48px;
