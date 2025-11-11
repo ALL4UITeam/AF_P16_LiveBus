@@ -24,7 +24,7 @@
 		<header class="topbar" role="banner">
 		    
 		    <div class="topbar__brand" aria-label="브랜드">
-		        <h2 class="brand__logo"><img src="./assets/images/logo2.png" alt=""></h2>
+		        <h2 class="brand__logo"><img src="./assets/images/logo.png" alt=""></h2>
 		    </div>
 		
 		    <div class="topbar__actions">
@@ -213,73 +213,72 @@
                         <button type="button" class=" btn--mode zoomout" title="축소"></button>
                     </div>
                 </div>
-                <!-- 패널 우측 확장 -->
-                <div class="panel--expand">
-                    <div class="panel--expand__head">
-                        <button class="back"></button>
-                        <span>정류장 감지 편집</span>
-                        <button class="close"></button>
+                <!-- 패널 -->
+                <div class="panel--wrap">
+                    <div class="panel--header">
+                        <h1 class="logo">
+                            <a href=""><img src="./assets/images/logo2.png" alt="로고"></a>
+                        </h1>  
                     </div>
-                    <div class="panel--expand__content">
-                        <div class="bus-type-inner">
-                            <div class="bus-type">
-                                <span class="bus-type-badge">1000</span>
-                                <span class="bus-type-label">71경기 4321</span>
+                    <div class="tab--container">
+                        <div class="panel--mid">
+                            <div class="tab--nav tab--btn__nav">
+                                <button class="tab--item" data-tab="route">노선</button>
+                                <button class="tab--item active" data-tab="bus">버스</button>
+                            </div>
+                            <div class="panel--search">
+                                <input type="text" class="search--input" placeholder="검색어를 입력해주세요." />
+                                <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="bus-search-inner">
-                            <div class="btn-group mt0">
-                                <button class=" btn small border">최근 1시간</button>
-                                <button class=" btn small border">최근 3시간</button>
-                                <button class=" btn small border">최근 6시간</button>
-                                <button class=" btn small border">최근 1일</button>
-                            </div>
-                            <div class="cal-picker">
-                                <input class="form-control" type="date" class="date-picker" value="2025-06-11"> ~ <input class="form-control" type="date" class="date-picker" value="2025-06-11">
-                            </div>
-                            <div>
-                                <button class="btn primary small block">검색</button>
-                            </div>
-                        </div>
-                        <hr class="hr">
-                        <div class="panel--list" style="height: calc(100% - 338px);" data-simplebar>
-                            <div class="tbl">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>발생시간</th>
-                                            <th>이벤트</th>
-                                            <th>위치</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>14:10:00</td>
-                                            <td>정주기이벤트</td>
-                                            <td>소양강 이벤트</td>
-                                        </tr>
-                                        <tr>
-                                            <td>14:10:00</td>
-                                            <td>정주기이벤트</td>
-                                            <td>소양강 이벤트</td>
-                                        </tr>
-                                        <tr>
-                                            <td>14:10:00</td>
-                                            <td>정주기이벤트</td>
-                                            <td>소양강 이벤트</td>
-                                        </tr>
-                                        <tr>
-                                            <td>14:10:00</td>
-                                            <td>정주기이벤트</td>
-                                            <td>소양강 이벤트</td>
-                                        </tr>
-                                        <tr>
-                                            <td>14:10:00</td>
-                                            <td>정주기이벤트</td>
-                                            <td>소양강 이벤트</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <hr />
+                        <div class="panel--list" style="height: calc(100% - 200px);" data-simplebar>
+                            <div class="tab--content">
+                                <div class="tab--panel active" id="route">
+                                    <div class="panel--item">
+                                        <header class="panel--item__header">
+                                            <span class="panel--item__number">140</span>
+                                            <span class="panel--item__plate">충남12사 3453</span>
+                                        </header>
+                                        <div class="panel--item--body">
+                                            <div class="info target">
+                                                <dl>
+                                                    <dt>상하행유형</dt>
+                                                    <dd>상행</dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>기점</dt>
+                                                    <dd>용인공영버스터미널.용인드마크데라이</dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>종점</dt>
+                                                    <dd>신평리</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab--panel" id="bus">
+                                    <!---- 패널 아이템 ---->
+                                    <div class="panel--item">
+                                        <header class="panel--item__header">
+                                            <span class="panel--item__number">140</span>
+                                            <span class="panel--item__plate">충남12사 3453</span>
+                                        </header>
+                                        <div class="panel--item--body">
+                                            <div class="info target">
+                                                <dl>
+                                                    <dt>차량유형</dt>
+                                                    <dd>경형</dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>예비여부</dt>
+                                                    <dd>N</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

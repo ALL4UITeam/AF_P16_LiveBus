@@ -24,7 +24,7 @@
 		<header class="topbar" role="banner">
 		    
 		    <div class="topbar__brand" aria-label="브랜드">
-		        <h2 class="brand__logo"><img src="./assets/images/logo2.png" alt=""></h2>
+		        <h2 class="brand__logo"><img src="./assets/images/logo.png" alt=""></h2>
 		    </div>
 		
 		    <div class="topbar__actions">
@@ -214,120 +214,72 @@
                     </div>
                 </div>
                 <!-- 패널 우측 확장 -->
-                <div class="panel--expand" style="width:700px">
+                <div class="panel--expand">
                     <div class="panel--expand__head">
-                        <span>4월 운행 현황</span>
+                        <button class="back"></button>
+                        <span>정류장 감지 편집</span>
                         <button class="close"></button>
                     </div>
-                    <div class="panel--expand__content" style="height: calc(100% - 54px);"  data-simplebar>
-                        <div class="operation operation--inner">
-                            <div style="height: 500px;">
-                                캘린더 영역 캘린더 사이즈에 맞게 Height값 적용해주세요
+                    <div class="panel--expand__content">
+                        <div class="bus-type-inner">
+                            <div class="bus-type">
+                                <span class="bus-type-badge">1000</span>
+                                <span class="bus-type-label">71경기 4321</span>
                             </div>
-                            <hr class="hr">
-                            <div class="operation--search">
-                                <div class="operation--search__col">
-                                    <div class="search--line">
-                                        <select class="form-control select small" name="" id="">
-                                            <option value="">전체</option>    
-                                        </select>
-                                        <div class="panel--search small">
-                                            <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
-                                            <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
-                                        </div>
-                                    </div>
-                                    <div class="tbl">
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th>상하행유형 종점</th>
-                                                    <th>노선번호</th>
-                                                    <th>기점</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>상하행버스</td>
-                                                    <td>100번</td>
-                                                    <td>용인공영버스</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>상하행버스</td>
-                                                    <td>100번</td>
-                                                    <td>용인공영버스</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>상하행버스</td>
-                                                    <td>100번</td>
-                                                    <td>용인공영버스</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>상하행버스</td>
-                                                    <td>100번</td>
-                                                    <td>용인공영버스</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>상하행버스</td>
-                                                    <td>100번</td>
-                                                    <td>용인공영버스</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <div class="operation--search__col">
-                                    <dl class="search--optionline">
-                                        <dt>운행시작</dt>
-                                        <dd>
-                                            <select class="form-control select" name="" id="">
-                                                <option value="">10:00</option>
-                                            </select>
-                                        </dd>
-                                    </dl>
-                                    <dl class="search--optionline">
-                                        <dt>운행종료</dt>
-                                        <dd>
-                                            <select class="form-control select" name="" id="">
-                                                <option value="">14:00</option>
-                                            </select>
-                                        </dd>
-                                    </dl>
-                                    <dl class="search--optionline">
-                                        <dt>배속</dt>
-                                        <dd>
-                                            <select class="form-control select" name="" id="">
-                                                <option value="">1배속 1초</option>
-                                            </select>
-                                        </dd>
-                                    </dl>
-
-                                    <div class="operation--player">
-                                        <div class="operation--player__top">
-                                            <button class="play-btn">
-                                                ▶
-                                            </button>
-                                            <button class="pause-btn">
-                                                ❚❚
-                                            </button>
-                                        
-                                            <div class="progress-bar">
-                                                <div class="progress"></div>
-                                                <div class="handle"></div>
-                                            </div>
-                                        </div>
-                                        <div class="time-display">0000-00-00 00:00:00</div>
-                                    </div>
-
-                                    <div class="btn-group">
-                                        <button class="btn small primary">이동경로 조회</button>
-                                        <div class="checkbox">
-                                            <input type="checkbox" id="chk1" class="checkbox__input">
-                                            <label for="chk1">경로추적</label>
-                                        </div>
-                                    </div>
-                                </div>
-
+                        </div>
+                        <div class="bus-search-inner">
+                            <div class="btn-group mt0">
+                                <button class=" btn small border">최근 1시간</button>
+                                <button class=" btn small border">최근 3시간</button>
+                                <button class=" btn small border">최근 6시간</button>
+                                <button class=" btn small border">최근 1일</button>
+                            </div>
+                            <div class="cal-picker">
+                                <input class="form-control" type="date" class="date-picker" value="2025-06-11"> ~ <input class="form-control" type="date" class="date-picker" value="2025-06-11">
+                            </div>
+                            <div>
+                                <button class="btn primary small block">검색</button>
+                            </div>
+                        </div>
+                        <hr class="hr">
+                        <div class="panel--list" style="height: calc(100% - 338px);" data-simplebar>
+                            <div class="tbl">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>발생시간</th>
+                                            <th>이벤트</th>
+                                            <th>위치</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>14:10:00</td>
+                                            <td>정주기이벤트</td>
+                                            <td>소양강 이벤트</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14:10:00</td>
+                                            <td>정주기이벤트</td>
+                                            <td>소양강 이벤트</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14:10:00</td>
+                                            <td>정주기이벤트</td>
+                                            <td>소양강 이벤트</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14:10:00</td>
+                                            <td>정주기이벤트</td>
+                                            <td>소양강 이벤트</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14:10:00</td>
+                                            <td>정주기이벤트</td>
+                                            <td>소양강 이벤트</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
