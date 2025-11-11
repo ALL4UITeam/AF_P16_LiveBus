@@ -18,7 +18,7 @@
 </head>
 
 <body>
-	
+
 	<div class="app">
 		<!-- 상단바 -->
 		<header class="topbar" role="banner">
@@ -193,13 +193,167 @@
 		            </details>
 		        </details>
 		    </nav>
-		</aside>		
-
+		</aside>
 		<!-- 컨텐츠 영역 -->
-		<main class="content" role="main">
-			<div class="content__empty">여기에 페이지 컨텐츠가 표시됩니다.</div>
+		<main class="content Mac-container" role="main">
+			<div class="Map">
+                <!-- 툴 -->
+                <div class=" Map--mode__top">
+                    <div class="Map--mode">
+                        <button type="button" class=" btn--mode active" data-toggle data-group="mapModeTop">일반</button>
+                        <button type="button" class=" btn--mode" data-toggle data-group="mapModeTop">위성</button>
+                    </div>
+                </div>
+                <div class="Map--mode__bottom">
+                    <div class="Map--mode">
+                        <button type="button" class=" btn--mode location" title="위치"></button>
+                    </div>
+                    <div class="Map--mode zoom">
+                        <button type="button" class=" btn--mode zoomin" title="확대" ></button>
+                        <button type="button" class=" btn--mode zoomout" title="축소"></button>
+                    </div>
+                </div>
+                <!-- 패널 -->
+                <div class="panel--wrap">
+                    <div class="panel--header">
+                        <h1 class="logo">
+                            <a href=""><img src="./assets/images/logo.png" alt="로고"></a>
+                        </h1>  
+                    </div>
+                    <div class="tab--container">
+                        <div class="panel--mid">
+                            <div class="tab--nav tab--btn__nav">
+                                <button class="tab--item" data-tab="route">노선</button>
+                                <button class="tab--item active" data-tab="bus">버스</button>
+                            </div>
+                            <div class="panel--search">
+                                <input type="text" class="search--input" placeholder="검색어를 입력해주세요." />
+                                <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="panel--list" style="height: calc(100% - 200px);" data-simplebar>
+                            <div class="tab--content">
+                                <div class="tab--panel active" id="route">
+                                    <div class="panel--item">
+                                        <header class="panel--item__header">
+                                            <span class="panel--item__number">140</span>
+                                            <span class="panel--item__plate">충남12사 3453</span>
+                                        </header>
+                                        <div class="panel--item--body">
+                                            <div class="info target">
+                                                <dl>
+                                                    <dt>상하행유형</dt>
+                                                    <dd>상행</dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>기점</dt>
+                                                    <dd>용인공영버스터미널.용인드마크데라이</dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>종점</dt>
+                                                    <dd>신평리</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab--panel" id="bus">
+                                    <!---- 패널 아이템 ---->
+                                    <div class="panel--item">
+                                        <header class="panel--item__header">
+                                            <span class="panel--item__number">140</span>
+                                            <span class="panel--item__plate">충남12사 3453</span>
+                                        </header>
+                                        <div class="panel--item--body">
+                                            <div class="info target">
+                                                <dl>
+                                                    <dt>차량유형</dt>
+                                                    <dd>경형</dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>예비여부</dt>
+                                                    <dd>N</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</main>
 	</div>
+	<!-- 이상알림 모달 -->
+	<div id="alertModal" class="modal">
+		<div class="modal-dialog">
+			<div class="modal-header">
+				<span>수신이상 알림</span>
+				<button onclick="closeModal('alertModal')"></button>
+			</div>
+			<div class="modal-content">
+				<div class="modal--alerts">
+					<div class="modal--alerts__col">
+						<h3>BIT 수신 이상 알림</h3>
+						<div class="modal--alerts__item">
+							<div class="head">
+								<span class="chip" style="background: #ffddd1;"><i aria-hidden="true" style="background: #f1784a;"></i>통신이상</span>
+								<span class="data">2025-08-26 15:23</span>
+							</div>
+							<h4 class="ti">한빛아파트 (신관초방면) 통신이상</h4>
+							<p class="info">(ARS : 1472 / BIT ID : 35)</p>
+						</div>
+						<div class="modal--alerts__item">
+							<div class="head">
+								<span class="chip" style="background: #ffddd1;"><i aria-hidden="true" style="background: #f1784a;"></i>통신이상</span>
+								<span class="data">2025-08-26 15:23</span>
+							</div>
+							<h4 class="ti">한빛아파트 (신관초방면) 통신이상</h4>
+							<p class="info">(ARS : 1472 / BIT ID : 35)</p>
+						</div>
+						<div class="modal--alerts__item">
+							<div class="head">
+								<span class="chip" style="background: #ffddd1;"><i aria-hidden="true" style="background: #f1784a;"></i>통신이상</span>
+								<span class="data">2025-08-26 15:23</span>
+							</div>
+							<h4 class="ti">한빛아파트 (신관초방면) 통신이상</h4>
+							<p class="info">(ARS : 1472 / BIT ID : 35)</p>
+						</div>
+					</div>
+					<div class="modal--alerts__col">
+						<h3>버스 수신 이상 알림</h3>
+						<div class="modal--alerts__item">
+							<div class="head">
+								<span class="chip" style="background: #e7e7f6;"><i aria-hidden="true" style="background: #f1784a;"></i>통신이상</span>
+								<span class="data">2025-08-26 15:23</span>
+							</div>
+							<h4 class="ti">32-5번 통신이상</h4>
+							<p class="info">(ARS : 1472 / BIT ID : 35)</p>
+						</div>
+						<div class="modal--alerts__item">
+							<div class="head">
+								<span class="chip" style="background: #e7e7f6;"><i aria-hidden="true" style="background: #f1784a;"></i>통신이상</span>
+								<span class="data">2025-08-26 15:23</span>
+							</div>
+							<h4 class="ti">32-5번 통신이상</h4>
+							<p class="info">(ARS : 1472 / BIT ID : 35)</p>
+						</div>
+						<div class="modal--alerts__item">
+							<div class="head">
+								<span class="chip" style="background: #e7e7f6;"><i aria-hidden="true" style="background: #f1784a;"></i>통신이상</span>
+								<span class="data">2025-08-26 15:23</span>
+							</div>
+							<h4 class="ti">32-5번 통신이상</h4>
+							<p class="info">(ARS : 1472 / BIT ID : 35)</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
+
 
 </html>
