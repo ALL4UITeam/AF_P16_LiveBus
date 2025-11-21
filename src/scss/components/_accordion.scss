@@ -43,13 +43,36 @@
                 .info{
                     display: flex;
                     width: 100%;
+                    align-items: center;
                     span{
-                        flex: 1 0 20%;
+                        flex: 1 0 30%;
                         text-align: center;
+                        font-size: 14px;
                         & + span{
                             flex: 1 0 60%;
+                        }
+                    }
+                    &.ea4{
+                        span{
+                            vertical-align: middle;
+                            flex: 1 0 15%;
+                            text-align: center;
                             & + span{
-                                flex: 1 0 20%;
+                                flex: 1 0 50%;
+                                & + span{
+                                    flex: 1 0 35%;
+                                    text-align: right;
+                                    input[type="text"]{
+                                        padding: 5px;
+                                        width: 30px;
+                                        margin: 0 5px;
+                                    }
+                                    .btn{
+                                        width: 40px;
+                                        height: 29px;
+                                        font-size: 14px;
+                                    }
+                                }
                             }
                         }
                     }

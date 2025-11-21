@@ -137,3 +137,21 @@ const accItems = document.querySelectorAll(".acc-item");
 
   //dragArea
   dragula([document.getElementById('dragArea')]);
+
+// listhead span들의 width 가져오기
+const headSpans = document.querySelectorAll('.listhead span');
+const widths = Array.from(headSpans).map(span =>
+    window.getComputedStyle(span).width
+);
+
+// listbody 안의 모든 li를 순회하면서 width 적용
+const bodyRows = document.querySelectorAll('.listbody .board li');
+
+bodyRows.forEach(row => {
+    const spans = row.querySelectorAll('span');
+    spans.forEach((span, idx) => {
+        if (widths[idx]) {
+            span.style.width = widths[idx];
+        }
+    });
+});

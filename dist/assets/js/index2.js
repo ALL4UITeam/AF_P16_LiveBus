@@ -127,3 +127,16 @@ accItems.forEach((item) => {
   });
 });
 dragula([document.getElementById("dragArea")]);
+const headSpans = document.querySelectorAll(".listhead span");
+const widths = Array.from(headSpans).map(
+  (span) => window.getComputedStyle(span).width
+);
+const bodyRows = document.querySelectorAll(".listbody .board li");
+bodyRows.forEach((row) => {
+  const spans = row.querySelectorAll("span");
+  spans.forEach((span, idx) => {
+    if (widths[idx]) {
+      span.style.width = widths[idx];
+    }
+  });
+});

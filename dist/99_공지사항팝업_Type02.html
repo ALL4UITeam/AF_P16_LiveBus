@@ -213,113 +213,6 @@
                         <button type="button" class=" btn--mode zoomout" title="축소"></button>
                     </div>
                 </div>
-                <!-- 패널 우측 확장 -->
-                <div class="panel--expand" style="width:700px">
-                    <div class="panel--expand__head">
-                        <span>4월 운행 현황</span>
-                        <button class="close"></button>
-                    </div>
-                    <div class="panel--expand__content" style="height: calc(100% - 54px);"  data-simplebar>
-                        <div class="operation operation--inner">
-                            <div style="height: 500px;">
-                                캘린더 영역 캘린더 사이즈에 맞게 Height값 적용해주세요
-                            </div>
-                            <hr class="hr">
-                            <div class="operation--search">
-                                <div class="operation--search__col">
-                                    <div class="search--line">
-                                        <select class="form-control select small" name="" id="">
-                                            <option value="">전체</option>    
-                                        </select>
-                                        <div class="panel--search small">
-                                            <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
-                                            <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="listhead">
-                                            <span style="width:40%">상하행유형 종점</span>
-                                            <span style="width:20%">차량번호</span>
-                                            <span style="width:30%">예비여부</span>
-                                        </div>
-                                        <div class="listbody">
-                                            <ul class="board">
-                                                <li>
-                                                    <span>상하행버스</span>
-                                                    <span>100번</span>
-                                                    <span>용인공영버스</span>
-                                                </li>
-                                                <li>
-                                                    <span>상하행버스</span>
-                                                    <span>100번</span>
-                                                    <span>용인공영버스</span>
-                                                </li>
-                                                <li>
-                                                    <span>상하행버스</span>
-                                                    <span>100번</span>
-                                                    <span>용인공영버스</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="operation--search__col">
-                                    <dl class="search--optionline">
-                                        <dt>운행시작</dt>
-                                        <dd>
-                                            <select class="form-control select" name="" id="">
-                                                <option value="">10:00</option>
-                                            </select>
-                                        </dd>
-                                    </dl>
-                                    <dl class="search--optionline">
-                                        <dt>운행종료</dt>
-                                        <dd>
-                                            <select class="form-control select" name="" id="">
-                                                <option value="">14:00</option>
-                                            </select>
-                                        </dd>
-                                    </dl>
-                                    <dl class="search--optionline">
-                                        <dt>배속</dt>
-                                        <dd>
-                                            <select class="form-control select" name="" id="">
-                                                <option value="">1배속 1초</option>
-                                            </select>
-                                        </dd>
-                                    </dl>
-
-                                    <div class="operation--player">
-                                        <div class="operation--player__top">
-                                            <button class="play-btn">
-                                                ▶
-                                            </button>
-                                            <button class="pause-btn">
-                                                ❚❚
-                                            </button>
-                                        
-                                            <div class="progress-bar">
-                                                <div class="progress"></div>
-                                                <div class="handle"></div>
-                                            </div>
-                                        </div>
-                                        <div class="time-display">0000-00-00 00:00:00</div>
-                                    </div>
-
-                                    <div class="btn-group">
-                                        <button class="btn small primary">이동경로 조회</button>
-                                        <div class="checkbox">
-                                            <input type="checkbox" id="chk1" class="checkbox__input">
-                                            <label for="chk1">경로추적</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 		</main>
 	</div>
@@ -390,6 +283,43 @@
 			</div>
 		</div>
 	</div>
+    <div id="NoticeModal" class="modal active">
+        <div class="modal-dialog notice-dialog" style="width: 860px;">
+            <div class="modal-content notice-type02-modal" data-simplebar>
+                <div class="notice-top">
+                    <div class=" notice-logo"><img src="./assets/images/logo3.png" alt=""></div>
+                    <div class=" notice-title">신규노선추가</div>
+                </div>
+                <p class="notice-row-head">
+                    2025년 시내버스 노선개편이 아래와 같이 시행됩니다.
+                </p>
+                <div class="notice-box">
+                    <div class="notice-row">
+                        <span class="label">개편 시행일</span>
+                        <span class="value">2025년 00월 00일 첫차부터</span>
+                    </div>
+                    <div class="notice-row">
+                        <span class="label">추가노선</span>
+                        <span class="value">1111, 1112, 1113</span>
+                    </div>
+                </div>   
+                <div class="notice-img-box">
+                    <img src="./assets/images/dummy-thumb.png" alt="">
+                </div>
+            </div>
+
+            <div class="notice-bottom">
+                <label class="no-week">
+                    <input type="checkbox" id="noWeekCheck"  class="checkbox__input"/>
+                    일주일간 보지 않기
+                </label>
+                <button class="btn-close" onclick="closeModal('NoticeModal')">
+                    닫기
+                </button>
+            </div>
+        </div>
+    </div>
+    
 </body>
 
 

@@ -333,3 +333,14 @@ select{
         }
     }
 }
+.col-dl{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    dt{
+        font-size: 17px;
+    }
+    dd{
+
+    }
+}
