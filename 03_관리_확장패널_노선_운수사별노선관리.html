@@ -216,106 +216,151 @@
                 <!-- 패널 우측 확장 -->
                 <div class="panel--expand" style="width:700px">
                     <div class="panel--expand__head">
-                        <span>4월 운행 현황</span>
+                        <span>운수사별 노선 관리</span>
                         <button class="close"></button>
                     </div>
-                    <div class="panel--expand__content" style="height: calc(100% - 54px);"  data-simplebar>
-                        <div class="operation operation--inner">
-                            <div style="height: 500px;">
-                                캘린더 영역 캘린더 사이즈에 맞게 Height값 적용해주세요
-                            </div>
-                            <hr class="hr">
-                            <div class="operation--search">
-                                <div class="operation--search__col">
-                                    <div class="search--line">
-                                        <select class="form-control select small" name="" id="">
-                                            <option value="">전체</option>    
-                                        </select>
-                                        <div class="panel--search small">
-                                            <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
-                                            <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
+                    <div class="panel--expand__content">
+                        <div class="route--manage">
+                            <div class="route--manage__row">
+                                <div class="route--manage__row01">
+                                    <div class="route--manage__box route--manage__box01">
+                                        <div class="route--manage__ti">
+                                            <h3>운수</h3>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div class="listhead">
-                                            <span style="width:40%">상하행유형 종점</span>
-                                            <span style="width:20%">차량번호</span>
-                                            <span style="width:30%">예비여부</span>
-                                        </div>
-                                        <div class="listbody">
-                                            <ul class="board">
-                                                <li>
-                                                    <span>상하행버스</span>
-                                                    <span>100번</span>
-                                                    <span>용인공영버스</span>
-                                                </li>
-                                                <li>
-                                                    <span>상하행버스</span>
-                                                    <span>100번</span>
-                                                    <span>용인공영버스</span>
-                                                </li>
-                                                <li>
-                                                    <span>상하행버스</span>
-                                                    <span>100번</span>
-                                                    <span>용인공영버스</span>
-                                                </li>
+                                        <div class="route--manage__cont" data-simplebar style="height: calc(100% - 50px);">
+                                            <ul class="sel-list">
+                                                <li>화영운수</li>
+                                                <li class="is-active">화영운수</li>
+                                                <li>화영운수</li>
+                                                <li>화영운수</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="operation--search__col">
-                                    <dl class="search--optionline">
-                                        <dt>운행시작</dt>
-                                        <dd>
-                                            <select class="form-control select" name="" id="">
-                                                <option value="">10:00</option>
-                                            </select>
-                                        </dd>
-                                    </dl>
-                                    <dl class="search--optionline">
-                                        <dt>운행종료</dt>
-                                        <dd>
-                                            <select class="form-control select" name="" id="">
-                                                <option value="">14:00</option>
-                                            </select>
-                                        </dd>
-                                    </dl>
-                                    <dl class="search--optionline">
-                                        <dt>배속</dt>
-                                        <dd>
-                                            <select class="form-control select" name="" id="">
-                                                <option value="">1배속 1초</option>
-                                            </select>
-                                        </dd>
-                                    </dl>
-
-                                    <div class="operation--player">
-                                        <div class="operation--player__top">
-                                            <button class="play-btn">
-                                                ▶
-                                            </button>
-                                            <button class="pause-btn">
-                                                ❚❚
-                                            </button>
-                                        
-                                            <div class="progress-bar">
-                                                <div class="progress"></div>
-                                                <div class="handle"></div>
+                                <div class="route--manage__row02">
+                                    <div class="route--manage__box">
+                                        <div class="route--manage__ti">
+                                            <h3>노선목록</h3>
+                                        </div>
+                                        <div class="route--manage__cont">
+                                            <div class="search--line">
+                                                <select class="form-control select small" name="" id="">
+                                                    <option value="">전체</option>    
+                                                </select>
+                                                <div class="panel--search small">
+                                                    <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
+                                                    <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
+                                                </div>
+                                            </div>
+                                            <div class="route--manage__listinner">
+                                                <div class="listhead">
+                                                    <span>노선명</span>
+                                                    <span>상하행구분</span>
+                                                    <span>배정운수</span>
+                                                    <span></span>
+                                                </div>
+                                                <div class="listbody route-manage-bar" data-simplebar>
+                                                    <ul>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn primary small">추가</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn primary small">추가</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn primary small">추가</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn primary small">추가</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn primary small">추가</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn primary small">추가</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn primary small">추가</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn primary small">추가</button></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="time-display">0000-00-00 00:00:00</div>
                                     </div>
-
-                                    <div class="btn-group">
-                                        <button class="btn small primary">이동경로 조회</button>
-                                        <div class="checkbox">
-                                            <input type="checkbox" id="chk1" class="checkbox__input">
-                                            <label for="chk1">경로추적</label>
+                                    <div class="route--manage__box">
+                                        <div class="route--manage__ti">
+                                            <h3>배정노선목록</h3>
+                                        </div>
+                                        <div class="route--manage__cont">
+                                            <div class="search--line">
+                                                <select class="form-control select small" name="" id="">
+                                                    <option value="">전체</option>    
+                                                </select>
+                                                <div class="panel--search small">
+                                                    <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
+                                                    <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
+                                                </div>
+                                            </div>
+                                            <div class="route--manage__listinner">
+                                                <div class="listhead">
+                                                    <span>노선명</span>
+                                                    <span>상하행구분</span>
+                                                    <span>배정운수</span>
+                                                    <span></span>
+                                                </div>
+                                                <div class="listbody route-manage-bar" data-simplebar>
+                                                    <ul>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn cancle small">삭제</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn cancle small">삭제</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn cancle small">삭제</button></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

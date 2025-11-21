@@ -214,110 +214,32 @@
                     </div>
                 </div>
                 <!-- 패널 우측 확장 -->
-                <div class="panel--expand">
+                <div class="panel--expand" style="width:100%">
                     <div class="panel--expand__head">
-                        <button class="back"></button>
-                        <span>노선 추가</span>
+                        <span>관리자 배차 현황</span>
                         <button class="close"></button>
                     </div>
                     <div class="panel--expand__content">
-                        
-                        <div class="route--add" data-simplebar>
-                            <div class="route--add__inner">
-                                <div class="acc-item">
-                                    <div class="acc-btn" type="button">
-                                        <div class="acc-btn__inner">
-                                            <span class="acc-btn__num">01</span>
-                                            <span class="acc-btn__title">노선 데이터 검증</span>
-                                        </div>
-                                        <span class="acc-btn__complet">[입력완료]</span>
-                                    </div>
-                                    <div class="acc-panel">
-                                        <div class="acc-box">
-                                            <div class="step-section__content">
-                                                <div class="step-dropzone">
-                                                    <p class="step-dropzone__desc">
-                                                        첨부할 파일을 여기에 끌어다 놓거나.<br>
-                                                        파일 업로드 버튼을 직접 선택해 주세요.
-                                                    </p>
-                                                    <label class="step-dropzone__btn" for="fileInput">
-                                                        노선 업로드
-                                                        <input type="file" id="fileInput" class="sr-only" >
-                                                    </label>
-                                                </div>
-                                        
-                                            </div>
-                                            <button class="acc-panel__btn">검증완료</button>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="route--manage">
+                            <div class="route--manage__row block column">
+                                <dl class="col-dl">
+                                    <dt>운수사</dt>
+                                    <dd>
+                                        <select class="form-control select" name="" id="" style="width: 300px;">
+                                            <option value="">화영운수</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                                <hr class="hr">
+                                <div class="route--manage__row03">
                                     
-                                <div class="acc-item">
-                                    <div class="acc-btn" type="button">
-                                        <div class="acc-btn__inner">
-                                            <span class="acc-btn__num">02</span>
-                                            <span class="acc-btn__title">노선 정보 입력</span>
+                                    <div class="route--manage__box">
+                                        <div class="route--manage__ti">
+                                            <h3>노선</h3>
                                         </div>
-                                        <span class="acc-btn__complet">[입력완료]</span>
-                                    </div>
-                                    <div class="acc-panel">
-                                        <div class="acc-box">
-                                            <div class="acc-form__list">
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="정류장명 (예 : 하남아파트 앞)">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="정류장 ID (예 : 12345)">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="버스유형">
-                                                    <input class="form-control" type="text" placeholder="관리지역">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="노선 ID">
-                                                    <input class="form-control" type="text" placeholder="상행 / 하행">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="시작 정류장 ID">
-                                                    <input class="form-control" type="text" placeholder="종료 정류장 ID">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="시작 정류장 첫차 시간">
-                                                    <input class="form-control" type="text" placeholder="종료 정류장 마지막 시간">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="시작 정류장 마지막 시간">
-                                                    <input class="form-control" type="text" placeholder="종료 정류장 첫차 시간">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="마지막 정류장 첫차 시간">
-                                                    <input class="form-control" type="text" placeholder="마지막 정류장 마지막 시간">
-                                                </div>
-
-                                                <div class="acc-box-btn btn-group center">
-                                                    <button type="button" class="btn small cancle">재선택</button>
-                                                    <button type="button" class="btn small primary">확인</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="acc-box">
-                                            <p class="acc-panel__desc">클릭해서 노선 검증 데이터 선택</p>
-                                            <button class="acc-panel__btn">[100] 노선 확인</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="acc-item">
-                                    <div class="acc-btn" type="button">
-                                        <div class="acc-btn__inner">
-                                            <span class="acc-btn__num">03</span>
-                                            <span class="acc-btn__title">노선에 해당하는 정류소</span>
-                                        </div>
-                                    </div>
-                                    <div class="acc-panel">
-                                        <div class="acc-box">
-                                            <div class="search--line">
-                                                <select class="form-control select small" name="" id="">
+                                        <div class="route--manage__cont">
+                                            <div class="search--line flex-end">
+                                                <select class="form-control select small" name="" id="" style="width: 200px;">
                                                     <option value="">전체</option>    
                                                 </select>
                                                 <div class="panel--search small">
@@ -325,91 +247,177 @@
                                                     <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
                                                 </div>
                                             </div>
-                                            <div class="acc-box__top">
-                                                <span style="width: 40%;">구분</span>
-                                                <span style="width: 60%;">정류장명</span>
-                                            </div>
-                                            <div class="acc-box__list mb20" id="dragArea">
-                                                <div class="acc-box__item">
-                                                    <div class="info">
-                                                        <span>상행</span>
-                                                        <span>용인 휴게소 정류소</span>
-                                                    </div>
+                                            <div class="route--manage__listinner">
+                                                <div class="listhead">
+                                                    <span style="width:10%">노선명</span>
+                                                    <span style="width:10%">구분</span>
+                                                    <span style="width:40%">시점</span>
+                                                    <span style="width:40%">종점</span>
                                                 </div>
-                                                <div class="acc-box__item is-active">
-                                                    <div class="info">
-                                                        <span>상행</span>
-                                                        <span>용인 휴게소 정류소</span>
-                                                    </div>
-                                                </div>
-                                                <div class="acc-box__item is-active">
-                                                    <div class="info">
-                                                        <span>상행</span>
-                                                        <span>용인 휴게소 정류소</span>
-                                                    </div>
-                                                </div>
-                                                <div class="acc-box__item">
-                                                    <div class="info">
-                                                        <span>상행</span>
-                                                        <span>용인 휴게소 정류소</span>
-                                                        <span></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr class="hr mb20">
-                                            <h4>선택 정류장 목록</h4>
-                                            <div class="acc-box__top">
-                                                <span style="width: 15%;">구분</span>
-                                                <span style="width: 55%;">정류장명</span>
-                                                <span style="width: 30%;">순번</span>
-                                            </div>
-                                            <div class="acc-box__list">
-                                                <div class="acc-box__item">
-                                                    <div class="info ea4">
-                                                        <span>상행</span>
-                                                        <span>현대3차아파트(현대3차방면)</span>
-                                                        <span>
-                                                            <input type="checkbox" class="checkbox__input">
-                                                            <input type="text" class="form-control small">
-                                                            <button class="btn cancle small">삭제</button>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="acc-box__item">
-                                                    <div class="info ea4">
-                                                        <span>상행</span>
-                                                        <span>현대3차아파트(현대3차방면)</span>
-                                                        <span>
-                                                            <input type="checkbox" class="checkbox__input">
-                                                            <input type="text" class="form-control small">
-                                                            <button class="btn cancle small">삭제</button>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="acc-box__item">
-                                                    <div class="info ea4">
-                                                        <span>상행</span>
-                                                        <span>현대3차아파트(현대3차방면)</span>
-                                                        <span>
-                                                            <input type="checkbox" class="checkbox__input">
-                                                            <input type="text" class="form-control small">
-                                                            <button class="btn cancle small">삭제</button>
-                                                        </span>
-                                                    </div>
+                                                <div class="listbody" data-simplebar style="height: calc(100% - 145px);">
+                                                    <ul class="board ea4">
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>공주여고(시청/옥룡동 방면)</span>
+                                                            <span>대아주공4차아파트</span>
+                                                        </li>
+                                                        <li  class="is-active">
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>공주여고(시청/옥룡동 방면)</span>
+                                                            <span>대아주공4차아파트</span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>공주여고(시청/옥룡동 방면)</span>
+                                                            <span>대아주공4차아파트</span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>공주여고(시청/옥룡동 방면)</span>
+                                                            <span>대아주공4차아파트</span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>공주여고(시청/옥룡동 방면)</span>
+                                                            <span>대아주공4차아파트</span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100</span>
+                                                            <span>상행</span>
+                                                            <span>공주여고(시청/옥룡동 방면)</span>
+                                                            <span>대아주공4차아파트</span>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                            <div class="acc-box-btn btn-group center">
-                                                <button type="button" class="btn small cancle">초기화</button>
-                                                <button type="button" class="btn small primary">확인</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="route--manage__row04">
+                                    <div class="route--manage__box route--manage__box02">
+                                        <div class="route--manage__ti">
+                                            <h3>시간표</h3>
+                                        </div>
+                                        <div class="route--manage__cont" data-simplebar style="height: calc(100% - 54px);">
+                                            <ul class="sel-list li-flex">
+                                                <li>
+                                                    <span>01:00</span>
+                                                    <span>경기 61 도 1111</span>
+                                                </li>
+                                                <li class="is-active"><span>02: 00</span></li>
+                                                <li>
+                                                    <span>03:00</span>
+                                                    <span>경기 61 도 1111</span>
+                                                </li>
+                                                <li>
+                                                    <span>05:00</span>
+                                                </li>
+                                                <li>
+                                                    <span>06:00</span>
+                                                </li>
+                                                <li>
+                                                    <span>07:00</span>
+                                                </li>
+                                                <li>
+                                                    <span>08:00</span>
+                                                </li>
+                                                <li>
+                                                    <span>09:00</span>
+                                                </li>
+                                                <li>
+                                                    <span>10:00</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="route--manage__box route--manage__box03">
+                                        <div class="route--manage__ti">
+                                            <h3>차랑정보</h3>
+                                        </div>
+                                        <div class="route--manage__cont">
+                                            <div class="search--line flex-end">
+                                                <select class="form-control select small" name="" id="" style="max-width: 150px;">
+                                                    <option value="">전체</option>    
+                                                </select>
+                                                <div class="panel--search small">
+                                                    <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
+                                                    <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
+                                                </div>
+                                            </div>
+                                            <div class="route--manage__listinner">
+                                                <div class="listbody" data-simplebar style="height: calc(100% - 102px);">
+                                                    <ul>
+                                                        <li>
+                                                            <span>경기 61도 1111</span>
+                                                            <span><button class="btn primary small">배차</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>경기 61도 1111</span>
+                                                            <span><button class="btn primary small">배차</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>경기 61도 1111</span>
+                                                            <span><button class="btn primary small">배차</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>경기 61도 1111</span>
+                                                            <span><button class="btn primary small">배차</button></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="route--manage__box route--manage__box04">
+                                        <div class="route--manage__ti">
+                                            <h3>배차정보</h3>
+                                        </div>
+                                        <div class="route--manage__cont" data-simplebar style="height: calc(100% - 54px);">
+                                            <div class="route--manage__listinner">
+                                                <div class="listbody">
+                                                    <ul>
+                                                        <li>
+                                                            <span>100번</span>
+                                                            <span>상행</span>
+                                                            <span>01:00</span>
+                                                            <span><button class="btn cancle small">취소</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100번</span>
+                                                            <span>상행</span>
+                                                            <span>01:00</span>
+                                                            <span><button class="btn cancle small">취소</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100번</span>
+                                                            <span>상행</span>
+                                                            <span>01:00</span>
+                                                            <span><button class="btn cancle small">취소</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100번</span>
+                                                            <span>하행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn cancle small">취소</button></span>
+                                                        </li>
+                                                        <li>
+                                                            <span>100번</span>
+                                                            <span>상행</span>
+                                                            <span>화영운수</span>
+                                                            <span><button class="btn cancle small">취소</button></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="route--add__btn btn-group center">
-                            <button type="button" class="btn cancle">취소</button>
-                            <button type="button" class="btn primary">등록</button>
                         </div>
                     </div>
                 </div>
@@ -484,5 +492,6 @@
 		</div>
 	</div>
 </body>
+
 
 </html>
