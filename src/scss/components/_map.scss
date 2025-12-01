@@ -952,19 +952,19 @@
     }
     ul{
         li{
-            display: table;
             width: 100%;
             background:#fff;
+            align-items: center;
+            justify-content: space-between;
             & + li{
                 border-top: 1px solid #d8d8d8;
             }
             &>span,
             &>div{
-                display: table-cell;
-                width: 25%;
                 text-align: center;
                 padding: 10px 5px;
                 font-size: 15px;
+                box-sizing: border-box;
                 .btn{
                     height: 30px;
                     font-size: 13px;
@@ -979,24 +979,6 @@
                 &:hover,
                 &.is-active{
                     background: #ededed;
-                }
-            }
-        }
-        &.ea4{
-            li{
-                span{
-                    &:nth-child(1){
-                        width: 10%;
-                    }
-                    &:nth-child(2){
-                        width: 10%;
-                    }
-                    &:nth-child(3){
-                        width: 40%;
-                    }
-                    &:nth-child(4){
-                        width: 40%;
-                    }
                 }
             }
         }

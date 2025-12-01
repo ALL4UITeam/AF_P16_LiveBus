@@ -25,6 +25,16 @@
         background: #fff7ed;
         color: #f59e0b;
     }
+    &--purple{
+        border-color: #8080e0;
+        background: #e8e7f7;
+        color:#8080e0;
+    }
+    &--green{
+        border-color: #56946f;
+        background: #eafff0;
+        color:#56946f;
+    }
     &--red {
         border-color: #fb5852;
         background: #fee9e9;
@@ -32,6 +42,7 @@
     }
     &--round{
         border-radius: 99px;
+        display: inline;
     }
 }
 

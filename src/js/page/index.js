@@ -159,20 +159,21 @@ drake.on("cloned", function (clone, original, type) {
   }
 });
 
-  // listhead span들의 width 가져오기
-  const headSpans = document.querySelectorAll('.listhead span');
-  const widths = Array.from(headSpans).map(span =>
-      window.getComputedStyle(span).width
-  );
 
-  // listbody 안의 모든 li를 순회하면서 width 적용
-  const bodyRows = document.querySelectorAll('.listbody .board li');
+
+document.querySelectorAll('.route--manage__listinner').forEach(list => {
+  
+  const headSpans = list.querySelectorAll('.listhead span');
+const widths = Array.from(headSpans).map(span =>
+  span.style.width 
+);
+const gridTemplate = widths.join(' ');
+
+
+  const bodyRows = list.querySelectorAll('.listbody .board li');
 
   bodyRows.forEach(row => {
-    const spans = row.querySelectorAll('span');
-    spans.forEach((span, idx) => {
-        if (widths[idx]) {
-            span.style.width = widths[idx];
-        }
-    });
+    row.style.display = 'grid';
+    row.style.gridTemplateColumns = gridTemplate;
   });
+});
