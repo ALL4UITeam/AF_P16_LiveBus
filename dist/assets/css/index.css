@@ -2542,14 +2542,35 @@ select {
   max-height: 50%;
 }
 .route--manage__row03 {
-  height: 50%;
-  flex: 1;
+  display: flex;
+  gap: 20px;
+  height: calc(100% - 80px);
 }
 .route--manage__row04 {
-  height: calc(50% - 102px);
+  flex: 0 0 600px;
+}
+.route--manage__row05 {
+  height: 100%;
   flex: 1;
   display: flex;
   gap: 20px;
+  min-width: 0;
+}
+.route--manage__row05 .route--manage__box02 {
+  flex: 0 0 300px;
+  min-width: 0;
+}
+.route--manage__row06 {
+  height: calc(100% - 20px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+.route--manage__row06 .route--manage__box {
+  min-width: 350px;
+  height: 50%;
 }
 .route--manage__box {
   flex: 1;
@@ -2570,23 +2591,6 @@ select {
 }
 .route--manage__listinner {
   height: 100%;
-}
-.route--manage .sel-list li {
-  padding: 10px 5px;
-  border-radius: 6px;
-  margin-bottom: 3px;
-  transition: all 0.3s;
-  border: 1px solid transparent;
-  cursor: pointer;
-}
-.route--manage .sel-list li:hover, .route--manage .sel-list li.is-active {
-  border: 1px solid #0a529d;
-  background: #eff6ff;
-  color: #0a529d;
-}
-.route--manage .sel-list.li-flex li {
-  display: flex;
-  justify-content: space-between;
 }
 
 .listhead {
@@ -2648,6 +2652,24 @@ select {
 }
 .listbody ul.ea4 li span:nth-child(4) {
   width: 40%;
+}
+
+.sel-list li {
+  padding: 10px 5px;
+  border-radius: 6px;
+  margin-bottom: 3px;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.sel-list li:hover, .sel-list li.is-active {
+  border: 1px solid #0a529d;
+  background: #eff6ff;
+  color: #0a529d;
+}
+.sel-list.li-flex li {
+  display: flex;
+  justify-content: space-between;
 }
 
 .ico-no {
@@ -2951,12 +2973,15 @@ select {
   align-items: center;
 }
 .route--add .acc-item .acc-box__item .info span {
-  flex: 1 0 30%;
+  flex: 1 0 18%;
   text-align: center;
   font-size: 14px;
 }
 .route--add .acc-item .acc-box__item .info span + span {
-  flex: 1 0 60%;
+  flex: 1 0 20%;
+}
+.route--add .acc-item .acc-box__item .info span + span + span {
+  flex: 1 0 62%;
 }
 .route--add .acc-item .acc-box__item .info.ea4 span {
   vertical-align: middle;
@@ -2967,13 +2992,15 @@ select {
   flex: 1 0 50%;
 }
 .route--add .acc-item .acc-box__item .info.ea4 span + span + span {
+  display: flex;
+  align-items: center;
   flex: 1 0 35%;
   text-align: right;
+  gap: 5px;
 }
 .route--add .acc-item .acc-box__item .info.ea4 span + span + span input[type=text] {
   padding: 5px;
-  width: 30px;
-  margin: 0 5px;
+  width: 50px;
 }
 .route--add .acc-item .acc-box__item .info.ea4 span + span + span .btn {
   width: 40px;
@@ -3090,6 +3117,30 @@ select {
   flex: 1;
 }
 
+/* 드래그 CSS */
+.ghost-wrapper {
+  width: 100%;
+  height: auto !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* 드래그 UI */
+.ghost-drag-item {
+  background: #ffffff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  color: #333;
+  font-size: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  transform: scale(1.06);
+  opacity: 0.95;
+}
+
 /* Badges */
 .badge {
   display: inline-flex;
@@ -3122,6 +3173,9 @@ select {
   border-color: #fb5852;
   background: #fee9e9;
   color: #fb5852;
+}
+.badge--round {
+  border-radius: 99px;
 }
 
 .label {
@@ -3195,7 +3249,7 @@ select {
 
 /* ====== Design tokens ====== */
 body {
-  min-width: 1200px;
+  min-width: 1280px;
   height: 100vh;
   font-family: "Freesentation", Segoe UI, Roboto, Noto Sans KR, Apple SD Gothic Neo, "Malgun Gothic", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
@@ -3673,6 +3727,25 @@ body {
 }
 .dash-flex .dash-flex-col.unexpected-second .dash--grid {
   flex: 1;
+}
+.dash-flex.route {
+  height: calc(100% - 118px);
+}
+.dash-flex.route .dash--card {
+  flex: 1;
+  height: 100%;
+}
+.dash-flex.route .dash--card .dash--card__con {
+  overflow: hidden;
+  height: 100%;
+}
+.dash-flex.route .route--fir--card {
+  flex: 0 0 250px;
+  min-width: 200px;
+}
+.dash-flex.route .route--second--card,
+.dash-flex.route .route--thr--card {
+  min-width: 320px;
 }
 
 .dashcard--alert {

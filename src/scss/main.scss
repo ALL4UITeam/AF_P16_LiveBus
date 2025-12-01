@@ -43,7 +43,7 @@ $sidebar-w: 260px;
 $topbar-h: 64px;
 
 body {
-    min-width: 1200px;
+    min-width: 1280px;
     height: 100vh;
     font-family: $font-system;
 }
@@ -535,7 +535,28 @@ body {
             }
         }
     }
+    &.route{
+        height: calc(100% - 118px);
+        .dash--card{
+            flex:1;
+            height: 100%;
+            .dash--card__con{
+                overflow: hidden;
+                height: 100%;
+            }
+        }
+        .route--fir--card{
+            flex: 0 0 250px;
+            min-width: 200px;
+        }
+        .route--second--card,
+        .route--thr--card{
+            min-width: 320px;
+            
+        }
+    }
 }
+
 
 .dashcard--alert{
     display: flex;

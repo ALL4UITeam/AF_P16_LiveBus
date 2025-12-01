@@ -877,14 +877,35 @@
         }
     }
     &__row03{
-        height: 50%;
-        flex:1;
+        display: flex;
+        gap:20px;
+        height: calc(100% - 80px);
     }
     &__row04{
-        height: calc(50% - 102px);
+        flex: 0 0 600px;
+    }
+    &__row05{
+        height: 100%;
         flex:1;
         display: flex;
         gap:20px;
+        min-width: 0;
+        .route--manage__box02{
+            flex: 0 0 300px; 
+            min-width: 0; 
+        }
+    }
+    &__row06{
+        height: calc(100% - 20px);
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+         min-width: 0;
+        .route--manage__box{
+            min-width: 350px;
+            height: 50%;
+        }
     }
     &__box{
         flex: 1;
@@ -906,28 +927,6 @@
     &__listinner{
         height: 100%;
     }
-    .sel-list{
-        li{
-            padding: 10px 5px;
-            border-radius: 6px;
-            margin-bottom: 3px;
-            transition: all .3s;
-            border: 1px solid transparent;
-            cursor: pointer;
-            &:hover,
-            &.is-active{
-                border: 1px solid #0a529d;
-                background: #eff6ff;
-                color:#0a529d;
-            }
-        }
-        &.li-flex{
-            li{
-                display: flex;
-                justify-content: space-between;
-            }
-        }
-    }
 }
 .listhead{
     display: table;
@@ -938,6 +937,7 @@
         text-align: center;
         padding: 10px 5px;
         background: #ebf5fd;
+
         &:first-child{
             border-radius: 10px 0 0 0;
         }
@@ -999,6 +999,29 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.sel-list{
+    li{
+        padding: 10px 5px;
+        border-radius: 6px;
+        margin-bottom: 3px;
+        transition: all .3s;
+        border: 1px solid transparent;
+        cursor: pointer;
+        &:hover,
+        &.is-active{
+            border: 1px solid #0a529d;
+            background: #eff6ff;
+            color:#0a529d;
+        }
+    }
+    &.li-flex{
+        li{
+            display: flex;
+            justify-content: space-between;
         }
     }
 }

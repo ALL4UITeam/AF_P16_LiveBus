@@ -126,7 +126,23 @@ accItems.forEach((item) => {
     }
   });
 });
-dragula([document.getElementById("dragArea")]);
+const drake = dragula(
+  [document.getElementById("dragArea")],
+  {
+    mirrorContainer: document.body
+  }
+);
+drake.on("cloned", function(clone, original, type) {
+  if (type === "mirror") {
+    clone.innerHTML = "";
+    clone.innerHTML = `
+      <div class="ghost-drag-item">
+        이동 중.
+      </div>
+    `;
+    clone.classList.add("ghost-wrapper");
+  }
+});
 const headSpans = document.querySelectorAll(".listhead span");
 const widths = Array.from(headSpans).map(
   (span) => window.getComputedStyle(span).width
