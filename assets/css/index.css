@@ -2615,19 +2615,19 @@ select {
   height: calc(100% - 140px);
 }
 .listbody ul li {
-  display: table;
   width: 100%;
   background: #fff;
+  align-items: center;
+  justify-content: space-between;
 }
 .listbody ul li + li {
   border-top: 1px solid #d8d8d8;
 }
 .listbody ul li > span, .listbody ul li > div {
-  display: table-cell;
-  width: 25%;
   text-align: center;
   padding: 10px 5px;
   font-size: 15px;
+  box-sizing: border-box;
 }
 .listbody ul li > span .btn, .listbody ul li > div .btn {
   height: 30px;
@@ -2640,18 +2640,6 @@ select {
 }
 .listbody ul.board li:hover, .listbody ul.board li.is-active {
   background: #ededed;
-}
-.listbody ul.ea4 li span:nth-child(1) {
-  width: 10%;
-}
-.listbody ul.ea4 li span:nth-child(2) {
-  width: 10%;
-}
-.listbody ul.ea4 li span:nth-child(3) {
-  width: 40%;
-}
-.listbody ul.ea4 li span:nth-child(4) {
-  width: 40%;
 }
 
 .sel-list li {
@@ -2972,40 +2960,43 @@ select {
   width: 100%;
   align-items: center;
 }
-.route--add .acc-item .acc-box__item .info span {
+.route--add .acc-item .acc-box__item .info div {
   flex: 1 0 18%;
   text-align: center;
   font-size: 14px;
 }
-.route--add .acc-item .acc-box__item .info span + span {
+.route--add .acc-item .acc-box__item .info div + div {
   flex: 1 0 20%;
 }
-.route--add .acc-item .acc-box__item .info span + span + span {
+.route--add .acc-item .acc-box__item .info div + div + div {
   flex: 1 0 62%;
 }
-.route--add .acc-item .acc-box__item .info.ea4 span {
+.route--add .acc-item .acc-box__item .info.ea4 div {
   vertical-align: middle;
   flex: 1 0 15%;
   text-align: center;
 }
-.route--add .acc-item .acc-box__item .info.ea4 span + span {
-  flex: 1 0 50%;
+.route--add .acc-item .acc-box__item .info.ea4 div + div {
+  flex: 1 0 40%;
 }
-.route--add .acc-item .acc-box__item .info.ea4 span + span + span {
+.route--add .acc-item .acc-box__item .info.ea4 div + div + div {
   display: flex;
   align-items: center;
-  flex: 1 0 35%;
-  text-align: right;
+  flex: 1 0 30%;
+  justify-content: center;
   gap: 5px;
 }
-.route--add .acc-item .acc-box__item .info.ea4 span + span + span input[type=text] {
+.route--add .acc-item .acc-box__item .info.ea4 div + div + div input[type=text] {
   padding: 5px;
   width: 50px;
 }
-.route--add .acc-item .acc-box__item .info.ea4 span + span + span .btn {
+.route--add .acc-item .acc-box__item .info.ea4 div + div + div .btn {
   width: 40px;
   height: 29px;
   font-size: 14px;
+}
+.route--add .acc-item .acc-box__item .info.ea4 div + div + div + div {
+  flex: 1 0 15%;
 }
 .route--add .acc-item .acc-box__item .del {
   border: none;
@@ -3169,6 +3160,16 @@ select {
   background: #fff7ed;
   color: #f59e0b;
 }
+.badge--purple {
+  border-color: #8080e0;
+  background: #e8e7f7;
+  color: #8080e0;
+}
+.badge--green {
+  border-color: #56946f;
+  background: #eafff0;
+  color: #56946f;
+}
 .badge--red {
   border-color: #fb5852;
   background: #fee9e9;
@@ -3176,6 +3177,7 @@ select {
 }
 .badge--round {
   border-radius: 99px;
+  display: inline;
 }
 
 .label {

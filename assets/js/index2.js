@@ -143,16 +143,15 @@ drake.on("cloned", function(clone, original, type) {
     clone.classList.add("ghost-wrapper");
   }
 });
-const headSpans = document.querySelectorAll(".listhead span");
-const widths = Array.from(headSpans).map(
-  (span) => window.getComputedStyle(span).width
-);
-const bodyRows = document.querySelectorAll(".listbody .board li");
-bodyRows.forEach((row) => {
-  const spans = row.querySelectorAll("span");
-  spans.forEach((span, idx) => {
-    if (widths[idx]) {
-      span.style.width = widths[idx];
-    }
+document.querySelectorAll(".route--manage__listinner").forEach((list) => {
+  const headSpans = list.querySelectorAll(".listhead span");
+  const widths = Array.from(headSpans).map(
+    (span) => span.style.width
+  );
+  const gridTemplate = widths.join(" ");
+  const bodyRows = list.querySelectorAll(".listbody .board li");
+  bodyRows.forEach((row) => {
+    row.style.display = "grid";
+    row.style.gridTemplateColumns = gridTemplate;
   });
 });
