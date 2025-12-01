@@ -195,171 +195,316 @@
 		    </nav>
 		</aside>
 		<!-- 컨텐츠 영역 -->
-		<main class="content Mac-container" role="main">
-			<div class="Map">
-                <!-- 툴 -->
-                <div class=" Map--mode__top">
-                    <div class="Map--mode">
-                        <button type="button" class=" btn--mode active" data-toggle data-group="mapModeTop">일반</button>
-                        <button type="button" class=" btn--mode" data-toggle data-group="mapModeTop">위성</button>
+		<main class="content" role="main">
+			<div class="page-header">
+                <!-- 브레드크럼 -->
+                <nav class="breadcrumb">
+                    <span>관리</span>
+                    <span class="divider">›</span>
+                    <span>운행관리</span>
+                    <span class="divider">›</span>
+                    <span class="current">운수사별 노선 관리</span>
+                </nav>
+                <!-- 페이지 타이틀 -->
+                <h1 class="page-title">운수업체 관리</h1>
+            </div>
+            <div class="dash-flex route">
+                <div class="dash--card route--fir--card">
+                    <div class="dash--card__header">
+                        <h3 class="dash--card__title">운수</h3>
+                    </div>
+                    <div class="dash--card__con">
+                        <div class="route--manage__cont" data-simplebar style="height: calc(100% - 50px);">
+                            <ul class="sel-list">
+                                <li>화영운수</li>
+                                <li class="is-active">화영운수</li>
+                                <li>화영운수</li>
+                                <li>화영운수</li>
+                                <li>화영운수</li>
+                                <li>화영운수</li>
+                                <li class="is-active">화영운수</li>
+                                <li>화영운수</li>
+                                <li>화영운수</li>
+                                <li class="is-active">화영운수</li>
+                                <li>화영운수</li>
+                                <li>화영운수</li>
+                                <li class="is-active">화영운수</li>
+                                <li>화영운수</li>
+                                <li>화영운수</li>
+                                <li class="is-active">화영운수</li>
+                                <li>화영운수</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="Map--mode__bottom">
-                    <div class="Map--mode">
-                        <button type="button" class=" btn--mode location" title="위치"></button>
+
+                <div class="dash--card route--second--card">
+                    <div class="dash--card__header">
+                        <h3 class="dash--card__title">노선목록</h3>
                     </div>
-                    <div class="Map--mode zoom">
-                        <button type="button" class=" btn--mode zoomin" title="확대" ></button>
-                        <button type="button" class=" btn--mode zoomout" title="축소"></button>
+                    <div class="dash--card__con">
+                        <div class="search--line">
+                            <select class="form-control select small" name="" id="">
+                                <option value="">전체</option>    
+                            </select>
+                            <div class="panel--search small">
+                                <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
+                                <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="btn-group mb20">
+                            <button class="btn primary small">선택 추가</button>
+                        </div>
+                        
+                        <div class="route--manage__listinner">
+                            <div class="listhead">
+                                <span style="width: 10%;">
+                                    <input type="checkbox" id="chk1" class="checkbox__input">
+                                </span>
+                                <span style="width: 25%;">노선명</span>
+                                <span style="width: 25%;">상하행구분</span>
+                                <span style="width: 25%;">배정운수</span>
+                                <span style="width: 15%;"></span>
+                            </div>
+                            <div class="listbody" data-simplebar style="height: calc(100% - 200px);">
+                                <ul class="board">
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="chk1" class="checkbox__input">
+                                        </span>
+                                        <span>100</span>
+                                        <span>상행</span>
+                                        <span>화영운수</span>
+                                        <span><button class="btn primary small">추가</button></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- 패널 우측 확장 -->
-                <div class="panel--expand" style="width:700px">
-                    <div class="panel--expand__head">
-                        <span>운수사별 노선 관리</span>
-                        <button class="close"></button>
+                <div class="dash--card route--thr--card">
+                    <div class="dash--card__header">
+                        <h3 class="dash--card__title">배정 노선목록</h3>
                     </div>
-                    <div class="panel--expand__content">
-                        <div class="route--manage">
-                            <div class="route--manage__row">
-                                <div class="route--manage__row01">
-                                    <div class="route--manage__box route--manage__box01">
-                                        <div class="route--manage__ti">
-                                            <h3>운수</h3>
-                                        </div>
-                                        <div class="route--manage__cont" data-simplebar style="height: calc(100% - 50px);">
-                                            <ul class="sel-list">
-                                                <li>화영운수</li>
-                                                <li class="is-active">화영운수</li>
-                                                <li>화영운수</li>
-                                                <li>화영운수</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                    <div class="dash--card__con">
+                        <div class="route--manage__cont">
+                            <div class="search--line">
+                                <select class="form-control select small" name="" id="">
+                                    <option value="">전체</option>    
+                                </select>
+                                <div class="panel--search small">
+                                    <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
+                                    <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
                                 </div>
-                                <div class="route--manage__row02">
-                                    <div class="route--manage__box">
-                                        <div class="route--manage__ti">
-                                            <h3>노선목록</h3>
-                                        </div>
-                                        <div class="route--manage__cont">
-                                            <div class="search--line">
-                                                <select class="form-control select small" name="" id="">
-                                                    <option value="">전체</option>    
-                                                </select>
-                                                <div class="panel--search small">
-                                                    <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
-                                                    <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
-                                                </div>
-                                            </div>
-                                            <div class="route--manage__listinner">
-                                                <div class="listhead">
-                                                    <span>노선명</span>
-                                                    <span>상하행구분</span>
-                                                    <span>배정운수</span>
-                                                    <span></span>
-                                                </div>
-                                                <div class="listbody route-manage-bar" data-simplebar>
-                                                    <ul>
-                                                        <li>
-                                                            <span>100</span>
-                                                            <span>상행</span>
-                                                            <span>화영운수</span>
-                                                            <span><button class="btn primary small">추가</button></span>
-                                                        </li>
-                                                        <li>
-                                                            <span>100</span>
-                                                            <span>상행</span>
-                                                            <span>화영운수</span>
-                                                            <span><button class="btn primary small">추가</button></span>
-                                                        </li>
-                                                        <li>
-                                                            <span>100</span>
-                                                            <span>상행</span>
-                                                            <span>화영운수</span>
-                                                            <span><button class="btn primary small">추가</button></span>
-                                                        </li>
-                                                        <li>
-                                                            <span>100</span>
-                                                            <span>상행</span>
-                                                            <span>화영운수</span>
-                                                            <span><button class="btn primary small">추가</button></span>
-                                                        </li>
-                                                        <li>
-                                                            <span>100</span>
-                                                            <span>상행</span>
-                                                            <span>화영운수</span>
-                                                            <span><button class="btn primary small">추가</button></span>
-                                                        </li>
-                                                        <li>
-                                                            <span>100</span>
-                                                            <span>상행</span>
-                                                            <span>화영운수</span>
-                                                            <span><button class="btn primary small">추가</button></span>
-                                                        </li>
-                                                        <li>
-                                                            <span>100</span>
-                                                            <span>상행</span>
-                                                            <span>화영운수</span>
-                                                            <span><button class="btn primary small">추가</button></span>
-                                                        </li>
-                                                        <li>
-                                                            <span>100</span>
-                                                            <span>상행</span>
-                                                            <span>화영운수</span>
-                                                            <span><button class="btn primary small">추가</button></span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="route--manage__box">
-                                        <div class="route--manage__ti">
-                                            <h3>배정노선목록</h3>
-                                        </div>
-                                        <div class="route--manage__cont">
-                                            <div class="search--line">
-                                                <select class="form-control select small" name="" id="">
-                                                    <option value="">전체</option>    
-                                                </select>
-                                                <div class="panel--search small">
-                                                    <input type="text" class="search--input" placeholder="검색어를 입력해주세요.">
-                                                    <button class="search--button"><img src="./assets/images/ico-search.png" alt=""></button>
-                                                </div>
-                                            </div>
-                                            <div class="route--manage__listinner">
-                                                <div class="listhead">
-                                                    <span>노선명</span>
-                                                    <span>상하행구분</span>
-                                                    <span>배정운수</span>
-                                                    <span></span>
-                                                </div>
-                                                <div class="listbody route-manage-bar" data-simplebar>
-                                                    <ul>
-                                                        <li>
-                                                            <span>100</span>
-                                                            <span>상행</span>
-                                                            <span>화영운수</span>
-                                                            <span><button class="btn cancle small">삭제</button></span>
-                                                        </li>
-                                                        <li>
-                                                            <span>100</span>
-                                                            <span>상행</span>
-                                                            <span>화영운수</span>
-                                                            <span><button class="btn cancle small">삭제</button></span>
-                                                        </li>
-                                                        <li>
-                                                            <span>100</span>
-                                                            <span>상행</span>
-                                                            <span>화영운수</span>
-                                                            <span><button class="btn cancle small">삭제</button></span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="btn-group mb20">
+                                <button class="btn cancle small">선택 삭제</button>
+                            </div>
+                            <div class="route--manage__listinner">
+                                <div class="listhead">
+                                    <span style="width: 10%;">
+                                        <input type="checkbox" id="chk1" class="checkbox__input">
+                                    </span>
+                                    <span style="width: 25%;">노선명</span>
+                                    <span style="width: 25%;">상하행구분</span>
+                                    <span style="width: 25%;">배정운수</span>
+                                    <span style="width: 15%;"></span>
+                                </div>
+                                <div class="listbody route-manage-bar" data-simplebar style="height: calc(100% - 200px);">
+                                    <ul class="board">
+                                        <li>
+                                            <span><input type="checkbox" id="chk1" class="checkbox__input"></span>
+                                            <span>100</span>
+                                            <span>상행</span>
+                                            <span>화영운수</span>
+                                            <span><button class="btn cancle small">삭제</button></span>
+                                        </li>
+                                        <li>
+                                            <span><input type="checkbox" id="chk1" class="checkbox__input"></span>
+                                            <span>100</span>
+                                            <span>상행</span>
+                                            <span>화영운수</span>
+                                            <span><button class="btn cancle small">삭제</button></span>
+                                        </li>
+                                        <li>
+                                            <span><input type="checkbox" id="chk1" class="checkbox__input"></span>
+                                            <span>100</span>
+                                            <span>상행</span>
+                                            <span>화영운수</span>
+                                            <span><button class="btn cancle small">삭제</button></span>
+                                        </li>
+                                        <li>
+                                            <span><input type="checkbox" id="chk1" class="checkbox__input"></span>
+                                            <span>100</span>
+                                            <span>상행</span>
+                                            <span>화영운수</span>
+                                            <span><button class="btn cancle small">삭제</button></span>
+                                        </li>
+                                        <li>
+                                            <span><input type="checkbox" id="chk1" class="checkbox__input"></span>
+                                            <span>100</span>
+                                            <span>상행</span>
+                                            <span>화영운수</span>
+                                            <span><button class="btn cancle small">삭제</button></span>
+                                        </li>
+                                        <li>
+                                            <span><input type="checkbox" id="chk1" class="checkbox__input"></span>
+                                            <span>100</span>
+                                            <span>상행</span>
+                                            <span>화영운수</span>
+                                            <span><button class="btn cancle small">삭제</button></span>
+                                        </li>
+                                        <li>
+                                            <span><input type="checkbox" id="chk1" class="checkbox__input"></span>
+                                            <span>100</span>
+                                            <span>상행</span>
+                                            <span>화영운수</span>
+                                            <span><button class="btn cancle small">삭제</button></span>
+                                        </li>
+                                        <li>
+                                            <span><input type="checkbox" id="chk1" class="checkbox__input"></span>
+                                            <span>100</span>
+                                            <span>상행</span>
+                                            <span>화영운수</span>
+                                            <span><button class="btn cancle small">삭제</button></span>
+                                        </li>
+                                        <li>
+                                            <span><input type="checkbox" id="chk1" class="checkbox__input"></span>
+                                            <span>100</span>
+                                            <span>상행</span>
+                                            <span>화영운수</span>
+                                            <span><button class="btn cancle small">삭제</button></span>
+                                        </li>
+                                        <li>
+                                            <span><input type="checkbox" id="chk1" class="checkbox__input"></span>
+                                            <span>100</span>
+                                            <span>상행</span>
+                                            <span>화영운수</span>
+                                            <span><button class="btn cancle small">삭제</button></span>
+                                        </li>
+                                        <li>
+                                            <span><input type="checkbox" id="chk1" class="checkbox__input"></span>
+                                            <span>100</span>
+                                            <span>상행</span>
+                                            <span>화영운수</span>
+                                            <span><button class="btn cancle small">삭제</button></span>
+                                        </li>
+                                        <li>
+                                            <span><input type="checkbox" id="chk1" class="checkbox__input"></span>
+                                            <span>100</span>
+                                            <span>상행</span>
+                                            <span>화영운수</span>
+                                            <span><button class="btn cancle small">삭제</button></span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
