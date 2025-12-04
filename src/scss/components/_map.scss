@@ -997,7 +997,12 @@
         &.is-active{
             border: 1px solid #0a529d;
             background: #eff6ff;
-            color:#0a529d;
+            span{
+                color:#0a529d;
+            }
+            .ico-schedule{
+                background-image: url("@/assets/images/dash/ico-schedule-blue.svg");
+            }
         }
     }
     &.li-flex{
@@ -1006,4 +1011,23 @@
             justify-content: space-between;
         }
     }
+    &.time-sel-list{
+        li{
+            gap:20px;
+            .left{
+                display: flex;
+                align-items: center;
+                gap:20px;
+            }
+            
+        }
+    }
+}
+.ico-schedule{
+    display: inline-block;
+    background-image: url("@/assets/images/dash/ico-schedule.svg");
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
 }

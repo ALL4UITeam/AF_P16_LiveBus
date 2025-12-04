@@ -129,7 +129,7 @@ $topbar-h: 64px;
         padding-left: 20px;
         padding-bottom: 20px;
         gap: 35px;
-        height: calc(100vh - 138px);
+        height: calc(100vh - 320px);
     }
     .nav-sec,
     .nav-sub{
@@ -367,6 +367,53 @@ $topbar-h: 64px;
             }
             .is-active>a {
                 color: #fff;
+            }
+        }
+    }
+    .nav-foot{
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right:20px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 20px;
+        dl{
+            position: relative;
+            padding-left: 32px;
+            dt{
+                font-size: 17px;
+                color:#d5dde8;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+                line-height: 1;
+            }
+            dd{
+                font-size: 17px;
+                color:#d5dde8;
+                font-size: 15px;
+                line-height: 1;
+            }
+            &:after{
+                position: absolute;
+                display: block;
+                left: 0;
+                top: 0;
+                content:'';
+                width: 17px;
+                height: 17px;
+                background-repeat: no-repeat;
+            }
+            &.call{
+                margin-bottom: 15px;
+                &:after{ 
+                    background-image: url("@/assets/images/common/ico-footcall.png");
+                }
+            }
+            &.mail{
+                &:after{ 
+                    background-image: url("@/assets/images/common/ico-footmail.png");
+                }
             }
         }
     }

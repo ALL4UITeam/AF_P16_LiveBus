@@ -20,6 +20,7 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         min-width: 300px;
         max-width: 90%;
+        max-height: 90%;
         overflow: hidden;
         .modal-header {
             background: #047bb6; // 파란 헤더
@@ -258,7 +259,7 @@
 }
 
 .notice-type02-modal {
-    max-height: 800px;
+    max-height: 700px;
     background: #daebfc;
 
     .notice-top {
@@ -335,7 +336,7 @@
     }
 }
 .notice-type01-modal {
-    max-height: 800px;
+    max-height: 700px;
     position: relative;
     overflow: hidden;
     padding: 80px 80px 0 80px !important;
@@ -412,3 +413,15 @@
     }
 }
 
+.modal-dispatch-cont{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    .route--manage__box{
+        .listbody{
+            height: 200px;
+        }
+        
+    }
+
+}

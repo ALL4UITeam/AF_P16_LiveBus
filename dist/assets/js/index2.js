@@ -143,14 +143,18 @@ drake.on("cloned", function(clone, original, type) {
     clone.classList.add("ghost-wrapper");
   }
 });
-document.querySelectorAll(".route--manage__listinner").forEach((list) => {
-  const headSpans = list.querySelectorAll(".listhead span");
+const listheads = document.querySelectorAll(".listhead");
+const listbodies = document.querySelectorAll(".listbody");
+listheads.forEach((head, i) => {
+  const body = listbodies[i];
+  if (!body) return;
+  const headSpans = head.querySelectorAll("span");
   const widths = Array.from(headSpans).map(
-    (span) => span.style.width
+    (span) => span.style.width || window.getComputedStyle(span).width
   );
   const gridTemplate = widths.join(" ");
-  const bodyRows = list.querySelectorAll(".listbody .board li");
-  bodyRows.forEach((row) => {
+  const rows = body.querySelectorAll(".board li");
+  rows.forEach((row) => {
     row.style.display = "grid";
     row.style.gridTemplateColumns = gridTemplate;
   });

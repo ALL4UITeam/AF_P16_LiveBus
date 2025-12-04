@@ -142,13 +142,10 @@ const drake = dragula(
   }
 );
 
-// 미러가 생성될 때 이벤트
 drake.on("cloned", function (clone, original, type) {
   if (type === "mirror") {
-    // 기존 복제 DOM 비우기
     clone.innerHTML = "";
 
-    // 원하는 모양의 가짜 UI 삽입
     clone.innerHTML = `
       <div class="ghost-drag-item">
         이동 중.
@@ -160,20 +157,26 @@ drake.on("cloned", function (clone, original, type) {
 });
 
 
+// 테이블화 - 스크롤 대응 
+const listheads = document.querySelectorAll('.listhead');
+const listbodies = document.querySelectorAll('.listbody');
 
-document.querySelectorAll('.route--manage__listinner').forEach(list => {
-  
-  const headSpans = list.querySelectorAll('.listhead span');
-const widths = Array.from(headSpans).map(span =>
-  span.style.width 
-);
-const gridTemplate = widths.join(' ');
+listheads.forEach((head, i) => {
+  const body = listbodies[i];
 
+  if (!body) return; 
 
-  const bodyRows = list.querySelectorAll('.listbody .board li');
+  const headSpans = head.querySelectorAll('span');
+  const widths = Array.from(headSpans).map(span =>
+    span.style.width || window.getComputedStyle(span).width
+  );
 
-  bodyRows.forEach(row => {
-    row.style.display = 'grid';
+  const gridTemplate = widths.join(' ');
+
+  const rows = body.querySelectorAll('.board li');
+
+  rows.forEach(row => {
+    row.style.display = "grid";
     row.style.gridTemplateColumns = gridTemplate;
   });
 });

@@ -536,7 +536,7 @@ body {
         }
     }
     &.route{
-        height: calc(100% - 118px);
+        height: calc(100% - 128px);
         .dash--card{
             flex:1;
             height: 100%;
@@ -620,5 +620,29 @@ body {
     }
     & + .dashcard--alert{
         margin-top: 20px;
+    }
+}
+
+.dash-transport{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    height: calc(100% - 80px);
+    .dash-flex{
+        & + .dash-flex{
+            height: calc(100% - 100px);
+            overflow: hidden;
+            .dash--card{
+                flex: 1;
+                min-width: 500px;
+                & + .dash--card{
+                    flex:  0 0 300px;
+                    min-width: 300px;
+                }   
+                .dash--card__con{
+                    height: 100%;
+                }
+            }
+        }
     }
 }
