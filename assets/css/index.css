@@ -191,7 +191,7 @@ button, a {
   padding-left: 20px;
   padding-bottom: 20px;
   gap: 35px;
-  height: calc(100vh - 138px);
+  height: calc(100vh - 320px);
 }
 .sidenav .nav-sec,
 .sidenav .nav-sub {
@@ -407,6 +407,51 @@ button, a {
 .sidenav .nav-sec .nav-list .is-active > a {
   color: #fff;
 }
+.sidenav .nav-foot {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 20px;
+}
+.sidenav .nav-foot dl {
+  position: relative;
+  padding-left: 32px;
+}
+.sidenav .nav-foot dl dt {
+  font-size: 17px;
+  color: #d5dde8;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.sidenav .nav-foot dl dd {
+  font-size: 17px;
+  color: #d5dde8;
+  font-size: 15px;
+  line-height: 1;
+}
+.sidenav .nav-foot dl:after {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  content: "";
+  width: 17px;
+  height: 17px;
+  background-repeat: no-repeat;
+}
+.sidenav .nav-foot dl.call {
+  margin-bottom: 15px;
+}
+.sidenav .nav-foot dl.call:after {
+  background-image: url("../images/ico-footcall.png");
+}
+.sidenav .nav-foot dl.mail:after {
+  background-image: url("../images/ico-footmail.png");
+}
 
 /* details/summary 기본 마커 제거 */
 details > summary {
@@ -439,6 +484,7 @@ summary::-webkit-details-marker {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   min-width: 300px;
   max-width: 90%;
+  max-height: 90%;
   overflow: hidden;
 }
 .modal .modal-dialog .modal-header {
@@ -657,7 +703,7 @@ summary::-webkit-details-marker {
 }
 
 .notice-type02-modal {
-  max-height: 800px;
+  max-height: 700px;
   background: #daebfc;
 }
 .notice-type02-modal .notice-top {
@@ -727,7 +773,7 @@ summary::-webkit-details-marker {
 }
 
 .notice-type01-modal {
-  max-height: 800px;
+  max-height: 700px;
   position: relative;
   overflow: hidden;
   padding: 80px 80px 0 80px !important;
@@ -801,6 +847,15 @@ summary::-webkit-details-marker {
   color: #777;
   margin-left: 150px;
   margin-bottom: 15px;
+}
+
+.modal-dispatch-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.modal-dispatch-cont .route--manage__box .listbody {
+  height: 200px;
 }
 
 .btn {
@@ -896,6 +951,10 @@ summary::-webkit-details-marker {
 
 .mt0 {
   margin-top: 0 !important;
+}
+
+.mb0 {
+  margin-bottom: 0 !important;
 }
 
 .mb10 {
@@ -2653,11 +2712,33 @@ select {
 .sel-list li:hover, .sel-list li.is-active {
   border: 1px solid #0a529d;
   background: #eff6ff;
+}
+.sel-list li:hover span, .sel-list li.is-active span {
   color: #0a529d;
+}
+.sel-list li:hover .ico-schedule, .sel-list li.is-active .ico-schedule {
+  background-image: url("../images/ico-schedule-blue.svg");
 }
 .sel-list.li-flex li {
   display: flex;
   justify-content: space-between;
+}
+.sel-list.time-sel-list li {
+  gap: 20px;
+}
+.sel-list.time-sel-list li .left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ico-schedule {
+  display: inline-block;
+  background-image: url("../images/ico-schedule.svg");
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .ico-no {
@@ -3731,7 +3812,7 @@ body {
   flex: 1;
 }
 .dash-flex.route {
-  height: calc(100% - 118px);
+  height: calc(100% - 128px);
 }
 .dash-flex.route .dash--card {
   flex: 1;
@@ -3813,4 +3894,26 @@ body {
 }
 .dashcard--alert + .dashcard--alert {
   margin-top: 20px;
+}
+
+.dash-transport {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: calc(100% - 80px);
+}
+.dash-transport .dash-flex + .dash-flex {
+  height: calc(100% - 100px);
+  overflow: hidden;
+}
+.dash-transport .dash-flex + .dash-flex .dash--card {
+  flex: 1;
+  min-width: 500px;
+}
+.dash-transport .dash-flex + .dash-flex .dash--card + .dash--card {
+  flex: 0 0 300px;
+  min-width: 300px;
+}
+.dash-transport .dash-flex + .dash-flex .dash--card .dash--card__con {
+  height: 100%;
 }
