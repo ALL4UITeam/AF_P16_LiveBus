@@ -222,6 +222,35 @@
     }
 }
 
+// 정류장 선택 안내 모달 (다운로드 시 정류장 미선택)
+.modal--select-station {
+    .modal--select-station__dialog {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        min-width: 350px;
+        max-width: 90%;
+        padding: 30px 20px 20px;
+        text-align: center;
+    }
+    .modal--select-station__icon {
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+            display: block;
+            width: 56px;
+            height: 56px;
+        }
+    }
+    .modal--select-station__message {
+        margin: 0 0 28px;
+        font-size: 16px;
+        color: #1d1d1d;
+        line-height: 1.5;
+    }
+}
 
 // 공지사항 모달
 .notice-dialog {
