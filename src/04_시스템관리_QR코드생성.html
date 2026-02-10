@@ -57,6 +57,17 @@
 							<span class="checkbox__label">전체 선택</span>
 						</label>
 						<button type="button" onclick="openModal('modalSelectStation')" class="btn blue small btn--dropdown">다운로드</button>
+						<div class="download-dropdown">
+							<button type="button" class="btn blue small btn--dropdown download-dropdown__toggle">10개 다운로드</button>
+							<ul class="download-dropdown__menu" role="menu" aria-label="QR 코드 대량 다운로드 방식 선택">
+								<li class="download-dropdown__item" role="none">
+									<button type="button" onclick="openModal('modalSelectStation2')" class="download-dropdown__button" role="menuitem" data-download-type="template">QR 코드 템플릿형</button>
+								</li>
+								<li class="download-dropdown__item" role="none">
+									<button type="button" onclick="openModal('modalSelectStation2')" class="download-dropdown__button" role="menuitem" data-download-type="standalone">QR 코드 단독형</button>
+								</li>
+							</ul>
+						</div>
 					</div>
 					<hr />
 					<div class="panel--list panel--list--qr" data-simplebar>
@@ -212,6 +223,17 @@
                             
                             <div class="panel--qr-preview__actions">
                                 <button type="button" class="btn blue small btn--dropdown">다운로드</button>
+								<div class="download-dropdown">
+									<button type="button" class="btn blue small btn--dropdown download-dropdown__toggle">10개 다운로드</button>
+									<ul class="download-dropdown__menu" role="menu" aria-label="QR 코드 대량 다운로드 방식 선택">
+										<li class="download-dropdown__item" role="none">
+											<button type="button" onclick="openModal('modalSelectStation2')" class="download-dropdown__button" role="menuitem" data-download-type="template">QR 코드 템플릿형</button>
+										</li>
+										<li class="download-dropdown__item" role="none">
+											<button type="button" onclick="openModal('modalSelectStation2')" class="download-dropdown__button" role="menuitem" data-download-type="standalone">QR 코드 단독형</button>
+										</li>
+									</ul>
+								</div>
                             </div>
                         </div>
 					</div>
@@ -228,7 +250,7 @@
 			</div>
 			<p class="modal--select-station__message" id="modalSelectStationTitle">다운로드할 정류장을 선택해 주세요.</p>
 			<div class="modal--select-station__actions">
-				<button type="button" onclick="openModal('modalSelectStation2')" class="btn blue small modal--select-station__confirm">확인</button>
+				<button type="button" onclick="closeModal('modalSelectStation')" class="btn blue small modal--select-station__confirm">확인</button>
 			</div>
 		</div>
 	</div>
@@ -241,21 +263,45 @@
 			</div>
 			<p class="modal--select-station__message" id="modalSelectStation2Title">다운로드가 완료 되었습니다.</p>
 			<div class="modal--select-station__actions">
-				<button type="button" onclick="closeModal('modalSelectStation'); closeModal('modalSelectStation2');" class="btn blue small modal--select-station__confirm">확인</button>
+				<button type="button" onclick="closeModal('modalSelectStation2');" class="btn blue small modal--select-station__confirm">확인</button>
 			</div>
 		</div>
 	</div>
 
 	<script>
-		// 모달 닫기용 삭제해주세요.
-		function openModal(modalId) {
-			var el = document.getElementById(modalId);
-			if (el) el.classList.add('active');
-		}
-		function closeModal(modalId) {
-			var el = document.getElementById(modalId);
-			if (el) el.classList.remove('active');
-		}
+        // 다운로드 드롭다운
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdowns = document.querySelectorAll('.download-dropdown');
+
+            function closeAllDownloadDropdowns() {
+                dropdowns.forEach(function (dropdown) {
+                    dropdown.classList.remove('is-open');
+                });
+            }
+
+            dropdowns.forEach(function (dropdown) {
+                var toggle = dropdown.querySelector('.download-dropdown__toggle');
+                var menu = dropdown.querySelector('.download-dropdown__menu');
+                if (!toggle || !menu) return;
+
+                toggle.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    var isOpen = dropdown.classList.contains('is-open');
+                    closeAllDownloadDropdowns();
+                    if (!isOpen) {
+                        dropdown.classList.add('is-open');
+                    }
+                });
+
+                menu.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                });
+            });
+
+            document.addEventListener('click', function () {
+                closeAllDownloadDropdowns();
+            });
+        });
 	</script>
 
 	{{> footer}}
