@@ -2815,32 +2815,6 @@ select {
 .panel--wrap--qr .panel--qr__actions .checkbox__label {
   font-size: 15px;
 }
-.panel--wrap--qr .panel--qr__actions .btn--dropdown {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 140px;
-  padding: 0 70px 0 15px;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
-  position: relative;
-}
-.panel--wrap--qr .panel--qr__actions .btn--dropdown::after {
-  content: "";
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 9px;
-  height: 5px;
-  background-image: url("../images/white-arrow.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.panel--wrap--qr .panel--qr__actions .btn--dropdown:hover {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-}
 .panel--wrap--qr > hr {
   border: none;
   height: 1px;
@@ -2928,7 +2902,6 @@ select {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   border-radius: 12px;
 }
 
@@ -3119,17 +3092,17 @@ select {
   text-align: right;
   flex-shrink: 0;
 }
-.panel--qr-preview__actions .btn--dropdown {
+
+.btn--dropdown {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-width: 140px;
-  padding: 0 70px 0 15px;
+  padding: 0 30px 0 15px;
+  width: auto;
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   position: relative;
 }
-.panel--qr-preview__actions .btn--dropdown::after {
+.btn--dropdown::after {
   content: "";
   position: absolute;
   right: 12px;
@@ -3142,8 +3115,53 @@ select {
   background-repeat: no-repeat;
   background-position: center;
 }
-.panel--qr-preview__actions .btn--dropdown:hover {
+.btn--dropdown:hover {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.download-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.download-dropdown__menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  min-width: 140px;
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #d8d8d8;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+}
+.download-dropdown__item {
+  padding: 0;
+}
+.download-dropdown__button {
+  width: 100%;
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  color: #111827;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.download-dropdown__button:hover {
+  background-color: #f3f4f6;
+}
+.download-dropdown.is-open .download-dropdown__menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .ico-no {
