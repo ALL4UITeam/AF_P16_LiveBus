@@ -116,9 +116,6 @@
     display: flex;
     align-items: center;
     padding: 30px 20px;
-    .burger{
-
-    }
     .logo{
         position: absolute;
         left: 50%;
@@ -160,9 +157,6 @@
         }
         .search--button{
             padding: 8px;
-            img{
-                
-            }
         }
     }
     .search--input {
@@ -1177,6 +1171,8 @@
     padding: 20px 20px 16px;
     flex-shrink: 0;
     background: linear-gradient(135deg, #133d6e, #21272f);
+    border-radius: 12px 12px 0 0;
+    
 }
 
 .panel--qr-preview__title {
@@ -1200,12 +1196,26 @@
 }
 
 .panel--qr-preview__content {
+    position: relative;
     padding: 20px;
     flex: 1;
     min-height: 0;
     display: flex;
     flex-direction: column;
     background: #f6f7fb;
+    border-radius: 0 0 12px 12px;
+    &::after{
+        content:'';
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 16px;
+        height: 16px;
+        z-index: 1;
+        background-image: url("@/assets/images/map/qr-head-after.jpg");
+        background-repeat: no-repeat;
+    }
 }
 
 .panel--qr-preview__selected {
