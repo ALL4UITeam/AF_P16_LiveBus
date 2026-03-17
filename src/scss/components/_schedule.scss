@@ -1,0 +1,713 @@
+// ========== 배차 스케줄 (툴바, 범례, 그리드) ==========
+
+$schedule-line: #c6c6c6;
+$schedule-bg: #f8fafc;
+$schedule-card: #fff;
+$schedule-text: #0f172a;
+$schedule-muted: #1d1d1d;
+
+// 유형별 색상 (범례·카드 공통)
+$type-sick: #ffb300;
+$type-sick-bg: rgba(255, 247, 229, 1);
+$type-leave: #4caf50;
+$type-leave-bg: rgba(237, 247, 237, 1);
+$type-off: #9575cd;
+$type-off-bg: rgba(244, 241, 250, 1);
+$type-weekday: #333333;
+$type-weekday-bg: rgba(234, 234, 234, 1);
+$type-weekend: #1a73e8;
+$type-weekend-bg:rgba(232, 241, 253, 1);
+$type-holiday: #e53935;
+$type-holiday-bg: rgba(252, 235, 234, 1);
+$type-temp: #ff00ff;
+$type-temp-bg: rgba(255, 229, 255, 1);
+
+// 툴바와 스케줄 표를 감싸는 하나의 패널 (툴바·그리드 간격 없이 하나의 표처럼 연결)
+.schedule-panel {
+    background: $schedule-card;
+    border: 1px solid $schedule-line;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.schedule-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 20px;
+    background: #fff;
+    border: 1px solid $schedule-line;
+    border-bottom: 1px solid $schedule-line;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 0;
+
+    &__left {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__nav-btn {
+        width: 32px;
+        height: 32px;        
+        font-size: 32px;
+        line-height: 1;
+        cursor: pointer;
+        color: $schedule-text;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-radius: 50%;
+        &:hover {
+            background: $schedule-bg;
+            
+        }
+    }
+
+    &__title {
+        font-size: 16px;
+        font-weight: 700;
+        color: $schedule-text;
+        min-width: 120px;
+        text-align: center;
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__download {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        width: 130px;
+        padding-left: 16px;
+    }
+
+    &__download-icon {
+        width: 16px;
+        height: 16px;
+        background-image: url("@/assets/images/schedule/ico-expansion-down.png");
+    }
+
+    &__fullscreen {
+        width: 36px;
+        height: 36px;
+        border: 1px solid $schedule-line;
+        background: $schedule-card;
+        border-radius: 5px;
+        cursor: pointer;
+        background-image: url("@/assets/images/schedule/ico-fullscreen.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        &:hover::before { border-color: $schedule-text; }
+    }
+}
+
+.schedule-legend {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    color: $schedule-muted;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    &__dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        flex-shrink: 0;
+
+        &--sick { background: $type-sick; }
+        &--leave { background: $type-leave; }
+        &--off { background: $type-off; }
+        &--weekday { background: $type-weekday; }
+        &--weekend { background: $type-weekend; }
+        &--holiday { background: $type-holiday; }
+        &--temp { background: $type-temp; }
+    }
+}
+
+.schedule-dropdown {
+    position: relative;
+
+    &__toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 12px;
+        font-size: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        height: 36px;   
+        min-width: 120px;
+        background: #fff;
+        justify-content: space-between;
+    }
+
+    &__caret {
+        width: 9px;
+        height: 5px;
+        background-image: url("@/assets/images/schedule/select-arrow.png");
+    }
+
+    &__menu {
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        min-width: 120px;
+        padding: 6px 0;
+        background: $schedule-card;
+        border: 1px solid $schedule-line;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+        z-index: 50;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s ease;
+
+        &[aria-hidden="false"] {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    &__item {
+        display: block;
+        width: 100%;
+        padding: 8px 14px;
+        text-align: left;
+        font-size: 14px;
+        color: $schedule-text;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background: $schedule-bg;
+        }
+    }
+
+    &.is-open .schedule-dropdown__menu {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.schedule-view-toggle {
+    display: flex;
+    border: 1px solid $schedule-line;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 36px;
+    &__btn {
+        padding: 8px 14px;
+        font-size: 14px;
+        background: $schedule-card;
+        border: none;
+        color: $schedule-muted;
+        cursor: pointer;
+
+        &.is-active {
+            background: #047bb6;
+            color: #fff;
+        }
+        &:not(.is-active):hover {
+            background: $schedule-bg;
+        }
+    }
+}
+
+// ========== 그리드 ==========
+
+.schedule-wrap {
+    background: $schedule-card;
+    border: 1px solid $schedule-line;
+    border-top: none;
+    border-right: none; // 우측 외곽선은 마지막 열에서만 담당
+    border-bottom: 1px solid $schedule-line; // 최하단은 wrap이 1px만 담당
+    // border-radius: 0 0 10px 10px;
+    overflow: auto;
+    min-height: 400px;
+    margin-top: 0;
+}
+
+.schedule-grid {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+
+    &__head {
+        display: flex;
+        align-items: stretch;
+        
+        color: #e2e8f0;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    &__head-cell {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 8px;
+        font-size: 12px;
+        font-weight: 600;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+        &--name {
+            min-width: 140px;
+            max-width: 140px;
+            flex-shrink: 0;
+            position: sticky;
+            left: 0;
+            z-index: 12;
+            background: #fff;
+            box-shadow: 6px 0 10px rgba(15, 23, 42, 0.08);
+            border-right: 1px solid $schedule-line;
+            border-bottom: 1px solid $schedule-line;
+        }
+
+        &--date {
+            min-width: 120px;
+            flex: 1;
+            position: relative;
+        }
+    }
+
+    &__head-dates {
+        display: flex;
+        flex: 1;
+        min-width: 0;
+    }
+
+    &__head-dates .schedule-grid__head-cell--date {
+        flex: 1;
+        min-width: 120px;
+        border-right: 1px solid $schedule-line;
+        border-bottom: 1px solid $schedule-line; // 기본 바텀 라인은 유지
+        /* 활성화 시에는 .schedule-grid__head-cell--col-selected 에서 border-bottom만 별도로 제어 */
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__row {
+        display: flex;
+        align-items: stretch;
+        min-height: 56px;
+        overflow: visible;
+        position: relative;
+    }
+
+    /* 마지막 행: 셀의 border-bottom은 제거해서 wrap의 1px 라인만 보이도록 */
+    &__row:last-child {
+        .schedule-grid__cell,
+        .schedule-grid__name-cell {
+            border-bottom: none;
+        }
+    }
+
+    &__name-cell {
+        min-width: 140px;
+        max-width: 140px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 10px;
+        background: #fff;
+        border-right: 1px solid $schedule-line;
+        border-bottom: 1px solid $schedule-line;
+        gap: 6px;
+        position: sticky;
+        left: 0;
+        z-index: 8;
+        box-shadow: 6px 0 10px rgba(15, 23, 42, 0.06);
+        overflow: visible;
+        /* 행 드롭다운이 다음 행 위에 보이도록 */
+        isolation: isolate;
+
+        /* 행 선택 배경은 sticky 셀에서 가상 요소로 분리 */
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: transparent;
+            z-index: -1;
+        }
+
+        .schedule-grid__row--selected &::before {
+            background: rgba(0, 0, 0, 0.14);
+        }
+    }
+
+    /* 마지막 행: 별도 제어 없이 기본 cell border-bottom으로만 한 줄 유지 */
+
+    &__name {
+        font-size: 14px;
+        font-weight: 600;
+        color: $schedule-text;
+    }
+
+    &__name-menu,
+    &__cell-menu {
+        width: 24px;
+        height: 24px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        position: relative;
+        flex-shrink: 0;
+
+        &::before {
+            content: '⋮';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: -2px;
+            color: $schedule-muted;
+        }
+        &:hover::before { color: $schedule-text; }
+    }
+
+    &__cell {
+        flex: 1;
+        min-width: 120px;
+        padding: 6px;
+        border-right: 1px solid $schedule-line;
+        border-bottom: 1px solid $schedule-line;
+        background: $schedule-card;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        flex-direction: column;
+        gap:5px;
+        &:last-child {
+            border-right: none; // 기본 그리드에서는 마지막 셀 우측선 제거
+        }
+
+        &--empty {
+            .schedule-grid__add {
+                opacity: 0;
+                transition: opacity 0.15s ease;
+            }
+            &:hover .schedule-grid__add {
+                opacity: 1;
+            }
+        }
+
+        &--col-selected {
+            background: rgba(0, 0, 0, 0.06);
+            /* X축과 동일하게 1px 느낌으로 좌우 라인만 얇게 */
+            box-shadow:
+                inset 1px 0 0 0 rgba(45, 45, 45, 0.9),
+                inset -1px 0 0 0 rgba(45, 45, 45, 0.9);
+        }
+    }
+
+    /* 전체 그리드의 가장 오른쪽 열만 외곽선 1px로 보이도록 */
+    &__row {
+        .schedule-grid__cell:last-child {
+            border-right: 1px solid $schedule-line;
+        }
+    }
+
+    &__row:last-child &__cell--col-selected {
+        /* 마지막 행은 하단에도 1px만 추가 */
+        box-shadow:
+            inset 1px 0 0 0 rgba(45, 45, 45, 0.9),
+            inset -1px 0 0 0 rgba(45, 45, 45, 0.9),
+            inset 0 -1px 0 0 rgba(45, 45, 45, 0.9);
+    }
+
+    &__add {
+        width: 100%;
+        height: 100%;
+        min-height: 40px;
+        border: 1px dashed $schedule-line;
+        border-radius: 8px;
+        background: transparent;
+        font-size: 20px;
+        color: $schedule-muted;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.15s, color 0.15s, opacity 0.15s ease;
+
+        &:hover {
+            background: rgba(59, 130, 246, 0.08);
+            color: #047bb6;
+            border-color: #047bb6;
+        }
+    }
+}
+
+.schedule-grid__head,
+.schedule-grid__body,
+.schedule-grid__row {
+    width: max-content;
+    min-width: 100%;
+}
+
+.schedule-grid__head-dates {
+    display: flex;
+    width: max-content;
+    min-width: 0;
+}
+
+// 열/행 케밥 메뉴 및 선택 상태
+.schedule-grid__head-label {
+    pointer-events: none;
+}
+
+.schedule-grid__kebab {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+
+    &::before {
+        content: '⋮';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 14px;
+        font-weight: 700;
+        color: $schedule-muted;
+    }
+
+    &:hover::before {
+        color: $schedule-text;
+    }
+
+    /* 상단 날짜 열 케밥만 가로(⋯), 좌측 행 케밥은 세로(⋮) 유지 */
+    &--col::before {
+        content: '⋯';
+    }
+}
+
+.schedule-grid__head-cell--date,
+.schedule-grid__name-cell {
+    .schedule-grid__kebab {
+        margin-left: 4px;
+    }
+}
+
+.schedule-grid__menu {
+    position: absolute;
+    right: 50%;
+    top: 100%;
+    transform: translateX(50%);
+    margin-top: 4px;
+    min-width: 150px;
+    padding: 4px 0;
+    background: $schedule-card;
+    border: 1px solid $schedule-line;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
+    z-index: 20;
+    list-style: none;
+    display: none;
+
+    &[aria-hidden="false"] {
+        display: block;
+    }
+
+    /* X열(행) 메뉴: 이름 셀 오른쪽으로 뜨도록 위치 재조정 + z-index 상승 */
+    &--row {
+        z-index: 100;
+        right: auto;
+        left: 100%;
+        top: 50%;
+        margin-top: 0;
+        margin-left: 8px;
+        transform: translateY(-50%);
+    }
+}
+
+.schedule-grid__menu-item {
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 13px;
+    text-align: left;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: $schedule-text;
+
+    &:hover {
+        background: $schedule-bg;
+    }
+}
+
+/* Y열 선택: 헤더는 X축과 동일하게 1px 테두리 느낌만 */
+.schedule-grid__head-cell--col-selected {
+    /* 상/좌/우만 파란 라인, 하단은 본문 셀 border만 보이도록 처리 */
+    box-shadow:
+        inset 0 1px 0 0 rgba(45, 45, 45, 0.9),   /* top */
+        inset 1px 0 0 0 rgba(45, 45, 45, 0.9),   /* left */
+        inset -1px 0 0 0 rgba(45, 45, 45, 0.9);  /* right */
+    background: rgba(0, 0, 0, 0.08);
+    border-bottom-color: transparent; /* 활성화 시에는 헤더 바텀 라인은 숨겨서 이중선 방지 */
+}
+
+.schedule-grid__row--selected {
+    z-index: 50;
+    position: relative;
+    /* 행 선택: 박스섀도우 대신 border 기반으로 처리해서 스크롤 시 top 라인이 사라지지 않도록 */
+
+    .schedule-grid__name-cell,
+    .schedule-grid__cell {
+        background: rgba(0, 0, 0, 0.05);
+        border-top: 1px solid rgba(45, 45, 45, 0.9);    /* X축처럼 위쪽 1px 라인 고정 */
+        border-bottom-color: rgba(45, 45, 45, 0.9);     /* 하단도 파란 1px */
+    }
+
+    .schedule-grid__name-cell {
+        border-left: 1px solid rgba(45, 45, 45, 0.9);    /* 좌측 파란 라인 */
+        background: #fff;
+    }
+
+    .schedule-grid__cell:last-child {
+        border-right: 1px solid rgba(45, 45, 45, 0.9);   /* 우측 파란 라인 */
+    }
+}
+
+// ========== 스케줄 카드 (유형별) ==========
+
+.schedule-item {
+    position: relative;
+    width: 100%;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    min-height: 60px;
+    justify-content: center;
+    &__dot {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 4px;
+    }
+
+    &__range,
+    &__code {
+        font-size: 17px;
+        font-weight: 700;
+        color: $schedule-text;
+    }
+
+    &__code {
+        font-size: 15px;
+        color: $schedule-muted;
+        font-weight: 500;
+    }
+
+    &__label {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    &--sick {
+        background: $type-sick-bg;
+        .schedule-item__dot { background: $type-sick; }
+        .schedule-item__range { color: $type-sick; }
+        .schedule-item__label { color: $type-sick; }
+    }
+
+    &--leave {
+        background: $type-leave-bg;
+        .schedule-item__dot { background: $type-leave; }
+        .schedule-item__range { color: $type-leave; }
+        .schedule-item__label { color: $type-leave; }
+    }
+
+    &--off {
+        background: $type-off-bg;
+        .schedule-item__dot { background: $type-off; }
+        .schedule-item__range { color: $type-off; }
+        .schedule-item__label { color: $type-off; }
+    }
+
+    &--weekday {
+        background: $type-weekday-bg;
+        .schedule-item__dot { background: $type-weekday; }
+        .schedule-item__range { color: $type-weekday; }
+        .schedule-item__label { color: $type-weekday; }
+    }
+
+    &--weekend {
+        background: $type-weekend-bg;
+        .schedule-item__dot { background: $type-weekend; }
+        .schedule-item__range { color: $type-weekend; }
+        .schedule-item__label { color: $type-weekend; }
+    }
+
+    &--holiday {
+        background: $type-holiday-bg;
+        .schedule-item__dot { background: $type-holiday; }
+        .schedule-item__range { color: $type-holiday; }
+        .schedule-item__label { color: $type-holiday; }
+    }
+
+    &--temp {
+        background: $type-temp-bg;
+        .schedule-item__dot { background: $type-temp; }
+        .schedule-item__range { color: $type-temp; }
+        .schedule-item__label { color: $type-temp; }
+    }
+}
+
+

@@ -455,3 +455,1695 @@
     }
 
 }
+
+// 차량별 배차 관리 모달
+.modal--vehicle-dispatch {
+    .modal-dialog {
+        width: 100%;
+        max-width: 568px;
+        max-height: calc(100vh - 32px);
+        border-radius: 22px;
+        overflow: hidden;
+    }
+
+    .modal-content {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        padding: 20px 20px 22px;
+        background: #eef0f2;
+    }
+
+    .modal-header {
+        display: none;
+    }
+
+    &__summary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 36px;
+        padding: 16px 20px;
+        min-height: 64px;
+        background: #d9ebf7;
+        border: 1px solid #88bfe3;
+        border-radius: 16px;
+    }
+
+    &__summary-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 17px;
+        font-weight: bold;
+        color: #2f2f2f;
+    }
+
+    &__icon {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.95;
+
+        &--bus {
+            background-image: url("@/assets/images/schedule/ico-bus.png");
+        }
+
+        &--cal {
+            background-image: url("@/assets/images/schedule/ico-calendar.png");
+        }
+    }
+
+    &__section {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__section-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+
+        &--line {
+            padding-bottom: 12px;
+            border-bottom: 1px solid #d9d9d9;
+        }
+    }
+
+    &__section-title {
+        margin: 0;
+        font-size: 19px;
+        line-height: 1.2;
+        font-weight: bold;
+        color: #2d2d2d;
+
+        span{
+            color: #047bb6;
+            font-weight: bold;
+        }
+    }
+
+    &__section-note {
+        margin: 0;
+        flex-shrink: 0;
+        font-size: 13px;
+        font-weight: 500;
+        color: #047bb6;
+        white-space: nowrap;
+    }
+
+    &__search-wrap {
+        display: flex;
+        align-items: center;
+        height: 44px;
+        border: 1px solid #c6c6c6;
+        border-radius: 6px;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    &__input {
+        flex: 1;
+        min-width: 0;
+        height: 100%;
+        border: 0 !important;
+        background: transparent;
+        padding: 0 14px;
+        font-size: 15px;
+        color: #333;
+        box-shadow: none !important;
+
+        &::placeholder {
+            color: #b8b8b8;
+            font-weight: 600;
+        }
+    }
+
+    &__search-btn {
+        width: 46px;
+        height: 100%;
+        flex-shrink: 0;
+        border: 0;
+        background: #fff url("@/assets/images/schedule/ico-search.png") no-repeat center;
+        cursor: pointer;
+    }
+
+    &__chips {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Swiper 적용 시 */
+        &.swiper {
+            width: 100%;
+            overflow: hidden;
+
+            &:active {
+                cursor: grabbing;
+            }
+
+            .swiper-wrapper {
+                display: flex;
+            }
+
+            .swiper-slide {
+                width: 220px;
+            }
+        }
+    }
+
+    &__chip {
+        
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #e4e4e4;
+        background: #f3f3f3;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    &__chip.is-selected {
+        border-color: #0f84c7;
+        background: #0f84c7;
+        .modal--vehicle-dispatch__chip-top {
+            color: #fff;
+            background: #0f84c7;
+        }
+
+        .modal--vehicle-dispatch__chip-divider {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal--vehicle-dispatch__chip-remove {
+            opacity: 1;
+            filter: brightness(0) invert(1);
+        }
+
+        .modal--vehicle-dispatch__chip-check {
+            background: #0a6fa7;
+            color: #fff;
+            span{
+                color:#fff;
+            }
+        }
+        .modal--vehicle-dispatch__chip-name{
+            color:#fff;
+        }
+        .modal--vehicle-dispatch__chip-course{
+            color:#fff;
+        }
+    }
+
+    &__chip-top {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 17px 14px 17px;
+        min-height: 60px;
+        height: 60px;
+        background: #f3f3f3;
+        color: #2f2f2f;
+    }
+
+    &__chip-main {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    &__chip-name {
+        flex-shrink: 0;
+        font-size: 17px;
+        font-weight: bold;
+        line-height: 1;
+        flex:1;
+        text-align: center;
+    }
+
+    &__chip-divider {
+        width: 1px;
+        height: 24px;
+        background: #dddddd;
+        flex-shrink: 0;
+    }
+
+    &__chip-course {
+        min-width: 0;
+        font-size: 17px;
+        font-weight: bold;
+        flex:1;
+        text-align: center;
+        line-height: 1.1;
+    }
+
+    &__chip-course--placeholder {
+        font-size: 13px;
+        font-weight: 
+        500;
+        line-height: 1.35;
+        color: #b6b6b6;
+        white-space: normal;
+        word-break: keep-all;
+    }
+
+    &__chip-remove {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        border: 0;
+        background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237a7a7a' stroke-width='2'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E") no-repeat center;
+        background-size: 16px;
+        cursor: pointer;
+        opacity: 0.9;
+    }
+
+    &__chip-check {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        padding: 6px 12px;
+        background: #ececec;
+        color: #8b8b8b;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1;
+        cursor: pointer;
+
+        span {
+            order: 1;
+            font-size: 13px;
+        }
+
+        input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        i {
+            order: 2;
+            width: 14px;
+            // Modal 공통
+            .modal {
+                display: none; // 기본 숨김
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.3);
+                z-index: 1000;
+                justify-content: center;
+                align-items: center;
+                &.active {
+                    display: flex;
+                }
+                .modal-dialog {
+                    background: #ecf0f2; // gray-100
+                    border-radius: 10px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                    min-width: 300px;
+                    max-width: 90%;
+                    max-height: 90%;
+                    overflow: hidden;
+                    .modal-header {
+                        background: #047bb6; // 파란 헤더
+                        color: #fff;
+                        padding: 15px 20px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        font-size: 19px;
+                        font-weight: 300;
+                        span{
+                            color: #fff;
+                        }
+                        button {
+                            background-color: transparent;
+                            border: none;
+                            cursor: pointer;
+                            width: 24px;
+                            height: 24px;
+                            background-repeat: no-repeat;
+                            background-image: url("@/assets/images/dash/modal-close.png");
+                        }
+                    }
+                    .modal-content {
+                        padding: 20px;
+                        min-height: 150px;
+                    }
+                }
+            }
+            
+            // 이상알림 모달
+            .modal--alerts{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                &__col{
+                    width: 480px;
+                    h3{
+                        font-size: 19px;
+                        font-weight: 500;
+                        color:#047bb6;
+                        margin-top: 10px;
+                        margin-bottom: 12px;
+                    }
+                }
+                &__item{
+                    display: flex;
+                    flex-direction: column;
+                    gap:10px;
+                    padding: 20px;
+                    border-radius: 10px;
+                    background: #fff;
+                    .head{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .data{
+                            font-size: 13px;
+                            color:#717171;
+                        }
+                    }
+                    h4{
+                        font-size: 15px;
+                        color:#1d1d1d;
+                        font-weight: 500;
+                    }
+                    .info{
+                        font-size: 15px;
+                        color:#717171;
+                    }
+                    & + div{
+                        margin-top: 10px;
+                        
+                    }
+                }
+            }
+            
+            .modal__card{
+                background: #fff;
+                border-radius: 12px;
+                padding: 20px;
+                width: 480px;
+                padding: 20px;
+            }
+            
+            // 운행버스 현황 정보
+            .stats--modal{
+                &__inner{
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap:20px;
+                }
+            
+                &__title{
+                    font-size: 19px;
+                    font-weight: 500;
+                    margin-bottom: 20px;    
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid #d8d8d8;
+                }
+                .sub {
+                    font-size: 13px;
+                    font-weight: normal;
+                    color: #1d1d1d;
+                    margin-bottom: 20px;
+                    b {
+                        font-weight: normal;
+                        color: #1976d2;
+                    }
+                }
+            }
+            
+            .notice--regi--modal{
+                .modal__card{
+                    width: 980px;
+                }
+            }
+            
+            .notice--detail--modal{
+                .modal__card{
+                    width: 980px;
+                }
+                .notice-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    .notice-left {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        .badge {
+                            display: inline-block;
+                            padding: 4px 8px;
+                            font-size: 12px;
+                            font-weight: 300;
+                            border-radius: 4px;
+                            line-height: 1;
+                            &.badge-danger {
+                                background: #e54e57; // 빨강
+                                color: #fff;
+                            }
+                        }
+                        .notice-title {
+                            font-size: 15px;
+                            font-weight: 300;
+                            color: #1d1d1d;
+                        }
+                    }
+                    .notice-right {
+                        display: flex;
+                        align-items: center;
+                        font-size: 13px;
+                        color: #1d1d1d;
+                        .notice-writer {
+                            font-weight: 500;
+                        }
+                        .divider {
+                            margin: 0 6px;
+                            color: #c6c6c6;
+                        }
+                    }
+                }
+            
+                .notice-divider {
+                    border: none;
+                    border-top: 1px solid #e5e7eb;
+                    margin-bottom: 20px;
+                }
+            
+                .notice-content{
+                    border-radius: 5px;
+                    border: 1px solid #c6c6c6;
+                    padding: 20px 10px;
+                    font-size: 15px;
+                    margin-bottom: 10px;
+                    font-weight: 300;
+                }
+            }
+            .small--pop{
+                position: absolute;
+                background:#fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                &__head{
+                    font-size: 17px;
+                    margin-bottom: 10px;
+                }
+                .line-flex-item{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 10px;
+                    padding: 10px;
+                    border: 1px solid #c6c6c6;
+                    border-radius: 5px;
+                    margin-bottom: 5px;
+                }
+            }
+            
+            // 정류장 선택 안내 모달 (다운로드 시 정류장 미선택)
+            .modal--select-station {
+                .modal--select-station__dialog {
+                    background: #fff;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+                    min-width: 350px;
+                    max-width: 90%;
+                    padding: 30px 20px 20px;
+                    text-align: center;
+                }
+                .modal--select-station__icon {
+                    margin-bottom: 24px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    svg {
+                        display: block;
+                        width: 56px;
+                        height: 56px;
+                    }
+                }
+                .modal--select-station__message {
+                    margin: 0 0 28px;
+                    font-size: 16px;
+                    color: #1d1d1d;
+                    line-height: 1.5;
+                }
+            }
+            
+            // 공지사항 모달
+            .notice-dialog {
+                position: relative;
+                .notice-bottom {
+                    background: #ecf0f2;
+                    position: sticky;
+                    bottom: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 70px;
+                    .no-week {
+                        font-size: 14px;
+                        color: #888;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+            
+                        input[type="checkbox"] {
+                            width: 18px;
+                            height: 18px;
+                            border-radius: 50%;
+                            cursor: pointer;
+                        }
+                    }
+            
+                    .btn-close {
+                        background: none;
+                        border: none;
+                        color: #111;
+                        font-size: 15px;
+                        cursor: pointer;
+                        padding: 5px 10px;
+                    }
+                }
+            }
+            
+            .notice-type02-modal {
+                max-height: 700px;
+                background: #daebfc;
+            
+                .notice-top {
+                    text-align: center;
+                    padding-bottom: 240px;
+                    background-image: url("@/assets/images/modal/top-img.png");
+                    background-position: bottom;
+                    background-repeat: no-repeat;
+                    margin-bottom: 30px;
+                }
+                .notice-logo {
+                    padding-top: 80px;
+                }
+            
+                .notice-title {
+                    padding-top: 20px;
+                    font-size: 60px;
+                    font-weight: bold;
+                    color: #0844aa;
+                }
+            
+                .notice-row-head {
+                    background: #0067c5;
+                    color: #fff;
+                    font-size: 25px;
+                    padding: 14px 20px;
+                    font-weight: 600;
+                    text-align: center;
+                    border-radius: 10px 10px 0 0;
+                }
+            
+                .notice-box {
+                    background: #fff;
+                    margin-bottom: 20px;
+                    border-radius:  0 0 10px 10px;
+                    padding: 30px;
+                }
+                .notice-img-box{
+                    background: #fff;
+                    padding: 20px;
+                    border-radius: 10px;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .notice-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    margin-bottom: 15px;
+            
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+            
+                    .label {
+                        background: #077cb4;
+                        color: #fff;
+                        padding: 8px 16px;
+                        border-radius: 20px;
+                        font-size: 20px;
+                        white-space: nowrap;
+                        display: inline-block;
+                    }
+            
+                    .value {
+                        font-size: 20px;
+                        color: #0a244a;
+            
+                        &.strong {
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+            .notice-type01-modal {
+                max-height: 700px;
+                position: relative;
+                padding: 80px 80px !important;
+                background-color: #0972db;
+                background-image: url("@/assets/images/modal/notice-type01-bg.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                &:after{
+                    position: absolute;
+                    left: 0;
+                    bottom: -3px;
+                    // content:'';
+                    display: block;
+                    width: 100%;
+                    height: 220px;
+                    background-image: url("@/assets/images/modal/notice-type01-bottom.png");
+                }
+                .notice-title {
+                    font-size: 55px;
+                    color: #fff;
+                    font-weight: 100;
+                    line-height: 1.3;
+                    text-align: center;
+                    margin-bottom: 20px;
+                    strong{
+                        font-weight: 700;
+                        color:#fff;
+                    }
+                }
+                
+                .notice-box {
+                    background: #fff;
+                    border-radius: 10px;
+                    padding: 60px 80px 60px 80px ;
+                    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+                    .notice-desc {
+                        font-size: 24px;
+                        color: #333;
+                        text-align: center;
+                        line-height: 1.6;
+                        margin-bottom: 25px;
+                        strong {
+                            font-weight: 700;
+                        }
+                    }
+                    .row {
+                        display: flex;
+                        gap: 10px;
+                        margin-bottom: 10px;
+                        .label {
+                            min-width: 140px;
+                            background: #333;
+                            color: #fff;
+                            font-size: 20px;
+                            padding: 10px 10px;
+                            border-radius:0px 5px 5px 5px;
+                            min-width: 95px;
+                            text-align: center;
+                        }
+                        .value {
+                            font-size: 25px;
+                            font-weight: 700;
+                            color: #0758ac;
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                    .notice-sub {
+                        font-size: 15px;
+                        color: #777;
+                        margin-left: 150px;
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+            
+            .modal-dispatch-cont{
+                display: flex;
+                flex-direction: column;
+                gap:20px;
+                .route--manage__box{
+                    .listbody{
+                        height: 200px;
+                    }
+                    
+                }
+            
+            }
+            
+            // 차량별 배차 관리 모달
+            .modal--vehicle-dispatch {
+                .modal-dialog {
+                    width: 100%;
+                    max-width: 568px;
+                    max-height: calc(100vh - 32px);
+                    border-radius: 22px;
+                    overflow: hidden;
+                }
+            
+                .modal-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 22px;
+                    padding: 20px 20px 22px;
+                    background: #eef0f2;
+                }
+            
+                .modal-header {
+                    display: none;
+                }
+            
+                &__summary {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 36px;
+                    padding: 16px 20px;
+                    min-height: 64px;
+                    background: #d9ebf7;
+                    border: 1px solid #88bfe3;
+                    border-radius: 16px;
+                }
+            
+                &__summary-item {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 17px;
+                    font-weight: bold;
+                    color: #2f2f2f;
+                }
+            
+                &__icon {
+                    width: 22px;
+                    height: 22px;
+                    flex-shrink: 0;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    opacity: 0.95;
+            
+                    &--bus {
+                        background-image: url("@/assets/images/schedule/ico-bus.png");
+                    }
+            
+                    &--cal {
+                        background-image: url("@/assets/images/schedule/ico-calendar.png");
+                    }
+                }
+            
+                &__section {
+                    background: #fff;
+                    border-radius: 12px;
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                }
+            
+                &__section-head {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 16px;
+            
+                    &--line {
+                        padding-bottom: 12px;
+                        border-bottom: 1px solid #d9d9d9;
+                    }
+                }
+            
+                &__section-title {
+                    margin: 0;
+                    font-size: 19px;
+                    line-height: 1.2;
+                    font-weight: bold;
+                    color: #2d2d2d;
+            
+                    span{
+                        color: #047bb6;
+                        font-weight: bold;
+                    }
+                }
+            
+                &__section-note {
+                    margin: 0;
+                    flex-shrink: 0;
+                    font-size: 13px;
+                    font-weight: 500;
+                    color: #047bb6;
+                    white-space: nowrap;
+                }
+            
+                &__search-wrap {
+                    display: flex;
+                    align-items: center;
+                    height: 44px;
+                    border: 1px solid #c6c6c6;
+                    border-radius: 6px;
+                    background: #fff;
+                    overflow: hidden;
+                }
+            
+                &__input {
+                    flex: 1;
+                    min-width: 0;
+                    height: 100%;
+                    border: 0 !important;
+                    background: transparent;
+                    padding: 0 14px;
+                    font-size: 15px;
+                    color: #333;
+                    box-shadow: none !important;
+            
+                    &::placeholder {
+                        color: #b8b8b8;
+                        font-weight: 600;
+                    }
+                }
+            
+                &__search-btn {
+                    width: 46px;
+                    height: 100%;
+                    flex-shrink: 0;
+                    border: 0;
+                    background: #fff url("@/assets/images/schedule/ico-search.png") no-repeat center;
+                    cursor: pointer;
+                }
+            
+                &__chips {
+                    display: flex;
+                    gap: 10px;
+                    overflow-x: auto;
+                    overflow-y: hidden;
+            
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+            
+                    /* Swiper 적용 시 */
+                    &.swiper {
+                        width: 100%;
+                        overflow: hidden;
+            
+                        &:active {
+                            cursor: grabbing;
+                        }
+            
+                        .swiper-wrapper {
+                            display: flex;
+                        }
+            
+                        .swiper-slide {
+                            width: 220px;
+                        }
+                    }
+                }
+            
+                &__chip {
+                    
+                    border-radius: 10px;
+                    overflow: hidden;
+                    border: 1px solid #e4e4e4;
+                    background: #f3f3f3;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+                }
+            
+                &__chip.is-selected {
+                    border-color: #0f84c7;
+                    background: #0f84c7;
+                    .modal--vehicle-dispatch__chip-top {
+                        color: #fff;
+                        background: #0f84c7;
+                    }
+            
+                    .modal--vehicle-dispatch__chip-divider {
+                        background: rgba(255, 255, 255, 0.2);
+                    }
+            
+                    .modal--vehicle-dispatch__chip-remove {
+                        opacity: 1;
+                        filter: brightness(0) invert(1);
+                    }
+            
+                    .modal--vehicle-dispatch__chip-check {
+                        background: #0a6fa7;
+                        color: #fff;
+                        span{
+                            color:#fff;
+                        }
+                    }
+                    .modal--vehicle-dispatch__chip-name{
+                        color:#fff;
+                    }
+                    .modal--vehicle-dispatch__chip-course{
+                        color:#fff;
+                    }
+                }
+            
+                &__chip-top {
+                    position: relative;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: space-between;
+                    gap: 12px;
+                    padding: 17px 14px 17px;
+                    min-height: 60px;
+                    height: 60px;
+                    background: #f3f3f3;
+                    color: #2f2f2f;
+                }
+            
+                &__chip-main {
+                    flex: 1;
+                    min-width: 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 14px;
+                }
+            
+                &__chip-name {
+                    flex-shrink: 0;
+                    font-size: 17px;
+                    font-weight: bold;
+                    line-height: 1;
+                    flex:1;
+                    text-align: center;
+                }
+            
+                &__chip-divider {
+                    width: 1px;
+                    height: 24px;
+                    background: #dddddd;
+                    flex-shrink: 0;
+                }
+            
+                &__chip-course {
+                    min-width: 0;
+                    font-size: 17px;
+                    font-weight: bold;
+                    flex:1;
+                    text-align: center;
+                    line-height: 1.1;
+                }
+            
+                &__chip-course--placeholder {
+                    font-size: 13px;
+                    font-weight: 
+                    500;
+                    line-height: 1.35;
+                    color: #b6b6b6;
+                    white-space: normal;
+                    word-break: keep-all;
+                }
+            
+                &__chip-remove {
+                    position: absolute;
+                    right: 5px;
+                    top: 5px;
+                    width: 20px;
+                    height: 20px;
+                    flex-shrink: 0;
+                    border: 0;
+                    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237a7a7a' stroke-width='2'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E") no-repeat center;
+                    background-size: 16px;
+                    cursor: pointer;
+                    opacity: 0.9;
+                }
+            
+                &__chip-check {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    gap: 8px;
+                    padding: 6px 12px;
+                    background: #ececec;
+                    color: #8b8b8b;
+                    font-size: 11px;
+                    font-weight: 700;
+                    line-height: 1;
+                    cursor: pointer;
+            
+                    span {
+                        order: 1;
+                        font-size: 13px;
+                    }
+            
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+            
+                    i {
+                        order: 2;
+                        width: 14px;
+                        height: 14px;
+                        border: 1px solid #cfcfcf;
+                        border-radius: 4px;
+                        background: #fff;
+                        flex-shrink: 0;
+                        position: relative;
+                    }
+            
+                    input:checked+i {
+                        border-color: #ffffff;
+                        background: #ffffff;
+                    }
+            
+                    input:checked+i::after {
+                        content: "";
+                        position: absolute;
+                        inset: 3px;
+                        border-radius: 2px;
+                        background: #0f84c7;
+                    }
+                }
+            
+                &__course-grid {
+                    display: grid;
+                    grid-template-columns: repeat(5, minmax(0, 1fr));
+                    gap: 8px;
+                    max-height: 156px;
+                    overflow-y: auto;
+                    padding-right: 2px;
+            
+                    &::-webkit-scrollbar {
+                        width: 6px;
+                    }
+            
+                    &::-webkit-scrollbar-thumb {
+                        background: #d8d8d8;
+                        border-radius: 999px;
+                    }
+                }
+            
+                &__course-btn {
+                    height: 36px;
+                    border: 1px solid #c6c6c6;
+                    border-radius: 4px;
+                    background: #fff;
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: #6b6b6b;
+                    cursor: pointer;
+                    text-align: center;
+                    padding: 0 8px;
+                }
+            
+                &__course-btn.is-selected {
+                    border-color: #047bb6;
+                    background: #fff;
+                    color: #047bb6;
+                }
+            
+                &__footer {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 10px 12px 0;
+                }
+            
+                &__footer-right {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+            
+                &__footer-btn {
+                    min-width: 106px;
+                    height: 40px;
+                    border-radius: 999px;
+                    font-size: 15px;
+                    font-weight: 500;
+                    border: 0;
+                    box-shadow: none;
+                }
+            
+                &__footer-btn--ghost {
+                    background: #fff;
+                    border: 1px solid #555555 !important;
+                    color: #555555;
+                }
+            
+                &__footer-btn--dark {
+                    background: #555555;
+                    color: #fff;
+                }
+            
+                &__footer-btn--primary {
+                    background: #047bb6;
+                    color: #fff;
+                }
+            }
+            height: 14px;
+            border: 1px solid #cfcfcf;
+            border-radius: 4px;
+            background: #fff;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        input:checked+i {
+            border-color: #ffffff;
+            background: #ffffff;
+        }
+
+        input:checked+i::after {
+            content: "";
+            position: absolute;
+            inset: 3px;
+            border-radius: 2px;
+            background: #0f84c7;
+        }
+    }
+
+    &__course-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+        max-height: 156px;
+        overflow-y: auto;
+        padding-right: 2px;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #d8d8d8;
+            border-radius: 999px;
+        }
+    }
+
+    &__course-btn {
+        height: 36px;
+        border: 1px solid #c6c6c6;
+        border-radius: 4px;
+        background: #fff;
+        font-size: 15px;
+        font-weight: 500;
+        color: #6b6b6b;
+        cursor: pointer;
+        text-align: center;
+        padding: 0 8px;
+    }
+
+    &__course-btn.is-selected {
+        border-color: #047bb6;
+        background: #fff;
+        color: #047bb6;
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 12px 0;
+    }
+
+    &__footer-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__footer-btn {
+        min-width: 106px;
+        height: 40px;
+        border-radius: 999px;
+        font-size: 15px;
+        font-weight: 500;
+        border: 0;
+        box-shadow: none;
+    }
+
+    &__footer-btn--ghost {
+        background: #fff;
+        border: 1px solid #555555 !important;
+        color: #555555;
+    }
+
+    &__footer-btn--dark {
+        background: #555555;
+        color: #fff;
+    }
+
+    &__footer-btn--primary {
+        background: #047bb6;
+        color: #fff;
+    }
+}
+
+// ========== 스케줄 전체 삭제 모달 ==========
+.modal--schedule-clear {
+    .modal-dialog {
+        width: 100%;
+        max-width: 460px;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .modal-content {
+        padding: 18px 18px 14px;
+        background: #ecf0f2;
+    }
+
+    &__body {
+        background: #fff;
+        border-radius: 12px;
+        min-height: 170px;
+        padding: 24px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    &__icon {
+        width: 47px;
+        height: 40px;
+        background: url("@/assets/images/schedule/ico-remove.png") no-repeat center;
+    }
+
+    &__message {
+        margin: 0;
+        text-align: center;
+        font-size: 17px;
+        line-height: 1.25;
+        color: #1d1d1d;
+        font-weight: 500;
+    }
+
+    &__footer {
+        margin-top: 14px;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    &__btn {
+        min-width: 112px;
+        height: 40px;
+        border: 0;
+        box-shadow: none;
+        font-size: 15px;
+        font-weight: 500;
+        border-radius: 999px;
+    }
+
+    &__btn--cancel {
+        background: #5f5f5f;
+        color: #fff;
+    }
+
+    &__btn--confirm {
+        background: #047bb6;
+        color: #fff;
+    }
+}
+
+// ========== 담당자별 배차 관리 모달 ==========
+.modal--assignee-dispatch {
+    .modal-dialog {
+        width: 100%;
+        max-width: 568px;
+        max-height: calc(100vh - 32px);
+        border-radius: 22px;
+        overflow: hidden;
+    }
+
+    .modal-content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 20px 22px;
+        background: #eef0f2;
+    }
+
+    &__summary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        min-height: 48px;
+        padding: 14px 16px;
+        background: #d9ebf7;
+        border: 1px solid #88bfe3;
+        border-radius: 12px;
+    }
+
+    &__summary-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #2f2f2f;
+    }
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        flex-shrink: 0;
+
+        &--id {
+            background-image: url("@/assets/images/schedule/ico-id.png");
+        }
+
+        &--cal {
+            background-image: url("@/assets/images/schedule/ico-calendar.png");
+        }
+    }
+
+    &__section {
+        background: #fff;
+        border-radius: 12px;
+        border: 1px solid #d9d9d9;
+        padding: 16px;
+    }
+
+    &__section--disabled {
+        background: #edf1f4;
+        border-color: #cfd7dd;
+        color: #98a3ad;
+        padding: 14px 16px;
+        pointer-events: none;
+    }
+
+    &__section-head {
+        display: flex;
+        align-items: center;
+
+        &--line {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #d9d9d9;
+            margin-bottom: 12px;
+        }
+    }
+
+    &__section-title {
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.2;
+        font-weight: 700;
+        color: #2d2d2d;
+
+        span {
+            color: #047bb6;
+            font-weight: 700;
+        }
+    }
+
+    &__section--disabled .modal--assignee-dispatch__section-title {
+        color: #8e9aa5;
+
+        span {
+            color: #8e9aa5;
+        }
+    }
+
+    &__select {
+        width: 100%;
+        height: 44px;
+        padding: 0 30px 0 12px;
+        font-size: 15px;
+        color: #b4b4b4;
+        &:focus {
+            color: #2d2d2d;
+        }
+    }
+
+    &__footer {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 8px;
+    }
+
+    &__footer-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__footer-btn {
+        min-width: 94px;
+        height: 36px;
+        border-radius: 999px;
+        border: 0;
+        box-shadow: none;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    &__footer-btn--ghost {
+        background: #fff;
+        border: 1px solid #8f8f8f !important;
+        color: #595959;
+    }
+
+    &__footer-btn--dark {
+        background: #5f5f5f;
+        color: #fff;
+    }
+
+    &__footer-btn--primary {
+        background: #047bb6;
+        color: #fff;
+    }
+}
+
+// ========== 배차 스케줄 수정 모달 ==========
+.modal--schedule-edit {
+    .modal-dialog {
+        width: 100%;
+        max-width: 520px;
+        border-radius: 22px;
+        overflow: hidden;
+    }
+
+    .modal-content {
+        background: #ecf0f2;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__selected {
+        background: #bdd7e6;
+        border: 1px solid #6aaed0;
+        border-radius: 12px;
+        padding: 20px;
+    }
+
+    &__title {
+        margin: 0 0 16px;
+        font-size: 17px;
+        line-height: 1.2;
+        color: #047bb6;
+        font-weight: 500;
+    }
+
+    &__info {
+        margin: 0;
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        align-items: center;
+        gap: 16px;
+
+        & + .modal--schedule-edit__row {
+            margin-top: 10px;
+        }
+
+        dt {
+            margin: 0;
+            font-size: 15px;
+            color: #1d1d1d;
+            font-weight: 500;
+        }
+
+        dd {
+            margin: 0;
+            font-size: 15px;
+            color: #1d1d1d;
+            font-weight: 500;
+        }
+    }
+
+    &__move {
+        background: #fff;
+        border-radius: 18px;
+        padding: 24px 28px 28px;
+    }
+
+    &__question {
+        margin: 0 0 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;  
+        font-size: 17px;
+        color: #3a3a3a;
+        font-weight: 600;
+
+        i {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-image: url("@/assets/images/schedule/ico-i.png");
+            background-size: 14px;
+            flex-shrink: 0;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &__field-row {
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__label {
+        font-size: 15px;
+        color: #2d2d2d;
+        font-weight: 600;
+    }
+
+    &__date-range {
+        width: 100%;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        gap: 6px;
+    }
+
+    &__date-item {
+        position: relative;
+        width: 100%;
+        min-width: 0;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 16px;
+            pointer-events: none;
+            background: url("@/assets/images/schedule/ico-cal.png") no-repeat center;
+            background-size: contain;
+        }
+    }
+
+    &__date-input {
+        width: 100%;
+        height: 40px;
+        box-sizing: border-box;
+        border: 1px solid #c6c6c6;
+        border-radius: 10px;
+        background: #fff;
+        padding: 0 30px 0 10px;
+        font-size: 15px;
+        color: #3a3a3a;
+        font-weight: 500;
+        line-height: 1.2;
+        cursor: pointer;
+        flex:1;
+        white-space: nowrap;
+        overflow: visible;
+
+        &::-webkit-datetime-edit {
+            padding: 0;
+        }
+
+        &::-webkit-date-and-time-value {
+            text-align: left;
+        }
+
+        &::-webkit-calendar-picker-indicator {
+            width: 20px;
+            height: 20px;
+            opacity: 0;
+            cursor: pointer;
+        }
+    }
+
+    &__date-sep {
+        flex-shrink: 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: #2d2d2d;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 8px;
+    }
+
+    &__btn {
+        min-width: 170px;
+        height: 40px;
+        border-radius: 999px;
+        border: 0;
+        box-shadow: none;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    &__btn--cancel {
+        background: #5f5f5f;
+        color: #fff;
+    }
+
+    &__btn--confirm {
+        background: #047bb6;
+        color: #fff;
+    }
+}
