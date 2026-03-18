@@ -5245,9 +5245,7 @@ select {
 
 .schedule-panel {
   background: #fff;
-  border: 1px solid #c6c6c6;
   border-radius: 12px;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -5492,10 +5490,12 @@ select {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 5px;
   padding: 10px 8px;
   font-size: 12px;
   font-weight: 600;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 10px -10px rgba(15, 23, 42, 0.35);
 }
 .schedule-grid__head-cell--name {
   min-width: 140px;
@@ -5505,7 +5505,6 @@ select {
   left: 0;
   z-index: 12;
   background: #fff;
-  box-shadow: 6px 0 10px rgba(15, 23, 42, 0.08);
   border-right: 1px solid #c6c6c6;
   border-bottom: 1px solid #c6c6c6;
 }
@@ -5570,7 +5569,7 @@ select {
   z-index: -1;
 }
 .schedule-grid__row--selected .schedule-grid__name-cell::before {
-  background: rgba(0, 0, 0, 0.14);
+  background: rgba(10, 82, 157, 0.1);
 }
 .schedule-grid__name {
   font-size: 14px;
@@ -5604,8 +5603,8 @@ select {
   flex: 1;
   min-width: 120px;
   padding: 6px;
-  border-right: 1px solid #c6c6c6;
-  border-bottom: 1px solid #c6c6c6;
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
   background: #fff;
   display: flex;
   align-items: center;
@@ -5625,7 +5624,7 @@ select {
   opacity: 1;
 }
 .schedule-grid__cell--col-selected {
-  background: rgba(0, 0, 0, 0.06);
+  background: rgba(10, 82, 157, 0.1);
   /* X축과 동일하게 1px 느낌으로 좌우 라인만 얇게 */
   box-shadow: inset 1px 0 0 0 rgba(45, 45, 45, 0.9), inset -1px 0 0 0 rgba(45, 45, 45, 0.9);
 }
@@ -5675,30 +5674,68 @@ select {
 }
 
 .schedule-grid__kebab {
-  width: 20px;
-  height: 20px;
   border: none;
   background: transparent;
   cursor: pointer;
   position: relative;
   flex-shrink: 0;
-  /* 상단 날짜 열 케밥만 가로(⋯), 좌측 행 케밥은 세로(⋮) 유지 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
 }
 .schedule-grid__kebab::before {
-  content: "⋮";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 14px;
-  font-weight: 700;
-  color: #1d1d1d;
+  content: "";
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #8e8e8e;
+  box-shadow: 0 -5px 0 #8e8e8e, 0 5px 0 #8e8e8e;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+.schedule-grid__kebab:hover {
+  background: #f1f3f5;
 }
 .schedule-grid__kebab:hover::before {
-  color: #0f172a;
+  background: #6b7280;
+  box-shadow: 0 -5px 0 #6b7280, 0 5px 0 #6b7280;
+}
+.schedule-grid__kebab:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(4, 123, 182, 0.25);
+}
+.schedule-grid__kebab--row {
+  width: 9px;
+  height: 23px;
 }
 .schedule-grid__kebab--col::before {
-  content: "⋯";
+  box-shadow: -5px 0 0 #8e8e8e, 5px 0 0 #8e8e8e;
+}
+.schedule-grid__kebab--col {
+  width: 23px;
+  height: 9px;
+}
+.schedule-grid__kebab--col:hover::before {
+  box-shadow: -5px 0 0 #6b7280, 5px 0 0 #6b7280;
+}
+
+.schedule-grid__head-cell--date.is-open .schedule-grid__kebab--col,
+.schedule-grid__head-cell--col-selected .schedule-grid__kebab--col,
+.schedule-grid__row--selected .schedule-grid__kebab--row {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px #d9dee5;
+}
+.schedule-grid__head-cell--date.is-open .schedule-grid__kebab--col::before,
+.schedule-grid__head-cell--col-selected .schedule-grid__kebab--col::before,
+.schedule-grid__row--selected .schedule-grid__kebab--row::before {
+  background: #6b7280;
+  box-shadow: 0 -5px 0 #6b7280, 0 5px 0 #6b7280;
+}
+
+.schedule-grid__head-cell--date.is-open .schedule-grid__kebab--col::before,
+.schedule-grid__head-cell--col-selected .schedule-grid__kebab--col::before {
+  box-shadow: -5px 0 0 #6b7280, 5px 0 0 #6b7280;
 }
 
 .schedule-grid__head-cell--date .schedule-grid__kebab,
@@ -5754,7 +5791,7 @@ select {
 .schedule-grid__head-cell--col-selected {
   /* 상/좌/우만 파란 라인, 하단은 본문 셀 border만 보이도록 처리 */
   box-shadow: inset 0 1px 0 0 rgba(45, 45, 45, 0.9), inset 1px 0 0 0 rgba(45, 45, 45, 0.9), inset -1px 0 0 0 rgba(45, 45, 45, 0.9); /* right */
-  background: rgba(0, 0, 0, 0.08);
+  background: rgba(10, 82, 157, 0.1);
   border-bottom-color: transparent; /* 활성화 시에는 헤더 바텀 라인은 숨겨서 이중선 방지 */
 }
 
@@ -5765,7 +5802,7 @@ select {
 }
 .schedule-grid__row--selected .schedule-grid__name-cell,
 .schedule-grid__row--selected .schedule-grid__cell {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(10, 82, 157, 0.1);
   border-top: 1px solid rgba(45, 45, 45, 0.9); /* X축처럼 위쪽 1px 라인 고정 */
   border-bottom-color: rgba(45, 45, 45, 0.9); /* 하단도 파란 1px */
 }
@@ -5788,7 +5825,7 @@ select {
   flex-direction: column;
   gap: 2px;
   text-align: left;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(10, 82, 157, 0.1);
   min-height: 60px;
   justify-content: center;
 }
