@@ -1,15 +1,28 @@
 
 
 .btn{
-    min-width: 90px;
+    width: 90px;
     height: 48px;
     border-radius: 5px;
     border: none;
     font-size: 17px;
     transition: all .15s;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     &.primary {
         background: #047bb6;
         color: #fff;
+    }
+    &.secondary {
+        border: 1px solid #047bb6;
+        color: #047bb6;
+        background: #fff;
+        &:hover {
+            background: #eef7fc;
+        }
     }
     &.danger {
         background: #555555;
@@ -30,6 +43,7 @@
     &.cancle{
         background: #f0f0f0;
         border: 1px solid #d8d8d8;
+        color: #555;
     }
     &.small{
         height: 36px;
@@ -37,6 +51,21 @@
     }
     &.border{
         border: 1px solid #d8d8d8;
+    }
+}
+
+.btn-text {
+    background: transparent;
+    border: none;
+    color: #047bb6;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 2px 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    &:hover {
+        text-decoration: underline;
     }
 }
 
