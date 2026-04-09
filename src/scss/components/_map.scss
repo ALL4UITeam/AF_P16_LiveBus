@@ -2715,6 +2715,8 @@
         color: #fff;
         font-size: 18px;
         font-weight: 700;
+        position: relative;
+        overflow: visible;
         .map-ico-back{
             width: 13px;
             height: 13px;
@@ -2730,6 +2732,32 @@
         &:hover {
             background: rgba(255, 255, 255, .2);
             border-color: rgba(255, 255, 255, .9);
+        }
+
+        &[data-tooltip]::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 8px);
+            transform: translateX(-50%);
+            padding: 4px 8px;
+            border-radius: 6px;
+            background: rgba(20, 31, 43, .95);
+            color: #fff;
+            font-size: 12px;
+            line-height: 1;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .15s ease, visibility .15s ease;
+            z-index: 30;
+        }
+
+        &[data-tooltip]:hover::after,
+        &[data-tooltip]:focus-visible::after {
+            opacity: 1;
+            visibility: visible;
         }
     }
 
