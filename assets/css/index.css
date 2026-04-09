@@ -6012,6 +6012,8 @@ select {
   color: #fff;
   font-size: 18px;
   font-weight: 700;
+  position: relative;
+  overflow: visible;
 }
 .regi-map-bar.regi-map-bar--floating .regi-map-bar__icon-btn .map-ico-back {
   width: 13px;
@@ -6028,6 +6030,29 @@ select {
 .regi-map-bar.regi-map-bar--floating .regi-map-bar__icon-btn:hover {
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.9);
+}
+.regi-map-bar.regi-map-bar--floating .regi-map-bar__icon-btn[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(20, 31, 43, 0.95);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  z-index: 30;
+}
+.regi-map-bar.regi-map-bar--floating .regi-map-bar__icon-btn[data-tooltip]:hover::after, .regi-map-bar.regi-map-bar--floating .regi-map-bar__icon-btn[data-tooltip]:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
 }
 .regi-map-bar.regi-map-bar--floating .regi-map-bar__draw-btn {
   height: 40px;
