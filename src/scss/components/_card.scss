@@ -252,3 +252,191 @@
     }
 }
 
+/* ========== 단말관리(상단 카드 영역) ========== */
+.terminal-manage {
+    margin-bottom: 20px;
+
+    &__cards {
+        display: flex;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    &__card {
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    /* 좌측 카드 */
+    &__card--chart {
+        flex: 0 0 510px;
+        background: #eff6ff !important;
+        border: 1px solid #c9def7 !important;
+    }
+
+    /* 우측 카드 */
+    &__card--wide {
+        flex: 1 1 auto;
+        min-width: 0;
+        background: #fff;
+        border: 1px solid #dcdfe5;
+    }
+
+    &__head-left{
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        min-width: 0;
+    }
+
+    &__updated {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.4;
+        color: #8e96a3;
+        font-weight: 400;
+        white-space: nowrap;
+    }
+
+    /* 왼쪽 도넛 카드 */
+    &__donut {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 90px;
+        min-height: 120px;
+    }
+
+    &__donut-placeholder {
+        position: relative;
+        width: 140px;
+        flex: 0 0 140px;
+    }
+
+    &__legend {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, auto));
+        gap: 10px 20px;
+        font-size: 14px;
+        color: #222;
+        font-weight: 500;
+        flex: 1;
+    }
+
+    &__legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        font-size: 17px;
+    }
+
+    &__legend-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        flex: 0 0 12px;
+    }
+
+    /* 우측 헤더(전체 + 업데이트 + 전체건수) */
+    &__card--wide {
+        .dash--card__header{
+            flex-direction: column;
+            align-items: baseline;
+            gap: 14px;
+        }
+    }
+
+    &__total {
+        font-size: 18px;
+        font-weight: 700;
+        color: #111;
+    }
+
+    &__total-value {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        white-space: nowrap;
+        margin-left: auto;
+    }
+
+    &__total-num {
+        font-size: 40px;
+        line-height: 1;
+        font-weight: 700;
+        color: #0f86d8;
+    }
+
+    &__total-unit {
+        font-size: 21px;
+        line-height: 1;
+        font-weight: 600;
+        color: #333;
+    }
+
+    /* 하단 상태 박스 */
+    &__status-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    &__status {
+        min-height: 92px;
+        border-radius: 12px;
+        padding: 18px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    &__status--good {
+        background: #eafff0;
+    }
+
+    &__status--normal {
+        background: #fff2cf;
+    }
+
+    &__status--bad {
+        background: #fff1f1;
+    }
+
+    &__status-label {
+        font-size: 16px;
+        font-weight: 600;
+        color: #222;
+    }
+
+    &__status-value {
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+        font-size: 25px;
+        line-height: 1;
+        font-weight: 700;
+    }
+
+    &__status--good &__status-value {
+        color: #55a06d;
+    }
+
+    &__status--normal &__status-value {
+        color: #d2a022;
+    }
+
+    &__status--bad &__status-value {
+        color: #ef5b63;
+    }
+
+    &__status-unit {
+        font-size: 15px;
+        font-weight: 600;
+        color: #444;
+    }
+}

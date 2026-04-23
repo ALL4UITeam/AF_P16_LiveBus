@@ -200,6 +200,393 @@
         font-weight: 300;
     }
 }
+
+/* ========== 단말등록 모달 ========== */
+.modal--terminal-register{
+    .modal--terminal-register__dialog{
+        width: min(1020px, calc(100vw - 80px));
+        max-width: 1020px;
+        height: min(715px, calc(100vh - 80px));
+        max-height: 715px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-content{
+        padding: 0;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: 0;
+        flex: 1 1 auto;
+    }
+
+    // 상단 스텝은 기존 `.regi-step` 재사용
+    .regi-step-bar{
+        background: #ecf0f2;
+    }
+
+    .regi-step{
+        justify-content: center;
+        gap:50px
+    }
+    // 단말등록 모달에서만 step icon 교체
+    .regi-step__item{
+        .regi-step__icon{
+            background-size: 28px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        &:nth-child(1) .regi-step__icon{
+            background-image: url("@/assets/images/modal/step_icon/terminal-step01.svg");
+        }
+        &:nth-child(2) .regi-step__icon{
+            background-image: url("@/assets/images/modal/step_icon/terminal-step02.svg");
+        }
+        &:nth-child(3) .regi-step__icon{
+            background-image: url("@/assets/images/modal/step_icon/terminal-step03.svg");
+        }
+        &:nth-child(4) .regi-step__icon{
+            background-image: url("@/assets/images/modal/step_icon/terminal-step04.svg");
+        }
+
+        /* done 상태는 어떤 step 아이콘보다 우선 (체크 아이콘 고정) */
+        &[data-status="done"] .regi-step__icon{
+            background-image: url("@/assets/images/route/route-step-checked.png") !important;
+            background-size: 12px;
+            background-color: #98afc8;
+        }
+    }
+
+    &__body{
+        min-height: 0;
+        .modal--terminal-register__body_inner{
+            height: 100%;
+            padding: 0 20px;  
+        }
+
+    }
+
+    &__step-panel{
+        display: none;
+        &.is-active{
+            display: block;
+        }
+    }
+
+    &__card{
+        background: #ffffff;
+        border: 1px solid #dbdee2;
+        border-radius: 12px;
+        padding: 20px;
+
+        & + .modal--terminal-register__card{
+            margin-top: 14px;
+        }
+    }
+
+    &__card-title{
+        margin: 0 0 14px;
+        font-size: 17px;
+        font-weight: 500;
+        color: #1d1d1d;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    &__grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 18px;
+    }
+
+    &__inline-group{
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 10px 0;
+    }
+
+    &__inline-label{
+        flex: 0 0 auto;
+        font-size: 15px;
+        font-weight: 300;
+        color: #1d1d1d;
+        min-width: 100px;
+        font-weight: 500;
+    }
+
+    &__radios{
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    &__footer{
+        padding: 16px 24px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        background: #ecf0f2;
+    }
+
+    &__footer-right{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    &__btn{
+        min-width: 120px;
+    }
+
+    &__btn--ghost{
+        background: #ffffff;
+        border: 1px solid #c6c6c6;
+        color: #1d1d1d;
+    }
+
+    &__btn--cancel{
+        background: #6b7280;
+        border: 1px solid #6b7280;
+        color: #fff;
+    }
+
+    &__btn--primary{
+        background: #047bb6;
+        border: 1px solid #047bb6;
+        color: #fff;
+    }
+
+    &__placeholder{
+        font-size: 15px;
+        font-weight: 300;
+        color: #717171;
+        padding: 10px 0 16px;
+    }
+
+    /* step3: 정류장 맵핑 */
+    .terminal-station-map{
+        display: grid;
+        grid-template-rows: auto auto auto 1fr;
+        gap: 12px;
+    }
+
+    .terminal-station-map__search-inner{
+        display: flex;
+        align-items: center;
+        height: 44px;
+        border: 1px solid #c6c6c6;
+        border-radius: 6px;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    .terminal-station-map__search-input{
+        flex: 1;
+        min-width: 0;
+        height: 100%;
+        border: 0;
+        padding: 0 14px;
+        font-size: 15px;
+        outline: none;
+        background: transparent;
+    }
+
+    .terminal-station-map__search-btn{
+        width: 54px;
+        height: 100%;
+        border: 0;
+        background: #fff url("@/assets/images/dash/ico-search.png") no-repeat center;
+        cursor: pointer;
+    }
+
+    .terminal-station-map__map-box{
+        height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #717171;
+        background: #f3f4f6;
+    }
+}
+
+/* 단말 상세 조회 모달 */
+.modal--terminal-detail {
+    .modal--terminal-detail__dialog {
+        width: min(1020px, calc(100vw - 80px));
+        max-width: 1020px;
+        height: min(710px, calc(100vh - 80px));
+        max-height: 710px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-content {
+        padding: 0;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        min-height: 0;
+        flex: 1 1 auto;
+    }
+
+    &__body {
+        min-height: 0;
+        
+        .modal--terminal-detail__body_inner{
+            padding: 0 20px;
+        }
+    }
+
+    &__body_inner{
+        height: 100%;
+        padding: 0;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        align-items: stretch;
+    }
+
+    &__card {
+        background: #fff;
+        border: 1px solid #dbdee2;
+        border-radius: 12px;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        margin: 0 0 14px;
+        font-size: 17px;
+        font-weight: 500;
+        color: #1d1d1d;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    &__map {
+        height: 238px;
+        border-radius: 8px;
+        border: 1px solid #d8d8d8;
+        background: #f3f4f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #717171;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    &__footer {
+        padding: 16px 24px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #ecf0f2;
+    }
+
+    &__footer-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+/* 고객사 등록 모달 */
+.modal--customer-register {
+    .modal--customer-register__dialog {
+        width: min(1020px, calc(100vw - 80px));
+        max-width: 1020px;
+        height: min(715px, calc(100vh - 80px));
+        max-height: 715px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-content {
+        padding: 0;
+        flex: 1 1 auto;
+    }
+
+    .modal--terminal-register__card + .modal--terminal-register__card {
+        margin-top: 14px;
+    }
+
+    .modal--customer-register__footer {
+        padding: 16px 24px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        background: #ecf0f2;
+    }
+
+    .modal--customer-register__footer-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .regi-step__item {
+        .regi-step__icon{
+            background-size: 28px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        &:nth-child(2) .regi-step__icon{
+            background-image: url("@/assets/images/modal/step_icon/terminal-step05.svg");
+            background-size: 25px;
+        }
+        &:nth-child(3) .regi-step__icon{
+            background-image: url("@/assets/images/modal/step_icon/terminal-step04.svg");
+        }
+        &:nth-child(4)::after {
+            display: none;
+        }
+
+        /* 고객사 등록도 done(체크) 아이콘은 12px로 */
+        &[data-status="done"] .regi-step__icon{
+            background-image: url("@/assets/images/route/route-step-checked.png") !important;
+            background-size: 12px;
+        }
+    }
+}
+
+/* terminal-view (상세 키/값 리스트) - 공용 */
+.terminal-view{
+    &__section{
+        margin-top: 6px;
+    }
+    &__list{
+        display: grid;
+    }
+    &__row{
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 16px;
+        align-items: center;
+        padding: 10px;
+        &:nth-child(even) {
+            background: #f8fbfd;
+        }
+    }
+    &__label{
+        font-size: 15px;
+        font-weight: 300;
+        color: #717171;
+    }
+    &__value{
+        font-size: 17px;
+        font-weight: 500;
+        color: #1d1d1d;
+    }
+}
+
 .small--pop{
     position: absolute;
     background:#fff;
@@ -713,8 +1100,7 @@
 
     &__chip-course--placeholder {
         font-size: 13px;
-        font-weight: 
-        500;
+        font-weight: 500;
         line-height: 1.35;
         color: #b6b6b6;
         white-space: normal;
@@ -1477,8 +1863,7 @@
             
                 &__chip-course--placeholder {
                     font-size: 13px;
-                    font-weight: 
-                    500;
+                    font-weight: 500;
                     line-height: 1.35;
                     color: #b6b6b6;
                     white-space: normal;
@@ -1736,6 +2121,15 @@
     .modal-content {
         padding: 18px 18px 14px;
         background: #ecf0f2;
+    }
+
+    /* 등록/확인 공용 info 아이콘 */
+    .modal-icon {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto;
+        border: 0;
+        background: url("@/assets/images/modal/info-ico.png") no-repeat center / contain;
     }
 
     &__body {

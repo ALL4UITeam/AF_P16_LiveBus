@@ -203,8 +203,9 @@ body {
                 border: 1px solid #cccccc;
                 background-color: #fff;
                 background-image: url("@/assets/images/common/ico-refresh.png");
-                 &:hover{
-                 }
+                &:hover{
+                    background-color: #f6f7fb;
+                }
             }
         }
     }
@@ -246,6 +247,9 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
+    &.grid-four{
+        grid-template-columns: repeat(4, 1fr);
+    }
     &.grid-six{
         grid-template-columns: repeat(6, 1fr);
     }

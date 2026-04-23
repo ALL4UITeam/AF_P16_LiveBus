@@ -312,8 +312,10 @@ select{
     border-radius: 5px;
     background: #fff;
     overflow: hidden;
+    height: 48px; // select(.form--tbl__util)과 높이 통일
     input {
         flex: 1;
+        height: 100%;
         padding: 10px 12px;
         border: none;
         outline: none;
@@ -321,6 +323,7 @@ select{
     }
 
     .search-btn {
+        height: 100%;
         padding: 0 12px;
         border: none;
         background: none;
