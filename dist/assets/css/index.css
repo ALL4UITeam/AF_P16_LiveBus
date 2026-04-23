@@ -652,6 +652,342 @@ summary::-webkit-details-marker {
   font-weight: 300;
 }
 
+/* ========== 단말등록 모달 ========== */
+.modal--terminal-register {
+  /* step3: 정류장 맵핑 */
+}
+.modal--terminal-register .modal--terminal-register__dialog {
+  width: min(1020px, 100vw - 80px);
+  max-width: 1020px;
+  height: min(715px, 100vh - 80px);
+  max-height: 715px;
+  display: flex;
+  flex-direction: column;
+}
+.modal--terminal-register .modal-content {
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+.modal--terminal-register .regi-step-bar {
+  background: #ecf0f2;
+}
+.modal--terminal-register .regi-step {
+  justify-content: center;
+  gap: 50px;
+}
+.modal--terminal-register .regi-step__item {
+  /* done 상태는 어떤 step 아이콘보다 우선 (체크 아이콘 고정) */
+}
+.modal--terminal-register .regi-step__item .regi-step__icon {
+  background-size: 28px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.modal--terminal-register .regi-step__item:nth-child(1) .regi-step__icon {
+  background-image: url("../images/terminal-step01.svg");
+}
+.modal--terminal-register .regi-step__item:nth-child(2) .regi-step__icon {
+  background-image: url("../images/terminal-step02.svg");
+}
+.modal--terminal-register .regi-step__item:nth-child(3) .regi-step__icon {
+  background-image: url("../images/terminal-step03.svg");
+}
+.modal--terminal-register .regi-step__item:nth-child(4) .regi-step__icon {
+  background-image: url("../images/terminal-step04.svg");
+}
+.modal--terminal-register .regi-step__item[data-status=done] .regi-step__icon {
+  background-image: url("../images/route-step-checked.png") !important;
+  background-size: 12px;
+  background-color: #98afc8;
+}
+.modal--terminal-register__body {
+  min-height: 0;
+}
+.modal--terminal-register__body .modal--terminal-register__body_inner {
+  height: 100%;
+  padding: 0 20px;
+}
+.modal--terminal-register__step-panel {
+  display: none;
+}
+.modal--terminal-register__step-panel.is-active {
+  display: block;
+}
+.modal--terminal-register__card {
+  background: #ffffff;
+  border: 1px solid #dbdee2;
+  border-radius: 12px;
+  padding: 20px;
+}
+.modal--terminal-register__card + .modal--terminal-register__card {
+  margin-top: 14px;
+}
+.modal--terminal-register__card-title {
+  margin: 0 0 14px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #1d1d1d;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.modal--terminal-register__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 18px;
+}
+.modal--terminal-register__inline-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+}
+.modal--terminal-register__inline-label {
+  flex: 0 0 auto;
+  font-size: 15px;
+  font-weight: 300;
+  color: #1d1d1d;
+  min-width: 100px;
+  font-weight: 500;
+}
+.modal--terminal-register__radios {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.modal--terminal-register__footer {
+  padding: 16px 24px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: #ecf0f2;
+}
+.modal--terminal-register__footer-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.modal--terminal-register__btn {
+  min-width: 120px;
+}
+.modal--terminal-register__btn--ghost {
+  background: #ffffff;
+  border: 1px solid #c6c6c6;
+  color: #1d1d1d;
+}
+.modal--terminal-register__btn--cancel {
+  background: #6b7280;
+  border: 1px solid #6b7280;
+  color: #fff;
+}
+.modal--terminal-register__btn--primary {
+  background: #047bb6;
+  border: 1px solid #047bb6;
+  color: #fff;
+}
+.modal--terminal-register__placeholder {
+  font-size: 15px;
+  font-weight: 300;
+  color: #717171;
+  padding: 10px 0 16px;
+}
+.modal--terminal-register .terminal-station-map {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  gap: 12px;
+}
+.modal--terminal-register .terminal-station-map__search-inner {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  border: 1px solid #c6c6c6;
+  border-radius: 6px;
+  background: #fff;
+  overflow: hidden;
+}
+.modal--terminal-register .terminal-station-map__search-input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  padding: 0 14px;
+  font-size: 15px;
+  outline: none;
+  background: transparent;
+}
+.modal--terminal-register .terminal-station-map__search-btn {
+  width: 54px;
+  height: 100%;
+  border: 0;
+  background: #fff url("../images/ico-search.png") no-repeat center;
+  cursor: pointer;
+}
+.modal--terminal-register .terminal-station-map__map-box {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #717171;
+  background: #f3f4f6;
+}
+
+/* 단말 상세 조회 모달 */
+.modal--terminal-detail .modal--terminal-detail__dialog {
+  width: min(1020px, 100vw - 80px);
+  max-width: 1020px;
+  height: min(710px, 100vh - 80px);
+  max-height: 710px;
+  display: flex;
+  flex-direction: column;
+}
+.modal--terminal-detail .modal-content {
+  padding: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+.modal--terminal-detail__body {
+  min-height: 0;
+}
+.modal--terminal-detail__body .modal--terminal-detail__body_inner {
+  padding: 0 20px;
+}
+.modal--terminal-detail__body_inner {
+  height: 100%;
+  padding: 0;
+}
+.modal--terminal-detail__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+.modal--terminal-detail__card {
+  background: #fff;
+  border: 1px solid #dbdee2;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.modal--terminal-detail__title {
+  margin: 0 0 14px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #1d1d1d;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.modal--terminal-detail__map {
+  height: 238px;
+  border-radius: 8px;
+  border: 1px solid #d8d8d8;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #717171;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.modal--terminal-detail__footer {
+  padding: 16px 24px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ecf0f2;
+}
+.modal--terminal-detail__footer-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 고객사 등록 모달 */
+.modal--customer-register .modal--customer-register__dialog {
+  width: min(1020px, 100vw - 80px);
+  max-width: 1020px;
+  height: min(715px, 100vh - 80px);
+  max-height: 715px;
+  display: flex;
+  flex-direction: column;
+}
+.modal--customer-register .modal-content {
+  padding: 0;
+  flex: 1 1 auto;
+}
+.modal--customer-register .modal--terminal-register__card + .modal--terminal-register__card {
+  margin-top: 14px;
+}
+.modal--customer-register .modal--customer-register__footer {
+  padding: 16px 24px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  background: #ecf0f2;
+}
+.modal--customer-register .modal--customer-register__footer-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.modal--customer-register .regi-step__item {
+  /* 고객사 등록도 done(체크) 아이콘은 12px로 */
+}
+.modal--customer-register .regi-step__item .regi-step__icon {
+  background-size: 28px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.modal--customer-register .regi-step__item:nth-child(2) .regi-step__icon {
+  background-image: url("../images/terminal-step05.svg");
+  background-size: 25px;
+}
+.modal--customer-register .regi-step__item:nth-child(3) .regi-step__icon {
+  background-image: url("../images/terminal-step04.svg");
+}
+.modal--customer-register .regi-step__item:nth-child(4)::after {
+  display: none;
+}
+.modal--customer-register .regi-step__item[data-status=done] .regi-step__icon {
+  background-image: url("../images/route-step-checked.png") !important;
+  background-size: 12px;
+}
+
+/* terminal-view (상세 키/값 리스트) - 공용 */
+.terminal-view__section {
+  margin-top: 6px;
+}
+.terminal-view__list {
+  display: grid;
+}
+.terminal-view__row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 10px;
+}
+.terminal-view__row:nth-child(even) {
+  background: #f8fbfd;
+}
+.terminal-view__label {
+  font-size: 15px;
+  font-weight: 300;
+  color: #717171;
+}
+.terminal-view__value {
+  font-size: 17px;
+  font-weight: 500;
+  color: #1d1d1d;
+}
+
 .small--pop {
   position: absolute;
   background: #fff;
@@ -2000,6 +2336,9 @@ summary::-webkit-details-marker {
   color: #fff;
 }
 
+.modal--schedule-clear {
+  /* 등록/확인 공용 info 아이콘 */
+}
 .modal--schedule-clear .modal-dialog {
   width: 100%;
   max-width: 460px;
@@ -2009,6 +2348,13 @@ summary::-webkit-details-marker {
 .modal--schedule-clear .modal-content {
   padding: 18px 18px 14px;
   background: #ecf0f2;
+}
+.modal--schedule-clear .modal-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  border: 0;
+  background: url("../images/info-ico.png") no-repeat center/contain;
 }
 .modal--schedule-clear__body {
   background: #fff;
@@ -2444,6 +2790,7 @@ summary::-webkit-details-marker {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  padding: 0 8px;
 }
 .btn.primary {
   background: #047bb6;
@@ -2828,6 +3175,166 @@ summary::-webkit-details-marker {
   font-weight: 500;
 }
 
+/* ========== 단말관리(상단 카드 영역) ========== */
+.terminal-manage {
+  margin-bottom: 20px;
+  /* 좌측 카드 */
+  /* 우측 카드 */
+  /* 왼쪽 도넛 카드 */
+  /* 우측 헤더(전체 + 업데이트 + 전체건수) */
+  /* 하단 상태 박스 */
+}
+.terminal-manage__cards {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+}
+.terminal-manage__card {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.terminal-manage__card--chart {
+  flex: 0 0 510px;
+  background: #eff6ff !important;
+  border: 1px solid #c9def7 !important;
+}
+.terminal-manage__card--wide {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #dcdfe5;
+}
+.terminal-manage__head-left {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+}
+.terminal-manage__updated {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #8e96a3;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.terminal-manage__donut {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 90px;
+  min-height: 120px;
+}
+.terminal-manage__donut-placeholder {
+  position: relative;
+  width: 140px;
+  flex: 0 0 140px;
+}
+.terminal-manage__legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, auto));
+  gap: 10px 20px;
+  font-size: 14px;
+  color: #222;
+  font-weight: 500;
+  flex: 1;
+}
+.terminal-manage__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-size: 17px;
+}
+.terminal-manage__legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex: 0 0 12px;
+}
+.terminal-manage__card--wide .dash--card__header {
+  flex-direction: column;
+  align-items: baseline;
+  gap: 14px;
+}
+.terminal-manage__total {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+}
+.terminal-manage__total-value {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
+  margin-left: auto;
+}
+.terminal-manage__total-num {
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 700;
+  color: #0f86d8;
+}
+.terminal-manage__total-unit {
+  font-size: 21px;
+  line-height: 1;
+  font-weight: 600;
+  color: #333;
+}
+.terminal-manage__status-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.terminal-manage__status {
+  min-height: 92px;
+  border-radius: 12px;
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.terminal-manage__status--good {
+  background: #eafff0;
+}
+.terminal-manage__status--normal {
+  background: #fff2cf;
+}
+.terminal-manage__status--bad {
+  background: #fff1f1;
+}
+.terminal-manage__status-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+}
+.terminal-manage__status-value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 25px;
+  line-height: 1;
+  font-weight: 700;
+}
+.terminal-manage__status--good .terminal-manage__status-value {
+  color: #55a06d;
+}
+.terminal-manage__status--normal .terminal-manage__status-value {
+  color: #d2a022;
+}
+.terminal-manage__status--bad .terminal-manage__status-value {
+  color: #ef5b63;
+}
+.terminal-manage__status-unit {
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+}
+
 .form-group {
   display: flex;
   align-items: center;
@@ -3123,15 +3630,18 @@ select {
   border-radius: 5px;
   background: #fff;
   overflow: hidden;
+  height: 48px;
 }
 .search-box input {
   flex: 1;
+  height: 100%;
   padding: 10px 12px;
   border: none;
   outline: none;
   font-size: 14px;
 }
 .search-box .search-btn {
+  height: 100%;
   padding: 0 12px;
   border: none;
   background: none;
@@ -8188,6 +8698,9 @@ body {
   background-color: #fff;
   background-image: url("../images/ico-refresh4.png");
 }
+.dash--card__header .util .icon-refresh:hover {
+  background-color: #f6f7fb;
+}
 .dash--card__title {
   margin: 0;
   font-size: 21px;
@@ -8221,6 +8734,9 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+}
+.stats__row.grid-four {
+  grid-template-columns: repeat(4, 1fr);
 }
 .stats__row.grid-six {
   grid-template-columns: repeat(6, 1fr);
