@@ -1,5 +1,5 @@
 {
-  "name": "2026-af-ebit2",
+  "name": "livebus",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,7 @@
     "sass": "^1.70.0",
     "gh-pages": "^6.0.0"
   },
-  "description": "2026_AF_EBIT2",
+  "description": "AF_P16_LiveBus",
   "main": "index.js",
   "author": "",
   "license": "ISC"
