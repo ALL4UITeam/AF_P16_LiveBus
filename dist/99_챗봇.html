@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>LIVE BUS</title>
+	<title>LIVE BUS - 챗봇</title>
 	<link rel="stylesheet" href="styles.css" />
 	<link rel="stylesheet" href="./assets/fonts/esamanru.css">
 	<link rel="stylesheet" href="./assets/fonts/Freesentation.css">
@@ -21,7 +21,7 @@
 
 <body>
 
-	<div class="app">
+	<div class="app app--chatbot-page">
 		<!-- 상단바 -->
 		<header class="topbar" role="banner">
 		    
@@ -210,173 +210,197 @@
 		        </dl>
 		    </div>
 		</aside>
-		<!-- 컨텐츠 영역 -->
+		
+
 		<main class="content Mac-container" role="main">
 			<div class="Map">
-                <!-- 툴 -->
-                <div class=" Map--mode__top">
-                    <div class="Map--mode">
-                        <button type="button" class=" btn--mode active" data-toggle data-group="mapModeTop">일반</button>
-                        <button type="button" class=" btn--mode" data-toggle data-group="mapModeTop">위성</button>
-                    </div>
-                </div>
-                <div class="Map--mode__bottom">
-                    <div class="Map--mode">
-                        <button type="button" class=" btn--mode location" title="위치"></button>
-                    </div>
-                    <div class="Map--mode zoom">
-                        <button type="button" class=" btn--mode zoomin" title="확대" ></button>
-                        <button type="button" class=" btn--mode zoomout" title="축소"></button>
-                    </div>
-                </div>
-                <!-- 패널 우측 확장 -->
-                <div class="panel--expand">
-                    <div class="panel--expand__head">
-                        <button class="back"></button>
-                        <span>정류장 추가</span>
-                        <button class="close"></button>
-                    </div>
-                    <div class="panel--expand__content">
-                        
-                        <div class="route--add" data-simplebar>
-                            <div class="route--add__inner">
-                                <div class="acc-item">
-                                    <div class="acc-btn" type="button">
-                                        <div class="acc-btn__inner">
-                                            <span class="acc-btn__num">01</span>
-                                            <span class="acc-btn__title">지도에서 정류장 위치 선택</span>
-                                        </div>
-                                        <span class="acc-btn__complet">[입력완료]</span>
-                                    </div>
-                                    <div class="acc-panel">
-                                        <div class="acc-box">
-                                            <div class="step-section__content">
-                                                <div class="step-dropzone">
-                                                    <p class="step-dropzone__desc">
-                                                        첨부할 파일을 여기에 끌어다 놓거나.<br>
-                                                        파일 업로드 버튼을 직접 선택해 주세요.
-                                                    </p>
-                                                    <label class="step-dropzone__btn" for="fileInput">
-                                                        위치 선택하기
-                                                        <input type="file" id="fileInput" class="sr-only" >
-                                                    </label>
-                                                </div>
-                                        
-                                            </div>
-                                            <button class="acc-panel__btn">선택완료</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                    
-                                <div class="acc-item">
-                                    <div class="acc-btn" type="button">
-                                        <div class="acc-btn__inner">
-                                            <span class="acc-btn__num">02</span>
-                                            <span class="acc-btn__title">정류장 정보 입력</span>
-                                        </div>
-                                        <span class="acc-btn__complet">[입력완료]</span>
-                                    </div>
-                                    <div class="acc-panel">
-                                        <div class="acc-box">
-                                            <div class="acc-form__list">
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="정류장명 (예 : 하남아파트 앞)">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="정류장 ID (예 : 12345)">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="버스유형">
-                                                    <input class="form-control" type="text" placeholder="관리지역">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="노선 ID">
-                                                    <input class="form-control" type="text" placeholder="상행 / 하행">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="시작 정류장 ID">
-                                                    <input class="form-control" type="text" placeholder="종료 정류장 ID">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="시작 정류장 첫차 시간">
-                                                    <input class="form-control" type="text" placeholder="종료 정류장 마지막 시간">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="시작 정류장 마지막 시간">
-                                                    <input class="form-control" type="text" placeholder="종료 정류장 첫차 시간">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="text" placeholder="마지막 정류장 첫차 시간">
-                                                    <input class="form-control" type="text" placeholder="마지막 정류장 마지막 시간">
-                                                </div>
+				<div class="Map--mode__top">
+					<div class="Map--mode">
+						<button type="button" class="btn--mode active" data-toggle data-group="mapModeTop">일반</button>
+						<button type="button" class="btn--mode" data-toggle data-group="mapModeTop">위성</button>
+					</div>
+				</div>
+				<div class="Map--mode__bottom">
+					<div class="Map--mode">
+						<button type="button" class="btn--mode location" title="위치"></button>
+					</div>
+					<div class="Map--mode zoom">
+						<button type="button" class="btn--mode zoomin" title="확대"></button>
+						<button type="button" class="btn--mode zoomout" title="축소"></button>
+					</div>
+				</div>
 
-                                                <div class="acc-box-btn btn-group center">
-                                                    <button type="button" class="btn small cancle">재선택</button>
-                                                    <button type="button" class="btn small primary">확인</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="acc-box">
-                                            <p class="acc-panel__desc">클릭해서 노선 검증 데이터 선택</p>
-                                            <button class="acc-panel__btn">[100] 노선 확인</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="acc-item">
-                                    <div class="acc-btn" type="button">
-                                        <div class="acc-btn__inner">
-                                            <span class="acc-btn__num">03</span>
-                                            <span class="acc-btn__title">정류장 감지영역 그리기</span>
-                                        </div>
-                                    </div>
-                                    <div class="acc-panel">
-                                        <div class="acc-box">
-                                            <div class="acc-box-btn btn-group center mt0">
-                                                <button type="button" class="btn small cancle">초기화</button>
-                                                <button type="button" class="btn small primary">그리기</button>
-                                            </div>
-                                            <div class="acc-box-btn btn-group center">
-                                                <button type="button" class="btn small primary block">그리기 완료</button>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="route--add__btn btn-group center">
-                            <button type="button" class="btn cancle">취소</button>
-                            <button type="button" class="btn primary">등록</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="small--pop" style="right: 100px;top: 80px;">
-                <div class="small--pop__head">
-                    <h3 class="small--pop__ti">경로궤적 보기</h3>
-                </div>
-                <div class="small--pop__con">
-                    <div class="line-flex-item">
-                        <span>100번</span>
-                        <span>상행</span>
-                        <span>충남71가1234</span>
-                    </div>
-                    <div>
-                        <select class="form-control select" name="" id="">
-                            <option value="">최근 1시간</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="small--pop__foot">
-                    <div class="acc-box-btn btn-group center">
-                        <button type="button" class="btn small round--btn cancle">닫기</button>
-                        <button type="button" class="btn small round--btn primary">활성화</button>
-                    </div>
-                </div>
-            </div>
+			</div>
 		</main>
 	</div>
+
+	<!-- 챗봇 -->
+	<div class="chatbot" id="livebusChatbot" role="dialog" aria-label="라이브버스 챗봇" aria-modal="false">
+		<header class="chatbot__header">
+			<div class="chatbot__header-info">
+				<img class="chatbot__header-logo" src="./assets/images/chathead-logo.png" alt="">
+				<p class="chatbot__header-title">라이브버스 챗봇과 대화중</p>
+			</div>
+			<button type="button" class="chatbot__close" aria-label="챗봇 닫기">
+				<img src="./assets/images/ico-chatout.png" alt="">
+			</button>
+		</header>
+
+		<div class="chatbot__body" data-simplebar>
+			<div class="chatbot__message chatbot__message--bot">
+				<img class="chatbot__avatar" src="./assets/images/chat-counselor.png" alt="상담원 AI">
+				<div class="chatbot__content">
+					<div class="chatbot__meta">
+						<span class="chatbot__name">상담원 (AI)</span>
+						<time class="chatbot__time" datetime="10:05">오전 10:05</time>
+					</div>
+					<div class="chatbot__bubble">
+						<p class="chatbot__text">
+							안녕하세요. 라이브버스에 오신 것을 환영합니다. 라이브버스에 대해 궁금한게 있으시다면 <strong>아래 메뉴를 선택하거나 궁금한 내용을 입력</strong>해 주세요.
+						</p>
+						<ul class="chatbot__quick-list">
+							<li>
+								<button type="button" class="chatbot__quick-btn">
+									<span>갈전 상행 정류장에 85번 버스 언제 도착해?</span>
+								</button>
+							</li>
+							<li>
+								<button type="button" class="chatbot__quick-btn">
+									<span>만동 정류장에 곧 도착하는 버스 있어?</span>
+								</button>
+							</li>
+							<li>
+								<button type="button" class="chatbot__quick-btn">
+									<span>봉곡 정류장의 버스 도착 정보가 어떻게 돼?</span>
+								</button>
+							</li>
+							<li>
+								<button type="button" class="chatbot__quick-btn">
+									<span>85번 버스 마지막차 언제야?</span>
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="chatbot__message chatbot__message--user">
+				<time class="chatbot__time chatbot__time--user" datetime="10:05">오전 10:05</time>
+				<div class="chatbot__bubble chatbot__bubble--user">
+					<p class="chatbot__text">85번 버스 마지막차 언제야?</p>
+				</div>
+			</div>
+
+			<div class="chatbot__message chatbot__message--bot">
+				<img class="chatbot__avatar" src="./assets/images/chat-counselor.png" alt="상담원 AI">
+				<div class="chatbot__content">
+					<div class="chatbot__meta">
+						<span class="chatbot__name">상담원 (AI)</span>
+						<time class="chatbot__time" datetime="10:05">오전 10:05</time>
+					</div>
+					<div class="chatbot__bubble">
+						<div class="chatbot__route-head">
+							<img class="chatbot__route-icon" src="./assets/images/ico-bus.png" alt="">
+							<strong class="chatbot__route-num">85</strong>
+						</div>
+						<p class="chatbot__text">
+							85번 버스의 마지막 차는 <strong>소양행정복지센터에서 23시 35분에 출발</strong>합니다.
+						</p>
+						<div class="chatbot__info-card">
+							<dl class="chatbot__info-row">
+								<dt class="chatbot__info-label">첫차</dt>
+								<dd class="chatbot__info-value">용문사, 반곡마을<br>09시 10분 출발</dd>
+							</dl>
+							<dl class="chatbot__info-row">
+								<dt class="chatbot__info-label">마지막차</dt>
+								<dd class="chatbot__info-value">소양복지센터<br>23시 10분 출발</dd>
+							</dl>
+						</div>
+						<button type="button" class="chatbot__action-btn">노선별 정류장 정보</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="chatbot__message chatbot__message--user">
+				<time class="chatbot__time chatbot__time--user" datetime="10:05">오전 10:05</time>
+				<div class="chatbot__bubble chatbot__bubble--user">
+					<p class="chatbot__text">갈전 상행 정류장에 85번 버스 언제 도착해?</p>
+				</div>
+			</div>
+
+			<div class="chatbot__message chatbot__message--bot">
+				<img class="chatbot__avatar" src="./assets/images/chat-counselor.png" alt="상담원 AI">
+				<div class="chatbot__content">
+					<div class="chatbot__meta">
+						<span class="chatbot__name">상담원 (AI)</span>
+						<time class="chatbot__time" datetime="10:05">오전 10:05</time>
+					</div>
+					<div class="chatbot__bubble">
+						<div class="chatbot__route-head">
+							<img class="chatbot__route-icon" src="./assets/images/ico-bus.png" alt="">
+							<strong class="chatbot__route-num">갈전</strong>
+						</div>
+						<p class="chatbot__text">
+							갈전(상행)으로 가는 가장 빠른 버스는 '인덕마을 입구'에서 출발해 '용연마을'로 가고 있습니다.<br>
+							<strong>'갈전'까지는 10분</strong>남았습니다.
+						</p>
+						<div class="chatbot__arrival-card">
+							<div class="chatbot__arrival-grid">
+								<div class="chatbot__arrival-col">
+									<p class="chatbot__arrival-col-head">상행</p>
+									<ul class="chatbot__arrival-list">
+										<li class="chatbot__arrival-item">
+											<span class="chatbot__arrival-bus">85번</span>
+											<strong class="chatbot__arrival-time">10분</strong>
+										</li>
+										<li class="chatbot__arrival-item">
+											<span class="chatbot__arrival-bus">85번</span>
+											<strong class="chatbot__arrival-time">26분</strong>
+										</li>
+										<li class="chatbot__arrival-item">
+											<span class="chatbot__arrival-bus">85번</span>
+											<strong class="chatbot__arrival-time">40분</strong>
+										</li>
+									</ul>
+								</div>
+								<div class="chatbot__arrival-col">
+									<p class="chatbot__arrival-col-head">하행</p>
+									<ul class="chatbot__arrival-list">
+										<li class="chatbot__arrival-item">
+											<span class="chatbot__arrival-bus">85번</span>
+											<strong class="chatbot__arrival-time">10분</strong>
+										</li>
+										<li class="chatbot__arrival-item">
+											<span class="chatbot__arrival-bus">85번</span>
+											<strong class="chatbot__arrival-time">26분</strong>
+										</li>
+										<li class="chatbot__arrival-item">
+											<span class="chatbot__arrival-bus">85번</span>
+											<strong class="chatbot__arrival-time">40분</strong>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<p class="chatbot__hint">더 많은 도착정보는 '운행현황'에서 확인할 수 있습니다.</p>
+						<button type="button" class="chatbot__action-btn">운행 현황</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="chatbot__footer">
+			<form class="chatbot__form" action="#" onsubmit="return false;">
+				<div class="chatbot__input-wrap">
+					<input type="text" class="chatbot__input" placeholder="궁금한 점을 입력하세요" aria-label="메시지 입력">
+					<button type="submit" class="chatbot__send" aria-label="전송">
+						<img src="./assets/images/ico-send.png" alt="">
+					</button>
+				</div>
+			</form>
+		</footer>
+	</div>
+
 	<!-- 이상알림 모달 -->
 	<div id="alertModal" class="modal">
 		<div class="modal-dialog">
@@ -444,6 +468,30 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const launcher = document.querySelector(".chatbot-launcher");
+			const chatbot = document.getElementById("livebusChatbot");
+			const closeBtn = chatbot?.querySelector(".chatbot__close");
+
+			function setChatbotOpen(isOpen) {
+				if (!chatbot || !launcher) return;
+				chatbot.classList.toggle("is-hidden", !isOpen);
+				launcher.classList.toggle("is-active", isOpen);
+				launcher.setAttribute("aria-expanded", String(isOpen));
+			}
+
+			launcher?.addEventListener("click", function () {
+				const isOpen = chatbot.classList.contains("is-hidden");
+				setChatbotOpen(isOpen);
+			});
+
+			closeBtn?.addEventListener("click", function () {
+				setChatbotOpen(false);
+			});
+		});
+	</script>
+
 </body>
 
 </html>
