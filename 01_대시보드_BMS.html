@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<!-- @pageTitle 홍천군 BMS 대시보드 -->
+<!-- @pageNote Figma 홍천군 BMS node 9:262 data area -->
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>LIVE BUS - 홍천군 BMS 대시보드</title>
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="./assets/fonts/esamanru.css">
+	<link rel="stylesheet" href="./assets/fonts/Freesentation.css">
+	<link rel="stylesheet" href="./lib/simplebar/simplebar.css">
+	<link rel="stylesheet" href="./lib/dragula/dragula.min.css">
+	<link rel="stylesheet" href="./lib/swiper/swiper-bundle.min.css">
+	<link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+	<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+	<script src="./lib/simplebar/simplebar.min.js"></script>
+	<script src="./lib/swiper/swiper-bundle.min.js"></script>
+	<script src="./lib/dragula/dragula.min.js"></script>
+	<script defer src="./assets/js/app.js"></script>  
+  <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+
+<body>
+
+	<div class="app">
+		<!-- 상단바 -->
+		<header class="topbar" role="banner">
+		    
+		    <div class="topbar__brand" aria-label="브랜드">
+		        <h2 class="brand__logo"><img src="./assets/images/logo.png" alt=""></h2>
+		    </div>
+		
+		    <div class="topbar__actions">
+		        <button type="button" class="chatbot-launcher is-active" aria-label="챗봇 열기" aria-expanded="true" aria-controls="livebusChatbot">
+					<img src="./assets/images/ico-headchat.png" alt="">
+				</button>
+		        <button class="icon-notice" onclick="openModal('alertModal')" aria-label="알림">
+		            <span>1</span>
+		        </button>
+		        <div class="avatar">
+		            <span class="avatar__circle" aria-hidden="true"></span>
+		            <span class="avatar__label">관리자님</span>
+		        </div>
+		        <label class="burger-btn" for="nav-toggle" aria-label="메뉴 열기/닫기">
+		            <span class="burger"></span>
+		        </label>
+		    </div>
+		</header>
+		
+		<!-- 좌측 사이드바 -->
+		<aside class="sidenav" aria-label="주 메뉴">
+		    <div class="sidenav__logo">
+		        <a href=""><img src="./assets/images/white-logo.png" alt=""></a>
+		    </div>
+		
+		    <nav class="sidenav__nav" data-simplebar>
+		        <details class="nav-sec">
+		            <summary class="sec01">
+		                <span><i class="icon"></i>대시보드</span>
+		            </summary>
+		            <details class="nav-sub">
+		                <summary>대시보드</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">대시보드</a></li>
+		            </details>
+		        </details>
+		        <details class="nav-sec">
+		            <summary class="sec02">
+		                <span><i class="icon"></i>지도서비스</span>
+		            </summary>
+		            <details class="nav-sub">
+		                <summary>버스</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">운행형황(노선)</a></li>
+		                    <li><a href="#">운행현황(정류장)</a></li>
+		                    <li><a href="#">버스활동</a></li>
+		                </ul>
+		            </details>
+		            <details class="nav-sub">
+		                <summary>정류장</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">정류장</a></li>
+		                </ul>
+		            </details>
+		            <details class="nav-sub">
+		                <summary>노선</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">정류장</a></li>
+		                </ul>
+		            </details>
+		        </details>
+		
+		        <details class="nav-sec" open>
+		            <summary class="sec03">
+		                <span><i class="icon"></i>관리</span>
+		            </summary>
+		
+		            <details class="nav-sub" open>
+		                <summary>운행 관리</summary>
+		                <ul class="nav-list">
+		                    <li class="is-active"><a href="#">배차관리</a></li>
+		                    <li><a href="#">노선별이력관리</a></li>
+		                    <li><a href="#">운행버스 현황</a></li>
+		                    <li><a href="#">단말기 현황</a></li>
+		                </ul>
+		            </details>
+		
+		            <details class="nav-sub">
+		                <summary>단말기 관리</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">단말기 현황</a></li>
+		                    <li><a href="#">단말기 관리</a></li>
+		                </ul>
+		            </details>
+		
+		            <details class="nav-sub">
+		                <summary>BIT 관리</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">BIT 대시보스</a></li>
+		                    <li><a href="#">BIT 기기 관리</a></li>
+		                    <li><a href="#">BIT 시나리오</a></li>
+		                    <li><a href="#">BIT 광고 관리</a></li>
+		                </ul>
+		            </details>
+		
+		            <details class="nav-sub">
+		                <summary>시스템 관리</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">사용자 관리</a></li>
+		                    <li><a href="#">그룹 관리</a></li>
+		                    <li><a href="#">메뉴 관리</a></li>
+		                    <li><a href="#">권한 관리</a></li>
+		                    <li><a href="#">코드 관리</a></li>
+		                    <li><a href="#">도움말</a></li>
+		                    <li><a href="#">유지관리 업체</a></li>
+		                </ul>
+		            </details>
+		
+		            <details class="nav-sub">
+		                <summary>웹서비스 관리</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">공지사항 관리</a></li>
+		                    <li><a href="#">연계 현황</a></li>
+		                    <li><a href="#">연계 키 관리</a></li>
+		                    <li><a href="#">접속 통계</a></li>
+		                    <li><a href="#">이용 통계</a></li>
+		                </ul>
+		            </details>
+		            <details class="nav-sub">
+		                <summary>서비스 정보</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">공지사항 관리</a></li>
+		                    <li><a href="#">연계 현황</a></li>
+		                    <li><a href="#">연계 키 관리</a></li>
+		                    <li><a href="#">접속 통계</a></li>
+		                    <li><a href="#">이용 통계</a></li>
+		                </ul>
+		            </details>
+		        </details>
+		
+		        <details class="nav-sec">
+		            <summary class="sec04">
+		                <span><i class="icon"></i>통계</span>
+		            </summary>
+		            <details class="nav-sub">
+		                <summary>운행 통계</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">운행 이력 관리</a></li>
+		                    <li><a href="#">운행 달력 보기</a></li>
+		                    <li><a href="#">기간별 운행 통계</a></li>
+		                    <li><a href="#">돌발 상황 통계</a></li>
+		                </ul>
+		            </details>
+		            <details class="nav-sub">
+		                <summary>감지 통계</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">차량별 이벤트 수집율</a></li>
+		                    <li><a href="#">노선별 배차간격</a></li>
+		                    <li><a href="#">노선별 정류소 감지율</a></li>
+		                </ul>
+		            </details>
+		        </details>
+		
+		        <details class="nav-sec">
+		            <summary class="sec05">
+		                <span><i class="icon"></i>알림</span>
+		            </summary>
+		            <details class="nav-sub">
+		                <summary>버스 수신 이상</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">버스 수신 이상</a></li>
+		                </ul>
+		            </details>
+		            <details class="nav-sub">
+		                <summary>BIT 수신 이상</summary>
+		                <ul class="nav-list">
+		                    <li><a href="#">BIT 수신 이상</a></li>
+		                </ul>
+		            </details>
+		        </details>
+		        
+		    </nav>
+		    <div class="nav-foot">
+		        <dl class="call">
+		            <dt>고객센터 전화번호</dt>
+		            <dd>20)1234-1234</dd>
+		        </dl>
+		        <dl class="mail">
+		            <dt>대표 이메일</dt>
+		            <dd>all4land@all4land.com</dd>
+		        </dl>
+		    </div>
+		</aside>
+		<main class="content content--bms-dashboard" role="main" data-simplebar>
+			<div class="bms-dashboard">
+				<!-- KPI 요약 -->
+				<section class="bms-dashboard__kpi-box" aria-label="주요 지표">
+					<div class="bms-dashboard__kpi-row">
+						<article class="bms-kpi">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">운행중 차량</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value">1,248</strong>
+										<span class="bms-kpi__unit">대</span>
+									</div>
+									<div class="bms-kpi__trend">
+										<span class="bms-kpi__trend-label">전일 대비</span>
+										<span class="bms-trend bms-trend--down">
+											<img class="bms-trend__arrow" src="./assets/images/ico-trend-down.svg" alt="">
+											<span class="bms-trend__num">5.2</span>
+											<span class="bms-trend__unit">%</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-1">
+								<img src="./assets/images/ico-kpi01.svg" alt="">
+							</div>
+						</article>
+
+						<article class="bms-kpi">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">평균 도착 오차</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value">1.2</strong>
+										<span class="bms-kpi__unit">분</span>
+									</div>
+									<div class="bms-kpi__trend">
+										<span class="bms-kpi__trend-label">전일 대비</span>
+										<span class="bms-trend bms-trend--down">
+											<img class="bms-trend__arrow" src="./assets/images/ico-trend-down.svg" alt="">
+											<span class="bms-trend__num">0.3</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-2">
+								<img src="./assets/images/ico-kpi02.svg" alt="">
+							</div>
+						</article>
+
+						<article class="bms-kpi">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">정류소 수집률</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value">96.3</strong>
+										<span class="bms-kpi__unit">%</span>
+									</div>
+									<div class="bms-kpi__trend">
+										<span class="bms-kpi__trend-label">전일 대비</span>
+										<span class="bms-trend bms-trend--up">
+											<img class="bms-trend__arrow" src="./assets/images/ico-trend-up.svg" alt="">
+											<span class="bms-trend__num">1.8</span>
+											<span class="bms-trend__unit">%</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-3">
+								<img src="./assets/images/ico-kpi03.svg" alt="">
+							</div>
+						</article>
+
+						<article class="bms-kpi">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">국토부 평가 등급</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value">상</strong>
+										<span class="bms-kpi__sub">(92.4점)</span>
+									</div>
+									<div class="bms-kpi__trend">
+										<span class="bms-kpi__trend-label">전일 대비</span>
+										<span class="bms-trend bms-trend--up">
+											<img class="bms-trend__arrow" src="./assets/images/ico-trend-up.svg" alt="">
+											<span class="bms-trend__num">2.1</span>
+											<span class="bms-trend__unit">점</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-4">
+								<img src="./assets/images/ico-kpi04.svg" alt="">
+							</div>
+						</article>
+
+						<article class="bms-kpi">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">금일 지연 노선</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value">12</strong>
+										<span class="bms-kpi__unit">개</span>
+									</div>
+									<div class="bms-kpi__trend">
+										<span class="bms-kpi__trend-label">전일 대비</span>
+										<span class="bms-trend bms-trend--up">
+											<img class="bms-trend__arrow" src="./assets/images/ico-trend-up.svg" alt="">
+											<span class="bms-trend__num">2</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-5">
+								<img src="./assets/images/ico-kpi05.svg" alt="">
+							</div>
+						</article>
+					</div>
+				</section>
+
+				<div class="bms-dashboard__body">
+					<!-- 운영 현황 -->
+					<section class="bms-panel bms-panel--operation" aria-labelledby="bms-operation-title">
+						<h2 id="bms-operation-title" class="bms-panel__title">운영 현황</h2>
+
+						<div class="bms-panel__block bms-panel__block--chart-card">
+							<div class="bms-card-head">
+								<h3 class="bms-card-head__title">배차 현황</h3>
+								<span class="bms-card-head__sub">전체</span>
+							</div>
+							<div class="bms-donut">
+								<div class="bms-donut__chart">
+									
+									<div class="bms-donut__center">
+										<span class="bms-donut__center-label">전체</span>
+										<span class="bms-donut__center-value">1,831</span>
+										<span class="bms-donut__center-unit"> 대</span>
+									</div>
+								</div>
+								<ul class="bms-donut__legend bms-donut__legend--dispatch">
+									<li class="bms-donut__legend-item">
+										<span class="bms-donut__legend-key">
+											<span class="bms-donut__dot bms-donut__dot--success"></span>
+											<span class="bms-donut__legend-label">정상</span>
+										</span>
+										<span class="bms-donut__legend-count">
+											<strong class="bms-donut__legend-num">1,502</strong>
+											<span class="bms-donut__legend-unit">대</span>
+										</span>
+										<span class="bms-donut__legend-rate">82.1 <span>%</span></span>
+									</li>
+									<li class="bms-donut__legend-item">
+										<span class="bms-donut__legend-key">
+											<span class="bms-donut__dot bms-donut__dot--info"></span>
+											<span class="bms-donut__legend-label">조기</span>
+										</span>
+										<span class="bms-donut__legend-count">
+											<strong class="bms-donut__legend-num">68</strong>
+											<span class="bms-donut__legend-unit">대</span>
+										</span>
+										<span class="bms-donut__legend-rate">10.8 <span>%</span></span>
+									</li>
+									<li class="bms-donut__legend-item">
+										<span class="bms-donut__legend-key">
+											<span class="bms-donut__dot bms-donut__dot--warning"></span>
+											<span class="bms-donut__legend-label">지연</span>
+										</span>
+										<span class="bms-donut__legend-count">
+											<strong class="bms-donut__legend-num">198</strong>
+											<span class="bms-donut__legend-unit">대</span>
+										</span>
+										<span class="bms-donut__legend-rate">3.7 <span>%</span></span>
+									</li>
+									<li class="bms-donut__legend-item">
+										<span class="bms-donut__legend-key">
+											<span class="bms-donut__dot bms-donut__dot--error"></span>
+											<span class="bms-donut__legend-label">미운행</span>
+										</span>
+										<span class="bms-donut__legend-count">
+											<strong class="bms-donut__legend-num">63</strong>
+											<span class="bms-donut__legend-unit">대</span>
+										</span>
+										<span class="bms-donut__legend-rate">3.4 <span>%</span></span>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="bms-panel__block">
+							<div class="bms-card-head">
+								<h3 class="bms-card-head__title">지연 운행 현황</h3>
+								<span class="bms-card-head__sub">오늘</span>
+							</div>
+							<div class="bms-table">
+								<div class="bms-table__head bms-table__head--primary bms-table__head--delay">
+									<span>구분</span>
+									<span>노선수</span>
+									<span>비율</span>
+								</div>
+								<div class="bms-table__row bms-table__row--delay">
+									<span class="bms-badge bms-badge--success"><i class="bms-badge__dot"></i><span class="bms-badge__label">1분 이상 지연</span></span>
+									<span class="bms-table__count">12 <span>개</span></span>
+									<span class="bms-table__rate">8.1 <span>%</span></span>
+								</div>
+								<div class="bms-table__row bms-table__row--delay">
+									<span class="bms-badge bms-badge--info"><i class="bms-badge__dot"></i><span class="bms-badge__label">2분 이상 지연</span></span>
+									<span class="bms-table__count">7 <span>개</span></span>
+									<span class="bms-table__rate">4.7 <span>%</span></span>
+								</div>
+								<div class="bms-table__row bms-table__row--delay">
+									<span class="bms-badge bms-badge--warning"><i class="bms-badge__dot"></i><span class="bms-badge__label">3분 이상 지연</span></span>
+									<span class="bms-table__count">12 <span>개</span></span>
+									<span class="bms-table__rate">2.0 <span>%</span></span>
+								</div>
+								<div class="bms-table__row bms-table__row--delay">
+									<span class="bms-badge bms-badge--error"><i class="bms-badge__dot"></i><span class="bms-badge__label">5분 이상 지연</span></span>
+									<span class="bms-table__count">7 <span>개</span></span>
+									<span class="bms-table__rate">8.1 <span>%</span></span>
+								</div>
+								<div class="bms-table__row bms-table__row--delay">
+									<span class="bms-badge bms-badge--pending"><i class="bms-badge__dot"></i><span class="bms-badge__label">10분 이상 지연</span></span>
+									<span class="bms-table__count">3 <span>개</span></span>
+									<span class="bms-table__rate">4.7 <span>%</span></span>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- 국토부 도착 정보 성능평가 -->
+					<section class="bms-panel bms-panel--evaluation" aria-labelledby="bms-evaluation-title">
+						<h2 id="bms-evaluation-title" class="bms-panel__title">국토부 도착 정보 성능평가</h2>
+
+						<div class="bms-eval-row">
+							<div class="bms-panel__block bms-panel__block--highlight bms-panel__block--eval-card">
+								<div class="bms-card-head">
+									<h3 class="bms-card-head__title bms-card-head__title--accent">평가 등급</h3>
+								</div>
+								<div class="bms-gauge bms-grade-gauge" data-score="92.4" data-grade="상" aria-label="평가 등급 게이지">
+									<div class="bms-gauge__chart">
+										<div class="bms-grade-gauge__wrap">
+											<svg class="bms-grade-gauge__svg" viewBox="0 0 240 119" width="208" height="104" preserveAspectRatio="none" role="img" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+											<span class="bms-grade-gauge__label" aria-hidden="true">상</span>
+										</div>
+									</div>
+									<div class="bms-gauge__info">
+										<strong class="bms-gauge__score">
+											<span class="bms-grade-gauge__score-value">92.4</span><span>점</span>
+										</strong>
+										<span class="bms-gauge__total">/ 100점</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="bms-panel__block bms-panel__block--eval-card">
+								<div class="bms-card-head">
+									<h3 class="bms-card-head__title">도착정보 정확도</h3>
+								</div>
+								<div class="bms-donut bms-donut--accuracy">
+									<div class="bms-donut__chart bms-donut__chart--sm">
+										<div class="bms-donut__center">
+											<span class="bms-donut__center-label">전체</span>
+											<span class="bms-donut__center-value">92.4</span>
+											<span class="bms-donut__center-unit"> %</span>
+										</div>
+									</div>
+									<ul class="bms-donut__legend bms-donut__legend--accuracy">
+										<li class="bms-donut__legend-item">
+											<span class="bms-donut__legend-key">
+												<span class="bms-donut__dot bms-donut__dot--success"></span>
+												<span class="bms-donut__legend-label">1분 이내</span>
+											</span>
+											<span class="bms-donut__legend-count">
+												<strong class="bms-donut__legend-num">52.1</strong>
+												<span class="bms-donut__legend-unit">%</span>
+											</span>
+										</li>
+										<li class="bms-donut__legend-item">
+											<span class="bms-donut__legend-key">
+												<span class="bms-donut__dot bms-donut__dot--info"></span>
+												<span class="bms-donut__legend-label">2분 이내</span>
+											</span>
+											<span class="bms-donut__legend-count">
+												<strong class="bms-donut__legend-num">78.3</strong>
+												<span class="bms-donut__legend-unit">%</span>
+											</span>
+										</li>
+										<li class="bms-donut__legend-item">
+											<span class="bms-donut__legend-key">
+												<span class="bms-donut__dot bms-donut__dot--warning"></span>
+												<span class="bms-donut__legend-label">3분 이내</span>
+											</span>
+											<span class="bms-donut__legend-count">
+												<strong class="bms-donut__legend-num">92.4</strong>
+												<span class="bms-donut__legend-unit">%</span>
+											</span>
+										</li>
+										<li class="bms-donut__legend-item">
+											<span class="bms-donut__legend-key">
+												<span class="bms-donut__dot bms-donut__dot--success-dark"></span>
+												<span class="bms-donut__legend-label">5분 이내</span>
+											</span>
+											<span class="bms-donut__legend-count">
+												<strong class="bms-donut__legend-num">98.1</strong>
+												<span class="bms-donut__legend-unit">%</span>
+											</span>
+										</li>
+										<li class="bms-donut__legend-item">
+											<span class="bms-donut__legend-key">
+												<span class="bms-donut__dot bms-donut__dot--pending"></span>
+												<span class="bms-donut__legend-label">5분 초과</span>
+											</span>
+											<span class="bms-donut__legend-count">
+												<strong class="bms-donut__legend-num">1.9</strong>
+												<span class="bms-donut__legend-unit">%</span>
+											</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="bms-panel__block bms-panel__block--eval-card">
+								<div class="bms-card-head">
+									<h3 class="bms-card-head__title">시간대별 평균 도착 오차</h3>
+									<span class="bms-card-head__unit">(단위 : 분)</span>
+								</div>
+								<div class="bms-line-chart">
+								</div>
+							</div>
+						</div>
+
+						<div class="bms-panel__block">
+							<div class="bms-card-head">
+								<h3 class="bms-card-head__title">노선별 정확도 TOP 5</h3>
+								<span class="bms-card-head__sub">오늘</span>
+							</div>
+							<div class="bms-table">
+								<div class="bms-table__head bms-table__head--gray bms-table__head--rank">
+									<span>순위</span>
+									<span>노선</span>
+									<span>정확도</span>
+								</div>
+								<div class="bms-table__row bms-table__row--rank">
+									<span class="bms-rank bms-rank--1">1</span>
+									<span class="bms-route">
+										<img class="bms-route__icon" src="./assets/images/ico-rank01.svg" alt="">
+										<strong class="bms-route__num">7011</strong>
+									</span>
+									<div class="bms-progress">
+										<div class="bms-progress__track">
+											<div class="bms-progress__bar">
+												<span class="bms-progress__base"></span>
+												<div class="bms-progress__fill-wrap" data-fill="98.1">
+													<span class="bms-progress__fill"></span>
+												</div>
+											</div>
+										</div>
+										<span class="bms-progress__value bms-progress__value--tone-1">97.6 <span>%</span></span>
+									</div>
+								</div>
+								<div class="bms-table__row bms-table__row--rank">
+									<span class="bms-rank bms-rank--2">2</span>
+									<span class="bms-route">
+										<img class="bms-route__icon" src="./assets/images/ico-rank02.svg" alt="">
+										<strong class="bms-route__num">7715</strong>
+									</span>
+									<div class="bms-progress">
+										<div class="bms-progress__track">
+											<div class="bms-progress__bar">
+												<span class="bms-progress__base"></span>
+												<div class="bms-progress__fill-wrap" data-fill="90.8">
+													<span class="bms-progress__fill"></span>
+												</div>
+											</div>
+										</div>
+										<span class="bms-progress__value bms-progress__value--tone-2">96.8 <span>%</span></span>
+									</div>
+								</div>
+								<div class="bms-table__row bms-table__row--rank">
+									<span class="bms-rank bms-rank--3">3</span>
+									<span class="bms-route">
+										<img class="bms-route__icon" src="./assets/images/ico-rank03.svg" alt="">
+										<strong class="bms-route__num">1002</strong>
+									</span>
+									<div class="bms-progress">
+										<div class="bms-progress__track">
+											<div class="bms-progress__bar">
+												<span class="bms-progress__base"></span>
+												<div class="bms-progress__fill-wrap" data-fill="79.7">
+													<span class="bms-progress__fill"></span>
+												</div>
+											</div>
+										</div>
+										<span class="bms-progress__value bms-progress__value--tone-3">95.9 <span>%</span></span>
+									</div>
+								</div>
+								<div class="bms-table__row bms-table__row--rank">
+									<span class="bms-rank bms-rank--4">4</span>
+									<span class="bms-route">
+										<img class="bms-route__icon" src="./assets/images/ico-rank04.svg" alt="">
+										<strong class="bms-route__num">6616</strong>
+									</span>
+									<div class="bms-progress">
+										<div class="bms-progress__track">
+											<div class="bms-progress__bar">
+												<span class="bms-progress__base"></span>
+												<div class="bms-progress__fill-wrap" data-fill="69.5">
+													<span class="bms-progress__fill"></span>
+												</div>
+											</div>
+										</div>
+										<span class="bms-progress__value bms-progress__value--tone-4">94.7 <span>%</span></span>
+									</div>
+								</div>
+								<div class="bms-table__row bms-table__row--rank">
+									<span class="bms-rank bms-rank--5">5</span>
+									<span class="bms-route">
+										<img class="bms-route__icon" src="./assets/images/ico-rank04.svg" alt="">
+										<strong class="bms-route__num">300</strong>
+									</span>
+									<div class="bms-progress">
+										<div class="bms-progress__track">
+											<div class="bms-progress__bar">
+												<span class="bms-progress__base"></span>
+												<div class="bms-progress__fill-wrap" data-fill="58.8">
+													<span class="bms-progress__fill"></span>
+												</div>
+											</div>
+										</div>
+										<span class="bms-progress__value bms-progress__value--tone-5">94.1 <span>%</span></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<!-- 이상알림 모달 -->
+	<div id="alertModal" class="modal">
+		<div class="modal-dialog">
+			<div class="modal-header">
+				<span>수신이상 알림</span>
+				<button onclick="closeModal('alertModal')"></button>
+			</div>
+			<div class="modal-content">
+				<div class="modal--alerts">
+					<div class="modal--alerts__col">
+						<h3>BIT 수신 이상 알림</h3>
+						<div class="modal--alerts__item">
+							<div class="head">
+								<span class="chip" style="background: #ffddd1;"><i aria-hidden="true" style="background: #f1784a;"></i>통신이상</span>
+								<span class="data">2025-08-26 15:23</span>
+							</div>
+							<h4 class="ti">한빛아파트 (신관초방면) 통신이상</h4>
+							<p class="info">(ARS : 1472 / BIT ID : 35)</p>
+						</div>
+						<div class="modal--alerts__item">
+							<div class="head">
+								<span class="chip" style="background: #ffddd1;"><i aria-hidden="true" style="background: #f1784a;"></i>통신이상</span>
+								<span class="data">2025-08-26 15:23</span>
+							</div>
+							<h4 class="ti">한빛아파트 (신관초방면) 통신이상</h4>
+							<p class="info">(ARS : 1472 / BIT ID : 35)</p>
+						</div>
+						<div class="modal--alerts__item">
+							<div class="head">
+								<span class="chip" style="background: #ffddd1;"><i aria-hidden="true" style="background: #f1784a;"></i>통신이상</span>
+								<span class="data">2025-08-26 15:23</span>
+							</div>
+							<h4 class="ti">한빛아파트 (신관초방면) 통신이상</h4>
+							<p class="info">(ARS : 1472 / BIT ID : 35)</p>
+						</div>
+					</div>
+					<div class="modal--alerts__col">
+						<h3>버스 수신 이상 알림</h3>
+						<div class="modal--alerts__item">
+							<div class="head">
+								<span class="chip" style="background: #e7e7f6;"><i aria-hidden="true" style="background: #f1784a;"></i>통신이상</span>
+								<span class="data">2025-08-26 15:23</span>
+							</div>
+							<h4 class="ti">32-5번 통신이상</h4>
+							<p class="info">(ARS : 1472 / BIT ID : 35)</p>
+						</div>
+						<div class="modal--alerts__item">
+							<div class="head">
+								<span class="chip" style="background: #e7e7f6;"><i aria-hidden="true" style="background: #f1784a;"></i>통신이상</span>
+								<span class="data">2025-08-26 15:23</span>
+							</div>
+							<h4 class="ti">32-5번 통신이상</h4>
+							<p class="info">(ARS : 1472 / BIT ID : 35)</p>
+						</div>
+						<div class="modal--alerts__item">
+							<div class="head">
+								<span class="chip" style="background: #e7e7f6;"><i aria-hidden="true" style="background: #f1784a;"></i>통신이상</span>
+								<span class="data">2025-08-26 15:23</span>
+							</div>
+							<h4 class="ti">32-5번 통신이상</h4>
+							<p class="info">(ARS : 1472 / BIT ID : 35)</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
