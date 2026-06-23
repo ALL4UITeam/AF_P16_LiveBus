@@ -1,6 +1,7 @@
 import glob from 'fast-glob'
 import fs from 'fs'
 import path from 'path'
+import esbuild from 'esbuild'
 import { defineConfig, loadEnv } from 'vite'
 import handlebars from 'vite-plugin-handlebars'
 
@@ -45,6 +46,7 @@ export default defineConfig(({ mode }) => {
       assetsInlineLimit: 0,
       cssCodeSplit: true,
       minify: false,
+      modulePreload: false,
       rollupOptions: {
         input: Object.fromEntries(
           glob.sync('src/*.html').map(file => {
@@ -63,11 +65,6 @@ export default defineConfig(({ mode }) => {
               return 'assets/images/[name][extname]'
             }
             return 'assets/[name][extname]'
-          }
-        },
-        manualChunks(id) {
-          if (id.includes('/src/js/common/')) {
-            return 'common'
           }
         }
       }
@@ -110,16 +107,52 @@ export default defineConfig(({ mode }) => {
         closeBundle() {
           const distPath = path.resolve(__dirname, 'dist')
           const htmlFiles = fs.readdirSync(distPath).filter(f => f.endsWith('.html'))
+          const appScript = '<script defer src="./assets/js/app.js"></script>'
 
           htmlFiles.forEach(file => {
             const filePath = path.join(distPath, file)
             let content = fs.readFileSync(filePath, 'utf-8')
             content = content.replace(/ crossorigin/g, '')
             content = content.replace(/<link rel="modulepreload" [^>]+?>/g, '')
+            content = content.replace(/<script type="module"\s+src="\.\/assets\/js\/[^"]+\.js"><\/script>/g, '')
+
+            if (!content.includes('./assets/js/app.js')) {
+              content = content.replace(
+                /(<script src="\.\/lib\/dragula\/dragula\.min\.js"><\/script>)/,
+                `$1\n\t${appScript}`
+              )
+            }
+
             fs.writeFileSync(filePath, content)
           })
 
-          console.log('✅ 빌드 후 modulepreload & crossorigin 제거 완료')
+          console.log('✅ 빌드 후 module → defer IIFE script 변환 완료')
+        }
+      },
+      {
+        name: 'build-iife-bundle',
+        async closeBundle() {
+          const distJsDir = path.resolve(__dirname, 'dist/assets/js')
+          const appPath = path.join(distJsDir, 'app.js')
+
+          await esbuild.build({
+            entryPoints: [path.resolve(__dirname, 'src/js/page/index.js')],
+            outfile: appPath,
+            bundle: true,
+            format: 'iife',
+            globalName: 'Livebus',
+            alias: {
+              '@': path.resolve(__dirname, 'src')
+            }
+          })
+
+          for (const file of fs.readdirSync(distJsDir)) {
+            if (file !== 'app.js' && file.endsWith('.js')) {
+              fs.unlinkSync(path.join(distJsDir, file))
+            }
+          }
+
+          console.log('✅ IIFE 번들 생성 완료: assets/js/app.js')
         }
       }
     ]

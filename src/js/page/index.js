@@ -1,5 +1,12 @@
 
 import { buttonClick, toggleTab } from '../common/ui.js'
+import { initBmsGradeGauges } from '../components/bms-grade-gauge.js'
+import { initBmsProgressBars } from '../components/bms-progress.js'
+
+document.addEventListener('DOMContentLoaded', () => {
+	initBmsGradeGauges();
+	initBmsProgressBars();
+});
 
 // sideNav
 document.querySelectorAll('.nav-sec').forEach((sec) => {

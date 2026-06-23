@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!-- @pageTitle 접수 현황 -->
+<!-- @pageNote Figma 홍천군 BMS node 96:527 접수 현황 -->
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>LIVE BUS - 접수 현황</title>
+	{{> meta}}
+</head>
+
+<body>
+
+	<div class="app">
+		{{> header}}
+
+		<main class="content content--bms-dashboard" role="main" data-simplebar>
+			<div class="page-header">
+				<nav class="breadcrumb">
+					<span>시스템 관리</span>
+					<span class="divider">›</span>
+					<span>단말기 관리</span>
+					<span class="divider">›</span>
+					<span>유지보수 현황</span>
+					<span class="divider">›</span>
+					<span class="current">접수 현황</span>
+				</nav>
+				<h1 class="page-title">접수 현황</h1>
+			</div>
+
+			<div class="bms-dashboard bms-dashboard--reception">
+				<!-- 나의 신고 요약 -->
+				<section class="bms-report-box" aria-label="나의 신고 요약">
+					<h2 class="bms-report-box__title">나의 신고 요약</h2>
+					<div class="bms-report-box__kpi-row">
+						<article class="bms-kpi bms-kpi--report bms-kpi--report-featured">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">총 접수건수</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value">1,248</strong>
+										<span class="bms-kpi__unit">건</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-5">
+								<img src="./assets/images/dash/ico-kpi10.svg" alt="">
+							</div>
+						</article>
+
+						<article class="bms-kpi bms-kpi--report">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">접수 (신규)</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value bms-kpi__value--warning">20</strong>
+										<span class="bms-kpi__unit">건</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-1">
+								<img src="./assets/images/dash/ico-kpi11.svg" alt="">
+							</div>
+						</article>
+
+						<article class="bms-kpi bms-kpi--report">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">처리중</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value bms-kpi__value--info">12</strong>
+										<span class="bms-kpi__unit">건</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-1">
+								<img src="./assets/images/dash/ico-kpi012.svg" alt="">
+							</div>
+						</article>
+
+						<article class="bms-kpi bms-kpi--report">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">완료</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value bms-kpi__value--success">16</strong>
+										<span class="bms-kpi__unit">건</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-1">
+								<img src="./assets/images/dash/ico-kpi13.svg" alt="">
+							</div>
+						</article>
+					</div>
+				</section>
+
+				<!-- 필터 -->
+				<div class="bms-list-toolbar">
+					<p class="bms-list-toolbar__total">
+						총 <strong>5</strong>건
+					</p>
+					<div class="bms-list-toolbar__filters">
+						<div class="bms-filter-select">
+							<span class="bms-filter-select__label">전체 상태</span>
+							<span class="bms-filter-select__arrow" aria-hidden="true"></span>
+						</div>
+						<div class="bms-filter-select">
+							<span class="bms-filter-select__label">전체 구분</span>
+							<span class="bms-filter-select__arrow" aria-hidden="true"></span>
+						</div>
+						<div class="bms-filter-search">
+							<input type="search" class="bms-filter-search__input" placeholder="접수번호, 제목, 내용으로 검색" aria-label="접수 검색">
+							<button type="button" class="bms-filter-search__btn" aria-label="검색">
+								<img src="./assets/images/dash/ico-input-search.svg" alt="">
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- 목록 테이블 -->
+				<div class="bms-list-table" role="table" aria-label="접수 목록">
+					<div class="bms-list-table__head" role="row">
+						<span class="bms-list-table__cell bms-list-table__cell--no" role="columnheader">접수번호</span>
+						<span class="bms-list-table__cell bms-list-table__cell--type" role="columnheader">구분</span>
+						<span class="bms-list-table__cell bms-list-table__cell--title" role="columnheader">제목</span>
+						<span class="bms-list-table__cell bms-list-table__cell--date" role="columnheader">접수일</span>
+						<span class="bms-list-table__cell bms-list-table__cell--status" role="columnheader">상태</span>
+						<span class="bms-list-table__cell bms-list-table__cell--due" role="columnheader">처리 예정일</span>
+						<span class="bms-list-table__cell bms-list-table__cell--updated" role="columnheader">최근 업데이트</span>
+						<span class="bms-list-table__cell bms-list-table__cell--action" role="columnheader"><span class="sr-only">공유</span></span>
+					</div>
+					<div class="bms-list-table__body">
+						<div class="bms-list-table__row" role="row">
+							<span class="bms-list-table__cell bms-list-table__cell--no" role="cell">INC-2024000527</span>
+							<span class="bms-list-table__cell bms-list-table__cell--type" role="cell">
+								<span class="bms-device-badge bms-device-badge--lg bms-device-badge--bit">BIT</span>
+							</span>
+							<strong class="bms-list-table__cell bms-list-table__cell--title" role="cell">화면이 정상적으로 출력되지 않았습니다.</strong>
+							<span class="bms-list-table__cell bms-list-table__cell--date" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--status" role="cell">
+								<span class="bms-badge bms-badge--success bms-badge--status"><i class="bms-badge__dot"></i><span class="bms-badge__label">완료</span></span>
+							</span>
+							<span class="bms-list-table__cell bms-list-table__cell--due" role="cell">2026-05-21</span>
+							<span class="bms-list-table__cell bms-list-table__cell--updated" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--action" role="cell">
+								<button type="button" class="bms-share-btn" onclick="openModal('ReceptionShareModal')" aria-controls="ReceptionShareModal">
+									<img class="bms-share-btn__icon" src="./assets/images/dash/ico-share.svg" alt="">
+									<span class="bms-share-btn__label">공유하기</span>
+								</button>
+							</span>
+						</div>
+						<div class="bms-list-table__row" role="row">
+							<span class="bms-list-table__cell bms-list-table__cell--no" role="cell">INC-2024000527</span>
+							<span class="bms-list-table__cell bms-list-table__cell--type" role="cell">
+								<span class="bms-device-badge bms-device-badge--lg bms-device-badge--obe">OBE</span>
+							</span>
+							<strong class="bms-list-table__cell bms-list-table__cell--title" role="cell">GPS 신호가 수신되지 않습니다.</strong>
+							<span class="bms-list-table__cell bms-list-table__cell--date" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--status" role="cell">
+								<span class="bms-badge bms-badge--info bms-badge--status"><i class="bms-badge__dot"></i><span class="bms-badge__label">처리중</span></span>
+							</span>
+							<span class="bms-list-table__cell bms-list-table__cell--due" role="cell">2026-05-21</span>
+							<span class="bms-list-table__cell bms-list-table__cell--updated" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--action" role="cell">
+								<button type="button" class="bms-share-btn" onclick="openModal('ReceptionShareModal')" aria-controls="ReceptionShareModal">
+									<img class="bms-share-btn__icon" src="./assets/images/dash/ico-share.svg" alt="">
+									<span class="bms-share-btn__label">공유하기</span>
+								</button>
+							</span>
+						</div>
+						<div class="bms-list-table__row" role="row">
+							<span class="bms-list-table__cell bms-list-table__cell--no" role="cell">INC-2024000527</span>
+							<span class="bms-list-table__cell bms-list-table__cell--type" role="cell">
+								<span class="bms-device-badge bms-device-badge--lg bms-device-badge--obe">OBE</span>
+							</span>
+							<strong class="bms-list-table__cell bms-list-table__cell--title" role="cell">단말기 재부팅이 반복됩니다.</strong>
+							<span class="bms-list-table__cell bms-list-table__cell--date" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--status" role="cell">
+								<span class="bms-badge bms-badge--pending bms-badge--status"><i class="bms-badge__dot"></i><span class="bms-badge__label">접수</span></span>
+							</span>
+							<span class="bms-list-table__cell bms-list-table__cell--due" role="cell">2026-05-21</span>
+							<span class="bms-list-table__cell bms-list-table__cell--updated" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--action" role="cell">
+								<button type="button" class="bms-share-btn" onclick="openModal('ReceptionShareModal')" aria-controls="ReceptionShareModal">
+									<img class="bms-share-btn__icon" src="./assets/images/dash/ico-share.svg" alt="">
+									<span class="bms-share-btn__label">공유하기</span>
+								</button>
+							</span>
+						</div>
+						<div class="bms-list-table__row" role="row">
+							<span class="bms-list-table__cell bms-list-table__cell--no" role="cell">INC-2024000527</span>
+							<span class="bms-list-table__cell bms-list-table__cell--type" role="cell">
+								<span class="bms-device-badge bms-device-badge--lg bms-device-badge--bit">BIT</span>
+							</span>
+							<strong class="bms-list-table__cell bms-list-table__cell--title" role="cell">카트 인식이 되지 않습니다.</strong>
+							<span class="bms-list-table__cell bms-list-table__cell--date" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--status" role="cell">
+								<span class="bms-badge bms-badge--pending bms-badge--status"><i class="bms-badge__dot"></i><span class="bms-badge__label">접수</span></span>
+							</span>
+							<span class="bms-list-table__cell bms-list-table__cell--due" role="cell">2026-05-21</span>
+							<span class="bms-list-table__cell bms-list-table__cell--updated" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--action" role="cell">
+								<button type="button" class="bms-share-btn" onclick="openModal('ReceptionShareModal')" aria-controls="ReceptionShareModal">
+									<img class="bms-share-btn__icon" src="./assets/images/dash/ico-share.svg" alt="">
+									<span class="bms-share-btn__label">공유하기</span>
+								</button>
+							</span>
+						</div>
+						<div class="bms-list-table__row" role="row">
+							<span class="bms-list-table__cell bms-list-table__cell--no" role="cell">INC-2024000527</span>
+							<span class="bms-list-table__cell bms-list-table__cell--type" role="cell">
+								<span class="bms-device-badge bms-device-badge--lg bms-device-badge--bit">BIT</span>
+							</span>
+							<strong class="bms-list-table__cell bms-list-table__cell--title" role="cell">화면 터치 반응이 없습니다.</strong>
+							<span class="bms-list-table__cell bms-list-table__cell--date" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--status" role="cell">
+								<span class="bms-badge bms-badge--success bms-badge--status"><i class="bms-badge__dot"></i><span class="bms-badge__label">완료</span></span>
+							</span>
+							<span class="bms-list-table__cell bms-list-table__cell--due" role="cell">2026-05-21</span>
+							<span class="bms-list-table__cell bms-list-table__cell--updated" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--action" role="cell">
+								<button type="button" class="bms-share-btn" onclick="openModal('ReceptionShareModal')" aria-controls="ReceptionShareModal">
+									<img class="bms-share-btn__icon" src="./assets/images/dash/ico-share.svg" alt="">
+									<span class="bms-share-btn__label">공유하기</span>
+								</button>
+							</span>
+						</div>
+						<div class="bms-list-table__row" role="row">
+							<span class="bms-list-table__cell bms-list-table__cell--no" role="cell">INC-2024000527</span>
+							<span class="bms-list-table__cell bms-list-table__cell--type" role="cell">
+								<span class="bms-device-badge bms-device-badge--lg bms-device-badge--obe">OBE</span>
+							</span>
+							<strong class="bms-list-table__cell bms-list-table__cell--title" role="cell">하이패스 결제 오류가 발생합니다.</strong>
+							<span class="bms-list-table__cell bms-list-table__cell--date" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--status" role="cell">
+								<span class="bms-badge bms-badge--info bms-badge--status"><i class="bms-badge__dot"></i><span class="bms-badge__label">처리중</span></span>
+							</span>
+							<span class="bms-list-table__cell bms-list-table__cell--due" role="cell">2026-05-21</span>
+							<span class="bms-list-table__cell bms-list-table__cell--updated" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--action" role="cell">
+								<button type="button" class="bms-share-btn" onclick="openModal('ReceptionShareModal')" aria-controls="ReceptionShareModal">
+									<img class="bms-share-btn__icon" src="./assets/images/dash/ico-share.svg" alt="">
+									<span class="bms-share-btn__label">공유하기</span>
+								</button>
+							</span>
+						</div>
+						<div class="bms-list-table__row" role="row">
+							<span class="bms-list-table__cell bms-list-table__cell--no" role="cell">INC-2024000527</span>
+							<span class="bms-list-table__cell bms-list-table__cell--type" role="cell">
+								<span class="bms-device-badge bms-device-badge--lg bms-device-badge--obe">OBE</span>
+							</span>
+							<strong class="bms-list-table__cell bms-list-table__cell--title" role="cell">카트 인식이 되지 않습니다.</strong>
+							<span class="bms-list-table__cell bms-list-table__cell--date" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--status" role="cell">
+								<span class="bms-badge bms-badge--info bms-badge--status"><i class="bms-badge__dot"></i><span class="bms-badge__label">처리중</span></span>
+							</span>
+							<span class="bms-list-table__cell bms-list-table__cell--due" role="cell">2026-05-21</span>
+							<span class="bms-list-table__cell bms-list-table__cell--updated" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--action" role="cell">
+								<button type="button" class="bms-share-btn" onclick="openModal('ReceptionShareModal')" aria-controls="ReceptionShareModal">
+									<img class="bms-share-btn__icon" src="./assets/images/dash/ico-share.svg" alt="">
+									<span class="bms-share-btn__label">공유하기</span>
+								</button>
+							</span>
+						</div>
+						<div class="bms-list-table__row" role="row">
+							<span class="bms-list-table__cell bms-list-table__cell--no" role="cell">INC-2024000527</span>
+							<span class="bms-list-table__cell bms-list-table__cell--type" role="cell">
+								<span class="bms-device-badge bms-device-badge--lg bms-device-badge--bit">BIT</span>
+							</span>
+							<strong class="bms-list-table__cell bms-list-table__cell--title" role="cell">GPS 신호가 수신되지 않습니다.</strong>
+							<span class="bms-list-table__cell bms-list-table__cell--date" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--status" role="cell">
+								<span class="bms-badge bms-badge--pending bms-badge--status"><i class="bms-badge__dot"></i><span class="bms-badge__label">접수</span></span>
+							</span>
+							<span class="bms-list-table__cell bms-list-table__cell--due" role="cell">2026-05-21</span>
+							<span class="bms-list-table__cell bms-list-table__cell--updated" role="cell">2026-05-20 10:25</span>
+							<span class="bms-list-table__cell bms-list-table__cell--action" role="cell">
+								<button type="button" class="bms-share-btn" onclick="openModal('ReceptionShareModal')" aria-controls="ReceptionShareModal">
+									<img class="bms-share-btn__icon" src="./assets/images/dash/ico-share.svg" alt="">
+									<span class="bms-share-btn__label">공유하기</span>
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 페이지네이션 -->
+				<nav class="bms-pagination" aria-label="페이지 이동">
+					<button type="button" class="bms-pagination__nav bms-pagination__nav--prev">
+						<span class="bms-pagination__nav-icon" aria-hidden="true"></span>
+						<span>이전</span>
+					</button>
+					<div class="bms-pagination__pages">
+						<button type="button" class="bms-pagination__page is-active" aria-current="page">1</button>
+						<button type="button" class="bms-pagination__page">2</button>
+						<button type="button" class="bms-pagination__page">3</button>
+						<button type="button" class="bms-pagination__page">4</button>
+						<button type="button" class="bms-pagination__page">5</button>
+						<button type="button" class="bms-pagination__page">6</button>
+						<button type="button" class="bms-pagination__page">7</button>
+						<button type="button" class="bms-pagination__page">8</button>
+						<span class="bms-pagination__ellipsis" aria-hidden="true">…</span>
+						<button type="button" class="bms-pagination__page">99</button>
+					</div>
+					<button type="button" class="bms-pagination__nav bms-pagination__nav--next">
+						<span>다음</span>
+						<span class="bms-pagination__nav-icon" aria-hidden="true"></span>
+					</button>
+				</nav>
+			</div>
+		</main>
+	</div>
+
+	<!-- 공유하기 모달 -->
+	<div id="ReceptionShareModal" class="modal modal--share" aria-modal="true" aria-labelledby="receptionShareModalTitle" role="dialog">
+		<div class="modal-dialog modal--share__dialog">
+			<div class="modal--share__header">
+				<h2 id="receptionShareModalTitle" class="modal--share__title">공유하기</h2>
+				<button type="button" class="modal--share__close" onclick="closeModal('ReceptionShareModal')" aria-label="닫기"></button>
+			</div>
+			<div class="modal--share__body">
+				<div class="modal--share__field">
+					<a href="https://all4land.com" class="modal--share__url" id="receptionShareUrl" target="_blank" rel="noopener noreferrer">https://all4land.com</a>
+					<button type="button" class="modal--share__copy" id="receptionShareCopyBtn">복사</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{{> footer}}
+
+	<script>
+		(function () {
+			var copyBtn = document.getElementById('receptionShareCopyBtn');
+			var urlEl = document.getElementById('receptionShareUrl');
+
+			if (!copyBtn || !urlEl) return;
+
+			copyBtn.addEventListener('click', function () {
+				var url = urlEl.textContent.trim();
+
+				if (navigator.clipboard && navigator.clipboard.writeText) {
+					navigator.clipboard.writeText(url);
+				} else {
+					var textarea = document.createElement('textarea');
+					textarea.value = url;
+					textarea.setAttribute('readonly', '');
+					textarea.style.position = 'absolute';
+					textarea.style.left = '-9999px';
+					document.body.appendChild(textarea);
+					textarea.select();
+					document.execCommand('copy');
+					document.body.removeChild(textarea);
+				}
+
+				var originalLabel = copyBtn.textContent;
+				copyBtn.textContent = '복사됨';
+				window.setTimeout(function () {
+					copyBtn.textContent = originalLabel;
+				}, 1500);
+			});
+		})();
+	</script>
+
+</body>
+
+</html>

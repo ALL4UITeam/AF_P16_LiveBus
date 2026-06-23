@@ -41,7 +41,7 @@
                 width: 24px;
                 height: 24px;
                 background-repeat: no-repeat;
-                background-image: url("@/assets/images/dash/modal-close.png");
+                background-image: url("@/assets/images/dash/ico-close.png");
             }
         }
         .modal-content {
@@ -2616,6 +2616,93 @@
         }
         .btn.primary {
             background: #047bb6;
+        }
+    }
+}
+
+// ========== 접수 현황 공유하기 모달 ==========
+.modal--share {
+    .modal-dialog {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        min-width: 320px;
+        max-width: 420px;
+        width: calc(100% - 40px);
+        overflow: visible;
+    }
+
+    &__header {
+        position: relative;
+        padding: 24px 48px 16px;
+        text-align: center;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 19px;
+        font-weight: 700;
+        line-height: 1.4;
+        color: #1d1d1d;
+    }
+
+    &__close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 24px;
+        height: 24px;
+        border: 0;
+        background: transparent url("@/assets/images/dash/ico-close.png") center / contain no-repeat;
+        cursor: pointer;
+    }
+
+    &__body {
+        padding: 0 24px 24px;
+    }
+
+    &__field {
+        display: flex;
+        align-items: stretch;
+        min-height: 48px;
+        border: 1px solid #dce1e9;
+        border-radius: 8px;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    &__url {
+        display: flex;
+        flex: 1 1 0;
+        align-items: center;
+        min-width: 0;
+        padding: 0 16px;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #0284c7;
+        text-decoration: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__copy {
+        flex: 0 0 auto;
+        min-width: 72px;
+        padding: 0 16px;
+        border: 0;
+        border-left: 1px solid #dce1e9;
+        background: #f5f7fa;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.5;
+        color: #3a4658;
+        cursor: pointer;
+        white-space: nowrap;
+
+        &:hover {
+            background: #ebedf2;
         }
     }
 }
