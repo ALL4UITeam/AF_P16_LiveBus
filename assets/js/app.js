@@ -251,10 +251,120 @@ var Livebus = (() => {
     document.querySelectorAll(".bms-progress").forEach(initProgressBar);
   }
 
+  // src/js/components/bms-kpi-count.js
+  var START_DELAY_MS3 = 200;
+  var STAGGER_MS = 80;
+  var DURATION_MS = 1200;
+  function prefersReducedMotion3() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+  function parseKpiValue(text) {
+    const trimmed = text.trim();
+    if (!/^[\d,]+(?:\.\d+)?$/.test(trimmed)) return null;
+    const normalized = trimmed.replace(/,/g, "");
+    const value = Number(normalized);
+    if (Number.isNaN(value)) return null;
+    const decimalPart = normalized.split(".")[1];
+    const decimals = decimalPart ? decimalPart.length : 0;
+    return {
+      value,
+      decimals,
+      useComma: trimmed.includes(",")
+    };
+  }
+  function formatKpiValue(value, decimals, useComma) {
+    const fixed = value.toFixed(decimals);
+    if (!useComma) return fixed;
+    const [integerPart, fractionPart] = fixed.split(".");
+    const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return fractionPart !== void 0 ? `${formattedInteger}.${fractionPart}` : formattedInteger;
+  }
+  function easeOutCubic(progress) {
+    return 1 - (1 - progress) ** 3;
+  }
+  function animateKpiValue(el, config, delayMs) {
+    const { value: target, decimals, useComma } = config;
+    const run = () => {
+      el.classList.add("is-counting");
+      const start = performance.now();
+      const tick = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / DURATION_MS, 1);
+        const current = target * easeOutCubic(progress);
+        el.textContent = formatKpiValue(current, decimals, useComma);
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+          return;
+        }
+        el.textContent = formatKpiValue(target, decimals, useComma);
+        el.classList.remove("is-counting");
+        el.classList.add("is-complete");
+      };
+      requestAnimationFrame(tick);
+    };
+    if (delayMs > 0) {
+      window.setTimeout(run, delayMs);
+      return;
+    }
+    run();
+  }
+  function initKpiValue(el, index) {
+    if (el.dataset.countInitialized === "true") return;
+    const source = el.dataset.countTo ?? el.textContent;
+    const config = parseKpiValue(source);
+    if (!config) return;
+    el.dataset.countInitialized = "true";
+    el.dataset.countTo = String(config.value);
+    if (prefersReducedMotion3()) {
+      el.textContent = formatKpiValue(config.value, config.decimals, config.useComma);
+      el.classList.add("is-complete");
+      return;
+    }
+    el.textContent = formatKpiValue(0, config.decimals, config.useComma);
+    const delayMs = START_DELAY_MS3 + index * STAGGER_MS;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          observer.disconnect();
+          animateKpiValue(el, config, delayMs);
+        });
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+  }
+  function initBmsKpiCounts() {
+    document.querySelectorAll(".bms-kpi__value").forEach(initKpiValue);
+  }
+
+  // src/js/components/chatbot.js
+  function initChatbot() {
+    const launcher = document.querySelector(".chatbot-launcher");
+    const chatbot = document.getElementById("livebusChatbot");
+    if (!launcher || !chatbot) return;
+    const closeBtn = chatbot.querySelector(".chatbot__close");
+    const openByDefault = Boolean(document.querySelector(".app--chatbot-page"));
+    function setChatbotOpen(isOpen) {
+      chatbot.classList.toggle("is-hidden", !isOpen);
+      launcher.classList.toggle("is-active", isOpen);
+      launcher.setAttribute("aria-expanded", String(isOpen));
+    }
+    launcher.addEventListener("click", () => {
+      setChatbotOpen(chatbot.classList.contains("is-hidden"));
+    });
+    closeBtn?.addEventListener("click", () => {
+      setChatbotOpen(false);
+    });
+    setChatbotOpen(openByDefault);
+  }
+
   // src/js/page/index.js
   document.addEventListener("DOMContentLoaded", () => {
     initBmsGradeGauges();
     initBmsProgressBars();
+    initBmsKpiCounts();
+    initChatbot();
   });
   document.querySelectorAll(".nav-sec").forEach((sec) => {
     const summary = sec.querySelector("summary");

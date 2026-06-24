@@ -31,7 +31,7 @@
 	    </div>
 	
 	    <div class="topbar__actions">
-	        <button type="button" class="chatbot-launcher is-active" aria-label="챗봇 열기" aria-expanded="true" aria-controls="livebusChatbot">
+	        <button type="button" class="chatbot-launcher" aria-label="챗봇 열기" aria-expanded="false" aria-controls="livebusChatbot">
 				<img src="./assets/images/ico-headchat.png" alt="">
 			</button>
 	        <button class="icon-notice" onclick="openModal('alertModal')" aria-label="알림">
@@ -488,6 +488,174 @@
 		</div>
 	</div>
 </div>
+
+<!-- 챗봇 -->
+<div class="chatbot is-hidden" id="livebusChatbot" role="dialog" aria-label="라이브버스 챗봇" aria-modal="false">
+	<header class="chatbot__header">
+		<div class="chatbot__header-info">
+			<img class="chatbot__header-logo" src="./assets/images/chathead-logo.png" alt="">
+			<p class="chatbot__header-title">라이브버스 챗봇과 대화중</p>
+		</div>
+		<button type="button" class="chatbot__close" aria-label="챗봇 닫기">
+			<img src="./assets/images/ico-chatout.png" alt="">
+		</button>
+	</header>
+
+	<div class="chatbot__body" data-simplebar>
+		<div class="chatbot__message chatbot__message--bot">
+			<img class="chatbot__avatar" src="./assets/images/chat-counselor.png" alt="상담원 AI">
+			<div class="chatbot__content">
+				<div class="chatbot__meta">
+					<span class="chatbot__name">상담원 (AI)</span>
+					<time class="chatbot__time" datetime="10:05">오전 10:05</time>
+				</div>
+				<div class="chatbot__bubble">
+					<p class="chatbot__text">
+						안녕하세요. 라이브버스에 오신 것을 환영합니다. 라이브버스에 대해 궁금한게 있으시다면 <strong>아래 메뉴를 선택하거나 궁금한 내용을 입력</strong>해 주세요.
+					</p>
+					<ul class="chatbot__quick-list">
+						<li>
+							<button type="button" class="chatbot__quick-btn">
+								<span>갈전 상행 정류장에 85번 버스 언제 도착해?</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="chatbot__quick-btn">
+								<span>만동 정류장에 곧 도착하는 버스 있어?</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="chatbot__quick-btn">
+								<span>봉곡 정류장의 버스 도착 정보가 어떻게 돼?</span>
+							</button>
+						</li>
+						<li>
+							<button type="button" class="chatbot__quick-btn">
+								<span>85번 버스 마지막차 언제야?</span>
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="chatbot__message chatbot__message--user">
+			<time class="chatbot__time chatbot__time--user" datetime="10:05">오전 10:05</time>
+			<div class="chatbot__bubble chatbot__bubble--user">
+				<p class="chatbot__text">85번 버스 마지막차 언제야?</p>
+			</div>
+		</div>
+
+		<div class="chatbot__message chatbot__message--bot">
+			<img class="chatbot__avatar" src="./assets/images/chat-counselor.png" alt="상담원 AI">
+			<div class="chatbot__content">
+				<div class="chatbot__meta">
+					<span class="chatbot__name">상담원 (AI)</span>
+					<time class="chatbot__time" datetime="10:05">오전 10:05</time>
+				</div>
+				<div class="chatbot__bubble">
+					<div class="chatbot__route-head">
+						<img class="chatbot__route-icon" src="./assets/images/ico-bus.png" alt="">
+						<strong class="chatbot__route-num">85</strong>
+					</div>
+					<p class="chatbot__text">
+						85번 버스의 마지막 차는 <strong>소양행정복지센터에서 23시 35분에 출발</strong>합니다.
+					</p>
+					<div class="chatbot__info-card">
+						<dl class="chatbot__info-row">
+							<dt class="chatbot__info-label">첫차</dt>
+							<dd class="chatbot__info-value">용문사, 반곡마을<br>09시 10분 출발</dd>
+						</dl>
+						<dl class="chatbot__info-row">
+							<dt class="chatbot__info-label">마지막차</dt>
+							<dd class="chatbot__info-value">소양복지센터<br>23시 10분 출발</dd>
+						</dl>
+					</div>
+					<button type="button" class="chatbot__action-btn">노선별 정류장 정보</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="chatbot__message chatbot__message--user">
+			<time class="chatbot__time chatbot__time--user" datetime="10:05">오전 10:05</time>
+			<div class="chatbot__bubble chatbot__bubble--user">
+				<p class="chatbot__text">갈전 상행 정류장에 85번 버스 언제 도착해?</p>
+			</div>
+		</div>
+
+		<div class="chatbot__message chatbot__message--bot">
+			<img class="chatbot__avatar" src="./assets/images/chat-counselor.png" alt="상담원 AI">
+			<div class="chatbot__content">
+				<div class="chatbot__meta">
+					<span class="chatbot__name">상담원 (AI)</span>
+					<time class="chatbot__time" datetime="10:05">오전 10:05</time>
+				</div>
+				<div class="chatbot__bubble">
+					<div class="chatbot__route-head">
+						<img class="chatbot__route-icon" src="./assets/images/ico-bus.png" alt="">
+						<strong class="chatbot__route-num">갈전</strong>
+					</div>
+					<p class="chatbot__text">
+						갈전(상행)으로 가는 가장 빠른 버스는 '인덕마을 입구'에서 출발해 '용연마을'로 가고 있습니다.<br>
+						<strong>'갈전'까지는 10분</strong>남았습니다.
+					</p>
+					<div class="chatbot__arrival-card">
+						<div class="chatbot__arrival-grid">
+							<div class="chatbot__arrival-col">
+								<p class="chatbot__arrival-col-head">상행</p>
+								<ul class="chatbot__arrival-list">
+									<li class="chatbot__arrival-item">
+										<span class="chatbot__arrival-bus">85번</span>
+										<strong class="chatbot__arrival-time">10분</strong>
+									</li>
+									<li class="chatbot__arrival-item">
+										<span class="chatbot__arrival-bus">85번</span>
+										<strong class="chatbot__arrival-time">26분</strong>
+									</li>
+									<li class="chatbot__arrival-item">
+										<span class="chatbot__arrival-bus">85번</span>
+										<strong class="chatbot__arrival-time">40분</strong>
+									</li>
+								</ul>
+							</div>
+							<div class="chatbot__arrival-col">
+								<p class="chatbot__arrival-col-head">하행</p>
+								<ul class="chatbot__arrival-list">
+									<li class="chatbot__arrival-item">
+										<span class="chatbot__arrival-bus">85번</span>
+										<strong class="chatbot__arrival-time">10분</strong>
+									</li>
+									<li class="chatbot__arrival-item">
+										<span class="chatbot__arrival-bus">85번</span>
+										<strong class="chatbot__arrival-time">26분</strong>
+									</li>
+									<li class="chatbot__arrival-item">
+										<span class="chatbot__arrival-bus">85번</span>
+										<strong class="chatbot__arrival-time">40분</strong>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<p class="chatbot__hint">더 많은 도착정보는 '운행현황'에서 확인할 수 있습니다.</p>
+					<button type="button" class="chatbot__action-btn">운행 현황</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="chatbot__footer">
+		<form class="chatbot__form" action="#" onsubmit="return false;">
+			<div class="chatbot__input-wrap">
+				<input type="text" class="chatbot__input" placeholder="궁금한 점을 입력하세요" aria-label="메시지 입력">
+				<button type="submit" class="chatbot__send" aria-label="전송">
+					<img src="./assets/images/ico-send.png" alt="">
+				</button>
+			</div>
+		</form>
+	</footer>
+</div>
+
 <script>
 (function () {
 
