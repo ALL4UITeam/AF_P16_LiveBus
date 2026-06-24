@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- @pageTitle 유지보수 현황 -->
+<!-- @pageNote 홍천군 BMS -->
+<html lang="ko">
 
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>LIVE BUS</title>
+	<title>LIVE BUS - 유지보수 현황</title>
 	<link rel="stylesheet" href="styles.css" />
 	<link rel="stylesheet" href="./assets/fonts/esamanru.css">
 	<link rel="stylesheet" href="./assets/fonts/Freesentation.css">
@@ -211,108 +213,427 @@
 		        </dl>
 		    </div>
 		</aside>
-		<!-- 컨텐츠 영역 -->
-		<main class="content Mac-container" role="main">
-			<div class="Map">
-                <!-- 툴 -->
-                <div class=" Map--mode__top">
-                    <div class="Map--mode">
-                        <button type="button" class=" btn--mode active" data-toggle data-group="mapModeTop">일반</button>
-                        <button type="button" class=" btn--mode" data-toggle data-group="mapModeTop">위성</button>
-                    </div>
-                </div>
-                <div class="Map--mode__bottom">
-                    <div class="Map--mode">
-                        <button type="button" class=" btn--mode location" title="위치"></button>
-                    </div>
-                    <div class="Map--mode zoom">
-                        <button type="button" class=" btn--mode zoomin" title="확대" ></button>
-                        <button type="button" class=" btn--mode zoomout" title="축소"></button>
-                    </div>
-                </div>
-                <!-- 패널 우측 확장 -->
-                <div class="panel--expand">
-                    <div class="panel--expand__head">
-                        <button class="back"></button>
-                        <span>정류장 감지 편집</span>
-                        <button class="close"></button>
-                    </div>
-                    <div class="panel--expand__content">
-                        <div class="bus-type-inner">
-                            <div class="bus-type">
-                                <span class="bus-type-badge">1000</span>
-                                <span class="bus-type-label">71경기 4321</span>
-                            </div>
-                        </div>
-                        <div class="bus-search-inner">
-                            <div class="btn-group mt0">
-                                <button class=" btn small border">최근 1시간</button>
-                                <button class=" btn small border">최근 3시간</button>
-                                <button class=" btn small border">최근 6시간</button>
-                                <button class=" btn small border">최근 1일</button>
-                            </div>
-                            <div class="cal-picker">
-                                <input class="form-control" type="date" class="date-picker" value="2025-06-11"> ~ <input class="form-control" type="date" class="date-picker" value="2025-06-11">
-                            </div>
-                            <div>
-                                <button class="btn primary small block">검색</button>
-                            </div>
-                        </div>
-                        <hr class="hr">
-                        <div class="panel--list" style="height: calc(100% - 338px);" data-simplebar>
-                            <div class="">
-                                <div class="listhead">
-                                    <span>발생시간</span>
-                                    <span>이벤트</span>
-                                    <span>위치</span>
-                                </div>
-                                <div class="listbody">
-                                    <ul class="board ea4">
-                                        <li>
-                                            <span>14:10:00</span>
-                                            <span>정주기이벤트</span>
-                                            <span>소양강 이벤트</span>
-                                        </li>
-                                        <li>
-                                            <span>14:10:00</span>
-                                            <span>정주기이벤트</span>
-                                            <span>소양강 이벤트</span>
-                                        </li>
-                                        <li>
-                                            <span>14:10:00</span>
-                                            <span>정주기이벤트</span>
-                                            <span>소양강 이벤트</span>
-                                        </li>
-                                        <li>
-                                            <span>14:10:00</span>
-                                            <span>정주기이벤트</span>
-                                            <span>소양강 이벤트</span>
-                                        </li>
-                                        <li>
-                                            <span>14:10:00</span>
-                                            <span>정주기이벤트</span>
-                                            <span>소양강 이벤트</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="small--pop" style="right: 100px;top: 80px;">
-                <div class="small--pop__con">
-                    <div class="btn-group mt0">
-                        <button class="btn small border">감지 영역 변경</button>
-                        <button class="btn small border">감지 위치 변경</button>
-                        <button class="btn small primary">저장</button>
-                        <button class="btn small cancle">초기화</button>
-                    </div>
-                </div>
-            </div>
+		<main class="content content--bms-dashboard" role="main" data-simplebar>
+			<div class="page-header">
+				<nav class="breadcrumb">
+					<span>시스템 관리</span>
+					<span class="divider">›</span>
+					<span>단말기 관리</span>
+					<span class="divider">›</span>
+					<span class="current">유지보수 현황</span>
+				</nav>
+				<h1 class="page-title">유지보수 현황</h1>
+			</div>
+
+			<div class="bms-dashboard bms-dashboard--maintenance">
+				<!-- KPI: 운영 현황 -->
+				<section class="bms-dashboard__kpi-box" aria-label="운영 현황">
+					<div class="bms-section-head">
+						<h2 class="bms-section-head__title">운영 현황</h2>
+						<p class="bms-section-head__desc">BIT / OBE 시스템 장애, 미배정, 처리 진행 상황을 한눈에 확인합니다.</p>
+					</div>
+					<div class="bms-dashboard__kpi-row">
+						<article class="bms-kpi">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">BIT 장애</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value">6</strong>
+										<span class="bms-kpi__unit">건</span>
+									</div>
+									<div class="bms-kpi__trend">
+										<span class="bms-kpi__trend-label">전일 대비</span>
+										<span class="bms-trend bms-trend--up">
+											<img class="bms-trend__arrow" src="./assets/images/ico-trend-up.svg" alt="">
+											<span class="bms-trend__num">2</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-1">
+								<img src="./assets/images/ico-kpi06.svg" alt="">
+							</div>
+						</article>
+
+						<article class="bms-kpi">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">OBE 장애</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value">2</strong>
+										<span class="bms-kpi__unit">건</span>
+									</div>
+									<div class="bms-kpi__trend">
+										<span class="bms-kpi__trend-label">전일 대비</span>
+										<span class="bms-trend bms-trend--up">
+											<img class="bms-trend__arrow" src="./assets/images/ico-trend-up.svg" alt="">
+											<span class="bms-trend__num">1</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-2">
+								<img src="./assets/images/ico-kpi07.svg" alt="">
+							</div>
+						</article>
+
+						<article class="bms-kpi">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">미배정 건수</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value">5</strong>
+										<span class="bms-kpi__unit">건</span>
+									</div>
+									<div class="bms-kpi__trend">
+										<span class="bms-kpi__trend-label">전일 대비</span>
+										<span class="bms-trend bms-trend--up">
+											<img class="bms-trend__arrow" src="./assets/images/ico-trend-up.svg" alt="">
+											<span class="bms-trend__num">2</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-3">
+								<img src="./assets/images/ico-kpi08.svg" alt="">
+							</div>
+						</article>
+
+						<article class="bms-kpi">
+							<div class="bms-kpi__text">
+								<p class="bms-kpi__label">진행중 건수</p>
+								<div class="bms-kpi__num">
+									<div class="bms-kpi__value-row">
+										<strong class="bms-kpi__value">8</strong>
+										<span class="bms-kpi__unit">건</span>
+									</div>
+									<div class="bms-kpi__trend">
+										<span class="bms-kpi__trend-label">전일 대비</span>
+										<span class="bms-trend bms-trend--negative">
+											<img class="bms-trend__arrow" src="./assets/images/ico-trend-down.svg" alt="">
+											<span class="bms-trend__num">1</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="bms-kpi__icon bms-kpi__icon--tone-4">
+								<img src="./assets/images/ico-kpi09.svg" alt="">
+							</div>
+						</article>
+					</div>
+				</section>
+
+				<div class="bms-dashboard__body bms-dashboard__body--maint">
+
+					<!-- 좌열 -->
+					<div class="bms-dashboard__col">
+
+						<section class="bms-panel bms-panel--maint-oper" aria-labelledby="bms-oper-status-title">
+							<h2 id="bms-oper-status-title" class="bms-panel__title">운영 상태</h2>
+							<div class="bms-oper-row">
+
+								<div class="bms-panel__block bms-panel__block--oper-card">
+									<div class="bms-card-head">
+										<h3 class="bms-card-head__title">
+											<span class="bms-card-head__title-accent">BIT</span>
+											<span>운영상태</span>
+										</h3>
+									</div>
+									<div class="bms-donut bms-donut--oper">
+										<div class="bms-donut__chart bms-donut__chart--sm">
+											<div class="bms-donut__center">
+												<span class="bms-donut__center-label">전체</span>
+												<span class="bms-donut__center-value">70</span>
+												<span class="bms-donut__center-unit"> 대</span>
+											</div>
+										</div>
+										<ul class="bms-donut__legend bms-donut__legend--oper">
+											<li class="bms-donut__legend-item">
+												<span class="bms-donut__legend-key">
+													<span class="bms-donut__dot bms-donut__dot--success"></span>
+													<span class="bms-donut__legend-label">정상</span>
+												</span>
+												<span class="bms-donut__legend-count">
+													<strong class="bms-donut__legend-num">64</strong>
+													<span class="bms-donut__legend-unit">대</span>
+												</span>
+												<span class="bms-donut__legend-rate">91.4 <span>%</span></span>
+											</li>
+											<li class="bms-donut__legend-item">
+												<span class="bms-donut__legend-key">
+													<span class="bms-donut__dot bms-donut__dot--error"></span>
+													<span class="bms-donut__legend-label">미운행</span>
+												</span>
+												<span class="bms-donut__legend-count">
+													<strong class="bms-donut__legend-num">6</strong>
+													<span class="bms-donut__legend-unit">대</span>
+												</span>
+												<span class="bms-donut__legend-rate">8.6 <span>%</span></span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="bms-panel__block bms-panel__block--oper-card">
+									<div class="bms-card-head">
+										<h3 class="bms-card-head__title">
+											<span class="bms-card-head__title-accent">OBE</span>
+											<span>운영상태</span>
+										</h3>
+									</div>
+									<div class="bms-donut bms-donut--oper">
+										<div class="bms-donut__chart bms-donut__chart--sm">
+											<div class="bms-donut__center">
+												<span class="bms-donut__center-label">전체</span>
+												<span class="bms-donut__center-value">40</span>
+												<span class="bms-donut__center-unit"> 대</span>
+											</div>
+										</div>
+										<ul class="bms-donut__legend bms-donut__legend--oper">
+											<li class="bms-donut__legend-item">
+												<span class="bms-donut__legend-key">
+													<span class="bms-donut__dot bms-donut__dot--success"></span>
+													<span class="bms-donut__legend-label">정상</span>
+												</span>
+												<span class="bms-donut__legend-count">
+													<strong class="bms-donut__legend-num">38</strong>
+													<span class="bms-donut__legend-unit">대</span>
+												</span>
+												<span class="bms-donut__legend-rate">95.0 <span>%</span></span>
+											</li>
+											<li class="bms-donut__legend-item">
+												<span class="bms-donut__legend-key">
+													<span class="bms-donut__dot bms-donut__dot--error"></span>
+													<span class="bms-donut__legend-label">미운행</span>
+												</span>
+												<span class="bms-donut__legend-count">
+													<strong class="bms-donut__legend-num">2</strong>
+													<span class="bms-donut__legend-unit">대</span>
+												</span>
+												<span class="bms-donut__legend-rate">5.0 <span>%</span></span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</section>
+
+						<section class="bms-panel bms-panel--reception" aria-labelledby="bms-reception-title">
+							<div class="bms-panel__title-row">
+								<h2 id="bms-reception-title" class="bms-panel__title">최근 접수 현황</h2>
+								<button type="button" class="bms-panel__more-btn" aria-label="더보기">
+									<img src="./assets/images/ico-arrow-gray.svg" alt="">
+								</button>
+							</div>
+							<div class="bms-table">
+								<div class="bms-table__head bms-table__head--primary bms-table__head--reception">
+									<span>접수시간</span>
+									<span>구분</span>
+									<span>지역</span>
+									<span>장비/위치</span>
+									<span>내용</span>
+									<span>상태</span>
+									<span>업체</span>
+								</div>
+								<div class="bms-table__row bms-table__row--reception">
+									<span class="bms-table__time">10:25</span>
+									<span class="bms-device-badge bms-device-badge--bit">BIT</span>
+									<span>서울시</span>
+									<strong class="bms-table__equip">BIT -1256</strong>
+									<span class="bms-table__desc">화면이 정상적으로 출력되지 않음</span>
+									<span class="bms-badge bms-badge--info bms-badge--compact"><i class="bms-badge__dot"></i><span class="bms-badge__label">진행중</span></span>
+									<span>A 업체</span>
+								</div>
+								<div class="bms-table__row bms-table__row--reception">
+									<span class="bms-table__time">10:25</span>
+									<span class="bms-device-badge bms-device-badge--obe">OBE</span>
+									<span>부산시</span>
+									<strong class="bms-table__equip">OBE -1256</strong>
+									<span class="bms-table__desc">GPS 신호가 수신되지 않음</span>
+									<span class="bms-badge bms-badge--warning bms-badge--compact"><i class="bms-badge__dot"></i><span class="bms-badge__label">예정</span></span>
+									<span>B 업체</span>
+								</div>
+								<div class="bms-table__row bms-table__row--reception">
+									<span class="bms-table__time">10:25</span>
+									<span class="bms-device-badge bms-device-badge--bit">BIT</span>
+									<span>경기도</span>
+									<strong class="bms-table__equip">BIT -1048</strong>
+									<span class="bms-table__desc">단말기 재부팅 반복 발생</span>
+									<span class="bms-badge bms-badge--info bms-badge--compact"><i class="bms-badge__dot"></i><span class="bms-badge__label">진행중</span></span>
+									<span>A 업체</span>
+								</div>
+								<div class="bms-table__row bms-table__row--reception">
+									<span class="bms-table__time">10:25</span>
+									<span class="bms-device-badge bms-device-badge--obe">OBE</span>
+									<span>대구시</span>
+									<strong class="bms-table__equip">OBE -7721</strong>
+									<span class="bms-table__desc">카드 인식 오류 발생</span>
+									<span class="bms-badge bms-badge--error bms-badge--compact"><i class="bms-badge__dot"></i><span class="bms-badge__label">미배정</span></span>
+									<span>-</span>
+								</div>
+								<div class="bms-table__row bms-table__row--reception">
+									<span class="bms-table__time">10:25</span>
+									<span class="bms-device-badge bms-device-badge--bit">BIT</span>
+									<span>인천시</span>
+									<strong class="bms-table__equip">BIT -1330</strong>
+									<span class="bms-table__desc">화면 터치 반응 없음</span>
+									<span class="bms-badge bms-badge--success bms-badge--compact"><i class="bms-badge__dot"></i><span class="bms-badge__label">완료</span></span>
+									<span>C 업체</span>
+								</div>
+							</div>
+						</section>
+
+					</div>
+
+					<!-- 우열 -->
+					<div class="bms-dashboard__col">
+
+						<section class="bms-panel bms-panel--maint-progress" aria-labelledby="bms-maint-progress-title">
+							<h2 id="bms-maint-progress-title" class="bms-panel__title">유지보수 진행 현황</h2>
+							<div class="bms-panel__block bms-maint-summary">
+								<div class="bms-maint-summary__total">
+									<span class="bms-maint-summary__total-label">전체</span>
+									<span class="bms-maint-summary__total-value">
+										<strong>48</strong>
+										<span>건</span>
+									</span>
+								</div>
+								<div class="bms-maint-summary__cards">
+									<article class="bms-maint-status bms-maint-status--pending">
+										<p class="bms-maint-status__label">미배정</p>
+										<p class="bms-maint-status__count">
+											<strong>5</strong>
+											<span>건</span>
+										</p>
+										<span class="bms-maint-status__rate">10.4 <span>%</span></span>
+									</article>
+									<article class="bms-maint-status bms-maint-status--warning">
+										<p class="bms-maint-status__label">예정</p>
+										<p class="bms-maint-status__count">
+											<strong>15</strong>
+											<span>건</span>
+										</p>
+										<span class="bms-maint-status__rate">31.3 <span>%</span></span>
+									</article>
+									<article class="bms-maint-status bms-maint-status--info">
+										<p class="bms-maint-status__label">진행중</p>
+										<p class="bms-maint-status__count">
+											<strong>8</strong>
+											<span>건</span>
+										</p>
+										<span class="bms-maint-status__rate">16.7 <span>%</span></span>
+									</article>
+									<article class="bms-maint-status bms-maint-status--success">
+										<p class="bms-maint-status__label">완료</p>
+										<p class="bms-maint-status__count">
+											<strong>25</strong>
+											<span>건</span>
+										</p>
+										<span class="bms-maint-status__rate">52.1 <span>%</span></span>
+									</article>
+								</div>
+							</div>
+						</section>
+
+						<section class="bms-panel bms-panel--fault-top" aria-labelledby="bms-fault-top-title">
+							<h2 id="bms-fault-top-title" class="bms-panel__title">주요 장애 TOP 5</h2>
+							<div class="bms-table">
+								<div class="bms-table__head bms-table__head--gray bms-table__head--fault">
+									<span>순위</span>
+									<span>장애유형</span>
+									<span>구분</span>
+									<span>비율</span>
+								</div>
+								<div class="bms-table__row bms-table__row--fault">
+									<span class="bms-rank bms-rank--1">1</span>
+									<span class="bms-table__fault-type">화면 미 표출</span>
+									<span class="bms-device-badge bms-device-badge--bit">BIT</span>
+									<div class="bms-progress bms-progress--fault">
+										<div class="bms-progress__track">
+											<div class="bms-progress__bar">
+												<span class="bms-progress__base"></span>
+												<div class="bms-progress__fill-wrap" data-fill="93.5">
+													<span class="bms-progress__fill"></span>
+												</div>
+											</div>
+										</div>
+										<span class="bms-progress__value bms-progress__value--tone-1">15 <span>건</span></span>
+									</div>
+								</div>
+								<div class="bms-table__row bms-table__row--fault">
+									<span class="bms-rank bms-rank--2">2</span>
+									<span class="bms-table__fault-type">GPS 수신 불량</span>
+									<span class="bms-device-badge bms-device-badge--obe">OBE</span>
+									<div class="bms-progress bms-progress--fault">
+										<div class="bms-progress__track">
+											<div class="bms-progress__bar">
+												<span class="bms-progress__base"></span>
+												<div class="bms-progress__fill-wrap" data-fill="79.6">
+													<span class="bms-progress__fill"></span>
+												</div>
+											</div>
+										</div>
+										<span class="bms-progress__value bms-progress__value--tone-2">12 <span>건</span></span>
+									</div>
+								</div>
+								<div class="bms-table__row bms-table__row--fault">
+									<span class="bms-rank bms-rank--3">3</span>
+									<span class="bms-table__fault-type">통신 연결 오류</span>
+									<span class="bms-device-badge bms-device-badge--obe">OBE</span>
+									<div class="bms-progress bms-progress--fault">
+										<div class="bms-progress__track">
+											<div class="bms-progress__bar">
+												<span class="bms-progress__base"></span>
+												<div class="bms-progress__fill-wrap" data-fill="59.8">
+													<span class="bms-progress__fill"></span>
+												</div>
+											</div>
+										</div>
+										<span class="bms-progress__value bms-progress__value--tone-3">8 <span>건</span></span>
+									</div>
+								</div>
+								<div class="bms-table__row bms-table__row--fault">
+									<span class="bms-rank bms-rank--4">4</span>
+									<span class="bms-table__fault-type">전원 장애</span>
+									<span class="bms-device-badge bms-device-badge--bit">BIT</span>
+									<div class="bms-progress bms-progress--fault">
+										<div class="bms-progress__track">
+											<div class="bms-progress__bar">
+												<span class="bms-progress__base"></span>
+												<div class="bms-progress__fill-wrap" data-fill="28.8">
+													<span class="bms-progress__fill"></span>
+												</div>
+											</div>
+										</div>
+										<span class="bms-progress__value bms-progress__value--tone-4">4 <span>건</span></span>
+									</div>
+								</div>
+								<div class="bms-table__row bms-table__row--fault">
+									<span class="bms-rank bms-rank--5">5</span>
+									<span class="bms-table__fault-type">단말기 미응답</span>
+									<span class="bms-device-badge bms-device-badge--bit">BIT</span>
+									<div class="bms-progress bms-progress--fault">
+										<div class="bms-progress__track">
+											<div class="bms-progress__bar">
+												<span class="bms-progress__base"></span>
+												<div class="bms-progress__fill-wrap" data-fill="13.9">
+													<span class="bms-progress__fill"></span>
+												</div>
+											</div>
+										</div>
+										<span class="bms-progress__value bms-progress__value--tone-5">3 <span>건</span></span>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					</div>
+				</div>
+			</div>
 		</main>
 	</div>
+
 	<!-- 이상알림 모달 -->
 	<div id="alertModal" class="modal">
 		<div class="modal-dialog">
@@ -549,6 +870,5 @@
 	</div>
 
 </body>
-
 
 </html>

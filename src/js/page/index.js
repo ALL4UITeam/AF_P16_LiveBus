@@ -2,10 +2,14 @@
 import { buttonClick, toggleTab } from '../common/ui.js'
 import { initBmsGradeGauges } from '../components/bms-grade-gauge.js'
 import { initBmsProgressBars } from '../components/bms-progress.js'
+import { initBmsKpiCounts } from '../components/bms-kpi-count.js'
+import { initChatbot } from '../components/chatbot.js'
 
 document.addEventListener('DOMContentLoaded', () => {
 	initBmsGradeGauges();
 	initBmsProgressBars();
+	initBmsKpiCounts();
+	initChatbot();
 });
 
 // sideNav
