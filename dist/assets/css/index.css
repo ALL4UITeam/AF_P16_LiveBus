@@ -9962,6 +9962,7 @@ select {
   flex-direction: column;
   align-items: stretch;
   min-height: 0;
+  gap: 10px;
 }
 .bms-gauge__chart {
   display: flex;
