@@ -9562,9 +9562,10 @@ select {
 }
 .bms-kpi__trend {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 6px;
-  width: 200px;
+  width: auto;
   max-width: 100%;
 }
 .bms-kpi__trend-label {
@@ -9639,6 +9640,25 @@ select {
 .bms-trend--up {
   background: #e6f5ea;
   color: #1b8743;
+}
+.bms-trend--maintain {
+  background: #e6f7ff;
+  color: #0284c7;
+}
+.bms-trend--maintain .bms-trend__icon {
+  flex: 0 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+}
+.bms-trend--maintain .bms-trend__icon::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 2px;
+  background: #2d83d4;
 }
 .bms-trend--negative {
   background: #fdeeed;

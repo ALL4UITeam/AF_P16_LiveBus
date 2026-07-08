@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>접수 상세 - 홍천군 BMS</title>
+	<link rel="stylesheet" href="./fonts/Freesentation.css">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+	<div class="receipt-detail">
+		<header class="receipt-detail__header">
+			<h1 class="receipt-detail__header-title">접수 상세</h1>
+			<button type="button" class="receipt-detail__back" aria-label="뒤로가기">
+				<img src="./images/ico-header-back.svg" alt="">
+			</button>
+		</header>
+
+		<main class="receipt-detail__content">
+			<!-- 접수 요약 -->
+			<section class="receipt-card receipt-summary" aria-label="접수 요약">
+				<div class="receipt-summary__head">
+					<div class="receipt-summary__badge-row">
+						<div class="receipt-summary__status-list">
+							<span class="receipt-status receipt-status--info">
+								<img class="receipt-status__dot" src="./images/ico-status-dot-info.svg" alt="" aria-hidden="true">
+								<span class="receipt-status__text">처리중</span>
+							</span>
+							<span class="receipt-status receipt-status--success">
+								<img class="receipt-status__dot" src="./images/ico-status-dot-success.svg" alt="" aria-hidden="true">
+								<span class="receipt-status__text">완료</span>
+							</span>
+							<span class="receipt-status receipt-status--pending">
+								<img class="receipt-status__dot" src="./images/ico-status-dot-pending.svg" alt="" aria-hidden="true">
+								<span class="receipt-status__text">접수</span>
+							</span>
+							<span class="receipt-status receipt-status--warning">
+								<img class="receipt-status__dot" src="./images/ico-status-dot-warning.svg" alt="" aria-hidden="true">
+								<span class="receipt-status__text">확인/분류</span>
+							</span>
+						</div>
+						<h2 class="receipt-summary__subject">화면이 정상적으로 출력되지 않습니다.</h2>
+					</div>
+					<p class="receipt-summary__date">접수일 : 2026-05-20 10:25</p>
+				</div>
+				<dl class="receipt-summary__meta">
+					<div class="receipt-summary__meta-item">
+						<dt class="receipt-summary__meta-label">구분</dt>
+						<dd class="receipt-summary__meta-value">INC-2024-00527</dd>
+					</div>
+					<div class="receipt-summary__meta-item">
+						<dt class="receipt-summary__meta-label">신고유형</dt>
+						<dd class="receipt-summary__meta-value">화면/디스플레이</dd>
+					</div>
+					<div class="receipt-summary__meta-item">
+						<dt class="receipt-summary__meta-label">장소/위치</dt>
+						<dd class="receipt-summary__meta-value">서울시 강남구 테헤란로 123 OBE빌딩 3층</dd>
+					</div>
+				</dl>
+			</section>
+
+			<!-- 처리 진행현황 -->
+			<section class="receipt-card" aria-label="처리 진행현황">
+				<h2 class="receipt-card__title receipt-card__title--plain">처리 진행현황</h2>
+				<ol class="receipt-stepper">
+					<li class="receipt-stepper__item receipt-stepper__item--active">
+						<div class="receipt-stepper__indicator">
+							<div class="receipt-stepper__icon">
+								<img src="./images/ico-step01-active.svg" alt="">
+							</div>
+							<p class="receipt-stepper__label">접수</p>
+							<p class="receipt-stepper__time">2026-05-20 10:25</p>
+						</div>
+						<span class="receipt-stepper__line" aria-hidden="true"></span>
+					</li>
+					<li class="receipt-stepper__item">
+						<div class="receipt-stepper__indicator">
+							<div class="receipt-stepper__icon">
+								<img src="./images/ico-step02.svg" alt="">
+							</div>
+							<p class="receipt-stepper__label">확인/분류</p>
+						</div>
+						<span class="receipt-stepper__line" aria-hidden="true"></span>
+					</li>
+					<li class="receipt-stepper__item">
+						<div class="receipt-stepper__indicator">
+							<div class="receipt-stepper__icon">
+								<img src="./images/ico-step03.svg" alt="">
+							</div>
+							<p class="receipt-stepper__label">처리중</p>
+						</div>
+						<span class="receipt-stepper__line" aria-hidden="true"></span>
+					</li>
+					<li class="receipt-stepper__item">
+						<div class="receipt-stepper__indicator">
+							<div class="receipt-stepper__icon">
+								<img src="./images/ico-step04.svg" alt="">
+							</div>
+							<p class="receipt-stepper__label">완료</p>
+						</div>
+					</li>
+				</ol>
+			</section>
+
+			<!-- 신고 정보 -->
+			<section class="receipt-card receipt-report" aria-label="신고 정보">
+				<div class="receipt-report__section">
+					<h2 class="receipt-card__title">신고 정보</h2>
+					<div class="receipt-report__field">
+						<div class="receipt-report__field-head">
+							<span class="receipt-report__field-icon">
+								<img src="./images/ico-place.svg" alt="">
+							</span>
+							<span class="receipt-report__field-label">장소/위치</span>
+						</div>
+						<p class="receipt-report__field-value">서울시 강남구 테헤란로 123 OBE빌딩 3층</p>
+					</div>
+					<div class="receipt-report__field">
+						<div class="receipt-report__field-head">
+							<span class="receipt-report__field-icon">
+								<img src="./images/ico-content.svg" alt="">
+							</span>
+							<span class="receipt-report__field-label">신고 내용</span>
+						</div>
+						<p class="receipt-report__field-value">
+							모니터를 켜면 전원이 들어오지만 화면이 나오지 않습니다.<br>
+							다른 모니터로도 확인해봤지만 동일합니다.
+						</p>
+					</div>
+				</div>
+				<div class="receipt-report__section receipt-report__section--image">
+					<h2 class="receipt-card__title receipt-card__title--plain">고객 첨부 이미지</h2>
+					<div class="receipt-report__image-wrap">
+						<img src="./images/img-attach-sample.jpg" alt="고객 첨부 이미지">
+					</div>
+				</div>
+			</section>
+
+			<!-- 기타 정보 -->
+			<section class="receipt-info" aria-label="기타 정보">
+				<h2 class="receipt-info__title">기타 정보</h2>
+				<dl class="receipt-info__list">
+					<div class="receipt-info__row">
+						<dt class="receipt-info__label">신고 유형</dt>
+						<dd class="receipt-info__value">화면/디스플레이</dd>
+					</div>
+					<div class="receipt-info__row">
+						<dt class="receipt-info__label">담당 엔지니어</dt>
+						<dd class="receipt-info__value">-</dd>
+					</div>
+					<div class="receipt-info__row">
+						<dt class="receipt-info__label">유지보수 업체</dt>
+						<dd class="receipt-info__value">A 업체</dd>
+					</div>
+					<div class="receipt-info__row receipt-info__row--files">
+						<dt class="receipt-info__label">첨부파일</dt>
+						<dd class="receipt-info__value">
+							<ul class="receipt-info__files">
+								<li class="receipt-info__file">
+									<span class="receipt-info__file-name">사진_20260520_1255.jpg</span>
+									<button type="button" class="receipt-info__file-download">
+										다운로드
+										<img src="./images/ico-download.svg" alt="">
+									</button>
+								</li>
+								<li class="receipt-info__file">
+									<span class="receipt-info__file-name">사진_20260520_1255.jpg</span>
+									<button type="button" class="receipt-info__file-download">
+										다운로드
+										<img src="./images/ico-download.svg" alt="">
+									</button>
+								</li>
+							</ul>
+						</dd>
+					</div>
+				</dl>
+			</section>
+
+			<!-- 안내 -->
+			<aside class="receipt-notice" role="note">
+				<img class="receipt-notice__icon" src="./images/ico-imark.svg" alt="">
+				<p class="receipt-notice__text">
+					조치 후 사진과 조치 내용은 필수 항목입니다.<br>
+					작업 등록 시 해당 접수 건을 자동으로 ‘완료’ 상태로 처리됩니다.
+				</p>
+			</aside>
+
+			<!-- 작업 결과 등록 -->
+			<section class="receipt-card receipt-card--compact receipt-form" aria-label="작업 결과 등록">
+				<h2 class="receipt-card__title receipt-card__title--plain">작업 결과 등록</h2>
+
+				<div class="receipt-form__group">
+					<div class="receipt-form__label">
+						<span>조치 후 사진</span>
+						<span class="receipt-form__required">(필수)</span>
+					</div>
+					<div class="receipt-form__upload">
+						<div class="receipt-form__upload-info">
+							<p class="receipt-form__upload-title">조치 후 사진을 선택하거나 촬영해주세요.</p>
+							<p class="receipt-form__upload-desc">(최대 5장까지 등록 가능)</p>
+						</div>
+						<div class="receipt-form__upload-btns">
+							<button type="button" class="receipt-form__btn receipt-form__btn--primary">앨범</button>
+							<button type="button" class="receipt-form__btn receipt-form__btn--outline">촬영</button>
+						</div>
+						<input type="file" id="photoInput" accept="image/jpeg,image/png" multiple hidden>
+					</div>
+					<div class="receipt-form__meta">
+						<span class="receipt-form__meta-note">등록 가능 파일 : JPG, PNG (최대 10MB)</span>
+						<span class="receipt-form__meta-count" id="photoCount"><strong>0</strong><span>/5장</span></span>
+					</div>
+				</div>
+
+				<div class="receipt-form__group">
+					<div class="receipt-form__label">
+						<span>조치 내용</span>
+						<span class="receipt-form__required">(필수)</span>
+					</div>
+					<div class="receipt-form__textarea-wrap">
+						<textarea
+							class="receipt-form__textarea"
+							id="actionText"
+							maxlength="1000"
+							placeholder="조치 내용을 상세히 입력해주세요."
+							rows="6"
+						></textarea>
+					</div>
+					<div class="receipt-form__meta">
+						<span></span>
+						<span class="receipt-form__meta-count" id="textCount"><strong>0</strong><span>/1000자</span></span>
+					</div>
+				</div>
+			</section>
+
+			<!-- 하단 버튼 - 작업 등록 -->
+			<div class="receipt-actions receipt-actions--register">
+				<button type="button" class="receipt-actions__btn receipt-actions__btn--cancel">취소</button>
+				<button type="button" class="receipt-actions__btn receipt-actions__btn--submit">작업 등록 (완료 처리)</button>
+			</div>
+
+			<!-- 하단 버튼 - 상세 (예시) -->
+			<div class="receipt-actions receipt-actions--detail">
+				<div class="receipt-actions__left">
+					<button type="button" class="receipt-actions__btn receipt-actions__btn--cancel">취소</button>
+				</div>
+				<div class="receipt-actions__right">
+					<button type="button" class="receipt-actions__btn receipt-actions__btn--edit">수정</button>
+					<button type="button" class="receipt-actions__btn receipt-actions__btn--submit">PDF 다운로드</button>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<script>
+		(function () {
+			var textarea = document.getElementById('actionText');
+			var textCount = document.getElementById('textCount');
+			var photoInput = document.getElementById('photoInput');
+			var photoCount = document.getElementById('photoCount');
+			var uploadBtns = document.querySelectorAll('.receipt-form__upload-btns .receipt-form__btn');
+
+			if (textarea && textCount) {
+				textarea.addEventListener('input', function () {
+					textCount.innerHTML = '<strong>' + textarea.value.length + '</strong><span>/1000자</span>';
+				});
+			}
+
+			uploadBtns.forEach(function (btn, index) {
+				btn.addEventListener('click', function () {
+					if (photoInput) {
+						photoInput.click();
+					}
+				});
+			});
+
+			if (photoInput && photoCount) {
+				photoInput.addEventListener('change', function () {
+					var count = Math.min(photoInput.files.length, 5);
+					photoCount.innerHTML = '<strong>' + count + '</strong><span>/5장</span>';
+				});
+			}
+		})();
+	</script>
+</body>
+</html>

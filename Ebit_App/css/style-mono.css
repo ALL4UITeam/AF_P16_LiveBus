@@ -1,0 +1,61 @@
+/* Ebit_App/css/style-mono.css — Mono(블랙) 테마 — Figma 433:183 */
+
+:root {
+	--mono-navy: #020617;
+	--mono-page-bg: #e2e8f0;
+	--mono-badge: #1e293b;
+}
+
+body:has(.bus-stop--mono) {
+	background: var(--mono-page-bg);
+}
+
+.bus-stop--mono {
+	background: var(--mono-page-bg);
+}
+
+.bus-stop--mono .datetime-header,
+.bus-stop--mono .notice-banner {
+	background: var(--mono-navy);
+}
+
+.bus-stop--mono .current-station__icon {
+	background: #000000;
+}
+
+.bus-stop--mono .route-summary__title {
+	color: var(--mono-badge);
+}
+
+.bus-stop--mono .route-chip--black {
+	background: #000000;
+}
+
+.bus-stop--mono .arrival-card--arriving .arrival-card__accent,
+.bus-stop--mono .arrival-card--soon .arrival-card__accent,
+.bus-stop--mono .arrival-card--ended .arrival-card__accent {
+	background: var(--mono-navy);
+}
+
+.bus-stop--mono .arrival-card--arriving .arrival-card__status,
+.bus-stop--mono .arrival-card--soon .arrival-card__status {
+	color: #000000;
+}
+
+.bus-stop--mono .arrival-card--ended .arrival-card__status {
+	color: var(--color-gray-40);
+}
+
+.bus-stop--mono .route-detail__badge {
+	background: var(--mono-badge);
+}
+
+.bus-stop--mono .current-badge__label {
+	background: var(--mono-navy);
+}
+
+@media (min-width: 768px) {
+	body:has(.bus-stop--mono) {
+		background: #c5ced8;
+	}
+}

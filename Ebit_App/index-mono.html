@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<title>E-bit App - 버스 정류장 (Mono)</title>
+	<link rel="stylesheet" href="../홍천BMS_접수상세/fonts/Freesentation.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/style-mono.css">
+</head>
+<body>
+	<div class="bus-stop bus-stop--mono">
+		<header class="bus-stop__header datetime-header">
+			<p class="datetime-header__date">2026년 02월 26일 (목)</p>
+			<p class="datetime-header__time">08:45</p>
+		</header>
+
+		<section class="bus-stop__station current-station" aria-label="현재 정류장">
+			<div class="current-station__icon" aria-hidden="true">
+				<img class="current-station__bus" src="./images/ico-bus-glyph-mono.svg" alt="">
+			</div>
+			<div class="current-station__text">
+				<p class="current-station__label">현재 정류장</p>
+				<p class="current-station__name">양재역·서초문화예술회관</p>
+			</div>
+		</section>
+
+		<main class="bus-stop__main">
+			<div class="route-summary" aria-label="곧 도착 노선">
+				<p class="route-summary__title">곧 도착</p>
+				<ul class="route-summary__chips">
+					<li class="route-chip route-chip--black">
+						<span class="route-chip__label">144</span>
+					</li>
+					<li class="route-chip route-chip--black">
+						<span class="route-chip__label">350</span>
+					</li>
+					<li class="route-chip route-chip--black">
+						<span class="route-chip__label">서초04</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="arrival-list" aria-label="버스 도착 정보">
+				<div class="arrival-list__row">
+					<article class="arrival-card arrival-card--arriving">
+						<div class="arrival-card__accent" aria-hidden="true"></div>
+						<div class="arrival-card__body">
+							<div class="arrival-card__row">
+								<p class="arrival-card__route">144</p>
+								<div class="arrival-card__info">
+									<p class="arrival-card__status">곧 도착</p>
+								</div>
+							</div>
+							<div class="arrival-card__direction">
+								<p class="arrival-card__direction-text">성동교남단·서울숲리버포레 방면</p>
+							</div>
+						</div>
+					</article>
+					<article class="arrival-card arrival-card--soon">
+						<div class="arrival-card__accent" aria-hidden="true"></div>
+						<div class="arrival-card__body">
+							<div class="arrival-card__row">
+								<p class="arrival-card__route">350</p>
+								<div class="arrival-card__info">
+									<p class="arrival-card__status">2분 남음</p>
+								</div>
+							</div>
+							<div class="arrival-card__direction">
+								<p class="arrival-card__direction-text">성동구민종합체육센터 방면</p>
+							</div>
+						</div>
+					</article>
+				</div>
+				<div class="arrival-list__row">
+					<article class="arrival-card arrival-card--soon">
+						<div class="arrival-card__accent" aria-hidden="true"></div>
+						<div class="arrival-card__body">
+							<div class="arrival-card__row">
+								<p class="arrival-card__route">서초03</p>
+								<div class="arrival-card__info">
+									<p class="arrival-card__status">7분 남음</p>
+								</div>
+							</div>
+							<div class="arrival-card__direction">
+								<p class="arrival-card__direction-text">성동구민종합체육센터 방면</p>
+							</div>
+						</div>
+					</article>
+					<article class="arrival-card arrival-card--ended">
+						<div class="arrival-card__accent" aria-hidden="true"></div>
+						<div class="arrival-card__body">
+							<div class="arrival-card__row">
+								<p class="arrival-card__route">서초04</p>
+								<div class="arrival-card__info">
+									<p class="arrival-card__status">운행종료</p>
+								</div>
+							</div>
+							<div class="arrival-card__direction">
+								<p class="arrival-card__direction-text">성동구민종합체육센터 방면</p>
+							</div>
+						</div>
+					</article>
+				</div>
+				<div class="arrival-list__row">
+					<article class="arrival-card arrival-card--soon">
+						<div class="arrival-card__accent" aria-hidden="true"></div>
+						<div class="arrival-card__body">
+							<div class="arrival-card__row">
+								<p class="arrival-card__route">서초03</p>
+								<div class="arrival-card__info">
+									<p class="arrival-card__status">7분 남음</p>
+								</div>
+							</div>
+							<div class="arrival-card__direction">
+								<p class="arrival-card__direction-text">성동구민종합체육센터 방면</p>
+							</div>
+						</div>
+					</article>
+					<article class="arrival-card arrival-card--ended">
+						<div class="arrival-card__accent" aria-hidden="true"></div>
+						<div class="arrival-card__body">
+							<div class="arrival-card__row">
+								<p class="arrival-card__route">서초04</p>
+								<div class="arrival-card__info">
+									<p class="arrival-card__status">운행종료</p>
+								</div>
+							</div>
+							<div class="arrival-card__direction">
+								<p class="arrival-card__direction-text">성동구민종합체육센터 방면</p>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+
+			<section class="route-detail" aria-label="노선 상세">
+				<div class="route-detail__head">
+					<div class="route-detail__badge">
+						<span class="route-detail__badge-text">서초03</span>
+					</div>
+					<div class="route-detail__info">
+						<p class="route-detail__path">염곱동구룡사 → 방배신삼호아파트</p>
+						<p class="route-detail__schedule">
+							<span>첫차 06:00</span>
+							<span class="route-detail__schedule-divider" aria-hidden="true">|</span>
+							<span>막차 23:00</span>
+						</p>
+					</div>
+				</div>
+				<div class="route-detail__map">
+					<div class="route-progress">
+						<div class="route-progress__track">
+							<div class="route-progress__line" aria-hidden="true"></div>
+							<ul class="route-progress__stops">
+								<li class="route-progress__stop">
+									<div class="route-progress__badge-slot" aria-hidden="true"></div>
+									<img class="route-progress__dot" src="./images/ico-dot-default-mono.svg" alt="">
+									<span class="route-progress__label">회차</span>
+								</li>
+								<li class="route-progress__stop">
+									<div class="route-progress__badge-slot" aria-hidden="true"></div>
+									<img class="route-progress__dot" src="./images/ico-dot-default-mono.svg" alt="">
+									<span class="route-progress__label">염곡동</span>
+								</li>
+								<li class="route-progress__stop route-progress__stop--current">
+									<div class="route-progress__badge-slot">
+										<div class="current-badge">
+											<span class="current-badge__label">현위치</span>
+											<img class="current-badge__pointer" src="./images/ico-pointer-mono.svg" alt="">
+										</div>
+									</div>
+									<img class="route-progress__dot" src="./images/ico-dot-current-mono.svg" alt="">
+									<span class="route-progress__label">양재역</span>
+								</li>
+								<li class="route-progress__stop">
+									<div class="route-progress__badge-slot" aria-hidden="true"></div>
+									<img class="route-progress__dot" src="./images/ico-dot-default-mono.svg" alt="">
+									<span class="route-progress__label">방배역</span>
+								</li>
+								<li class="route-progress__stop">
+									<div class="route-progress__badge-slot" aria-hidden="true"></div>
+									<img class="route-progress__dot" src="./images/ico-dot-default-mono.svg" alt="">
+									<span class="route-progress__label">종점</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<aside class="notice-banner" role="note">
+				<p class="notice-banner__text">안전 운행을 위해 정류장 내 질서를 지켜 주세요.</p>
+			</aside>
+		</main>
+	</div>
+</body>
+</html>

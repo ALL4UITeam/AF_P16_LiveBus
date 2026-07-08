@@ -3109,8 +3109,6 @@
         display: flex;
         gap: 15px;
         align-items: center;
-        margin-left: -32px;
-        margin-right: -32px;
         padding: 7px 32px;
 
         &:nth-child(even) {
@@ -3119,7 +3117,6 @@
 
         dt {
             flex: 0 0 95px;
-            padding-left: 10px;
             border-right: 1px solid #dce1e9;
             font-size: 15px;
             font-weight: 600;
