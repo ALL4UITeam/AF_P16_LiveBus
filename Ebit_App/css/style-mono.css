@@ -2,8 +2,8 @@
 
 :root {
 	--mono-navy: #020617;
-	--mono-page-bg: #e2e8f0;
-	--mono-badge: #1e293b;
+	--mono-page-bg: #fff;
+	--mono-badge: #000;
 }
 
 body:has(.bus-stop--mono) {
@@ -14,11 +14,12 @@ body:has(.bus-stop--mono) {
 	background: var(--mono-page-bg);
 }
 
+.bus-stop__footer,
 .bus-stop--mono .datetime-header,
 .bus-stop--mono .notice-banner {
-	background: var(--mono-navy);
+	background: #000;
 }
-
+/*
 .bus-stop--mono .current-station__icon {
 	background: #000000;
 }
@@ -29,7 +30,7 @@ body:has(.bus-stop--mono) {
 
 .bus-stop--mono .route-chip--black {
 	background: #000000;
-}
+} 
 
 .bus-stop--mono .arrival-card--arriving .arrival-card__accent,
 .bus-stop--mono .arrival-card--soon .arrival-card__accent,
@@ -53,7 +54,7 @@ body:has(.bus-stop--mono) {
 .bus-stop--mono .current-badge__label {
 	background: var(--mono-navy);
 }
-
+*/
 @media (min-width: 768px) {
 	body:has(.bus-stop--mono) {
 		background: #c5ced8;

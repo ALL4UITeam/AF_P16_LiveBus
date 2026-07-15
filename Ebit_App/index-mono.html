@@ -11,8 +11,11 @@
 <body>
 	<div class="bus-stop bus-stop--mono">
 		<header class="bus-stop__header datetime-header">
-			<p class="datetime-header__date">2026년 02월 26일 (목)</p>
-			<p class="datetime-header__time">08:45</p>
+			<h1 class="bus-stop__logo"><img src="./images/logo.svg" alt="E-bit App"></h1>
+			<div class="datetime-header__info">
+				<p class="datetime-header__date">2026년 02월 26일 (목)</p>
+				<p class="datetime-header__time">08:45</p>
+			</div>
 		</header>
 
 		<section class="bus-stop__station current-station" aria-label="현재 정류장">
@@ -155,32 +158,32 @@
 							<ul class="route-progress__stops">
 								<li class="route-progress__stop">
 									<div class="route-progress__badge-slot" aria-hidden="true"></div>
-									<img class="route-progress__dot" src="./images/ico-dot-default-mono.svg" alt="">
+									<img class="route-progress__dot" src="./images/ico-dot-default.svg" alt="">
 									<span class="route-progress__label">회차</span>
 								</li>
 								<li class="route-progress__stop">
 									<div class="route-progress__badge-slot" aria-hidden="true"></div>
-									<img class="route-progress__dot" src="./images/ico-dot-default-mono.svg" alt="">
+									<img class="route-progress__dot" src="./images/ico-dot-default.svg" alt="">
 									<span class="route-progress__label">염곡동</span>
 								</li>
 								<li class="route-progress__stop route-progress__stop--current">
 									<div class="route-progress__badge-slot">
 										<div class="current-badge">
 											<span class="current-badge__label">현위치</span>
-											<img class="current-badge__pointer" src="./images/ico-pointer-mono.svg" alt="">
+											<img class="current-badge__pointer" src="./images/ico-pointer.svg" alt="">
 										</div>
 									</div>
-									<img class="route-progress__dot" src="./images/ico-dot-current-mono.svg" alt="">
+									<img class="route-progress__dot" src="./images/ico-dot-current.svg" alt="">
 									<span class="route-progress__label">양재역</span>
 								</li>
 								<li class="route-progress__stop">
 									<div class="route-progress__badge-slot" aria-hidden="true"></div>
-									<img class="route-progress__dot" src="./images/ico-dot-default-mono.svg" alt="">
+									<img class="route-progress__dot" src="./images/ico-dot-default.svg" alt="">
 									<span class="route-progress__label">방배역</span>
 								</li>
 								<li class="route-progress__stop">
 									<div class="route-progress__badge-slot" aria-hidden="true"></div>
-									<img class="route-progress__dot" src="./images/ico-dot-default-mono.svg" alt="">
+									<img class="route-progress__dot" src="./images/ico-dot-default.svg" alt="">
 									<span class="route-progress__label">종점</span>
 								</li>
 							</ul>
@@ -189,10 +192,16 @@
 				</div>
 			</section>
 
-			<aside class="notice-banner" role="note">
+			<!-- <aside class="notice-banner" role="note">
 				<p class="notice-banner__text">안전 운행을 위해 정류장 내 질서를 지켜 주세요.</p>
-			</aside>
+			</aside> -->
 		</main>
+
+		<footer class="bus-stop__footer">
+			<div class="logo-col footer__logo-1"><img src="./images/uplus-logo.svg" alt="uplus"></div>
+			<div class="logo-col footer__logo-2"><img src="./images/ailivebus.svg" alt="ailivebus"></div>
+			<div class="logo-col footer__logo-3"><img src="./images/kakao.svg" alt="kakao"></div>
+		</footer>
 	</div>
 </body>
 </html>

@@ -2,14 +2,16 @@
 
 :root {
 	--color-navy: #01334f;
-	--color-page-bg: #e0efff;
-	--color-card-bg: #ffffff;
+	--color-page-bg: #ffffff;
+	--color-card-bg: #F1F5F9;
 	--color-card-border: #e2e8f0;
 	--color-text-on-dark: #ffffff;
 	--color-text-primary: #020617;
 	--color-text-secondary: #1e293b;
 	--color-text-muted: #334155;
+	--color-route-black: #000;
 	--color-route-pink: #e30084;
+	--color-route-red: #E53935;
 	--color-route-blue: #047bb6;
 	--color-route-badge: #03699c;
 	--color-accent-blue: #1c8cf4;
@@ -85,9 +87,40 @@ img {
 	flex-shrink: 0;
 }
 
+.bus-stop__footer{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--spacing-md);
+	height: 77px;
+	padding: 13px var(--spacing-xl);
+	background: var(--color-navy);
+	flex-shrink: 0;
+}
+
+.footer__logo-1{
+	width: clamp(65px, 16.5vw, 125px);
+}
+.footer__logo-2{
+	width: clamp(102px, 26.17vw, 198px);
+}
+.footer__logo-3{
+	width: clamp(68px, 17.33vw, 132px);
+}
+
+
+
+.bus-stop__logo{
+	width: 23%;
+}
+
+.datetime-header__info {
+	text-align: right
+}
+
 .datetime-header__date {
 	margin: 0;
-	font-size: 25px;
+	font-size: 14px;
 	font-weight: 500;
 	color: var(--color-text-on-dark);
 	white-space: nowrap;
@@ -95,7 +128,7 @@ img {
 
 .datetime-header__time {
 	margin: 0;
-	font-size: 40px;
+	font-size: 32px;
 	font-weight: 800;
 	color: var(--color-text-on-dark);
 	letter-spacing: -0.72px;
@@ -164,13 +197,14 @@ img {
 /* Route Summary */
 .route-summary {
 	display: flex;
-	align-items: center;
-	gap: var(--spacing-xl);
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--spacing-sm);
 	padding: var(--spacing-lg) 33px var(--spacing-lg) var(--spacing-lg);
 	background: var(--color-card-bg);
 	border: 1px solid var(--color-card-border);
 	border-radius: var(--radius-card);
-	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.06);
+	/* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.06); */
 	flex-shrink: 0;
 }
 
@@ -179,41 +213,40 @@ img {
 	flex-shrink: 0;
 	font-size: 33px;
 	font-weight: 800;
-	color: var(--color-route-pink);
+	color: var(--color-route-black);
 	white-space: nowrap;
 }
 
 .route-summary__chips {
-	display: flex;
+	display: grid;
 	align-items: center;
-	justify-content: space-between;
-	gap: var(--spacing-xs);
+	grid-template-columns: repeat(4, 1fr);
+	/* gap: 0 60px; */
 	flex: 1;
 	min-width: 0;
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	width: 100%;
 }
 
 .route-chip {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	min-width: 0;
 	flex: 1;
-	height: 51px;
-	padding: 0 15px;
-	border-radius: var(--radius-pill);
+	
 }
 
 .route-chip--pink {
-	background: var(--color-route-pink);
+	/* background: var(--color-route-pink); */
 }
 
 .route-chip__label {
 	font-size: 38px;
 	font-weight: 900;
-	color: var(--color-text-on-dark);
+	color: #E53935;
 	white-space: nowrap;
 	line-height: 1;
 }
@@ -245,13 +278,12 @@ img {
 
 .arrival-card__accent {
 	flex-shrink: 0;
-	width: 8px;
-	border-radius: var(--radius-card) var(--radius-card) var(--radius-card) var(--radius-card);
-	margin: 12px 0;
+	width: 6px;
+	/* border-radius: var(--radius-card) var(--radius-card) var(--radius-card) var(--radius-card); */
 }
 
 .arrival-card--arriving .arrival-card__accent {
-	background: var(--color-route-pink);
+	background: #E53935;
 }
 
 .arrival-card--soon .arrival-card__accent {
@@ -304,7 +336,7 @@ img {
 .arrival-card__status {
 	margin: 0;
 	font-size: 31px;
-	font-weight: 900;
+	font-weight: 700;
 	text-align: right;
 	letter-spacing: -1.23px;
 	line-height: 1;
@@ -312,7 +344,7 @@ img {
 }
 
 .arrival-card--arriving .arrival-card__status {
-	color: var(--color-route-pink);
+	color: var(--color-route-red);
 }
 
 .arrival-card--soon .arrival-card__status {
@@ -330,8 +362,8 @@ img {
 	height: 31px;
 	padding: 0 8px;
 	background: var(--color-gray-10);
-	border: 1px solid var(--color-gray-20);
-	border-radius: 8px;
+	/* border: 1px solid var(--color-gray-20);
+	border-radius: 8px; */
 	overflow: hidden;
 }
 
@@ -422,6 +454,7 @@ img {
 .route-detail__map {
 	border: 2px solid var(--color-gray-20);
 	border-radius: var(--radius-sm);
+	background: #fff;
 	padding: 8px;
 	min-height: 147px;
 	display: flex;
