@@ -220,7 +220,7 @@ img {
 .route-summary__chips {
 	display: grid;
 	align-items: center;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	/* gap: 0 60px; */
 	flex: 1;
 	min-width: 0;
@@ -244,7 +244,7 @@ img {
 }
 
 .route-chip__label {
-	font-size: 38px;
+	font-size: clamp(15px, 4.95vw, 38px);
 	font-weight: 900;
 	color: #E53935;
 	white-space: nowrap;
@@ -640,10 +640,6 @@ img {
 		padding: 0 8px;
 	}
 
-	.route-chip__label {
-		font-size: 22px;
-	}
-
 	.arrival-list {
 		gap: 6px;
 	}
@@ -792,10 +788,6 @@ img {
 	.route-chip {
 		height: 30px;
 		padding: 0 6px;
-	}
-
-	.route-chip__label {
-		font-size: 17px;
 	}
 
 	.arrival-card {
