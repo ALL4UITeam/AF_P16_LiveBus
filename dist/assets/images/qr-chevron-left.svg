@@ -1,0 +1,7 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="chevron-left">
+<rect x="0.5" y="0.5" width="23" height="23" rx="11.5" fill="white"/>
+<rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="#DDDDDD"/>
+<path id="Vector (Stroke)" d="M13.3752 9.06185L10.2 12.0996L13.3752 15.1374L12.8921 15.5996L9.47529 12.3307C9.34186 12.2031 9.34186 11.9961 9.47529 11.8685L12.8921 8.59961L13.3752 9.06185Z" fill="black"/>
+</g>
+</svg>

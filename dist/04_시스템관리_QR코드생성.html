@@ -375,7 +375,7 @@
 						<h2 class="panel--qr-preview__title">QR코드 미리보기</h2>
 						<button type="button" class="panel--qr-preview__close" aria-label="닫기"></button>
 					</div>
-					<div class="panel--qr-preview__content">
+					<div class="panel--qr-preview__content" data-simplebar>
 						<div class="panel--qr-preview__selected">
 							<span class="panel--qr-preview__stop-icon"></span>
 							<span class="panel--qr-preview__stop-name">갈전</span>
@@ -391,22 +391,198 @@
                             </div>
                             <div class="tab--content">
                                 <div class="tab--panel active" id="template">
-                                    <div class="panel--qr-preview__tem skin-type01">
-                                        <div class="panel--qr-preview__tem-brand" aria-hidden="true">
-                                            <img src="./assets/images/skin-type01logo.png" alt="">
-                                        </div>
-
-                                        <div class="panel--qr-preview__tem-flex">
-                                            <div class="panel--qr-preview__tem-name">삼례읍행정복지센터 삼례중입구</div>
-                                            <div class="panel--qr-preview__tem-code">STTN00900120</div>
-
-                                            <div class="panel--qr-preview__tem-qr" aria-label="QR 코드 영역">
-                                                <div class="panel--qr-preview__tem-qr-inner">QR</div>
+                                    <div class="panel--qr-preview__templates">
+                                        <div class="swiper panel--qr-preview__thumbs" id="qrTemplateThumbs">
+                                            <div class="swiper-wrapper">
+                                                <button type="button" class="swiper-slide panel--qr-preview__thumb is-active" aria-pressed="true">
+                                                    <span class="panel--qr-preview__thumb-visual">
+                                                        <img src="./assets/images/skin-type01thumb.png" alt="">
+                                                    </span>
+                                                    <span class="panel--qr-preview__thumb-label">기본형</span>
+                                                </button>
+                                                <button type="button" class="swiper-slide panel--qr-preview__thumb" aria-pressed="false">
+                                                    <span class="panel--qr-preview__thumb-visual">
+                                                        <img src="./assets/images/skin-type02thumb.png" alt="">
+                                                    </span>
+                                                    <span class="panel--qr-preview__thumb-label">퍼플</span>
+                                                </button>
+                                                <button type="button" class="swiper-slide panel--qr-preview__thumb" aria-pressed="false">
+                                                    <span class="panel--qr-preview__thumb-visual">
+                                                        <img src="./assets/images/skin-type03thumb.png" alt="">
+                                                    </span>
+                                                    <span class="panel--qr-preview__thumb-label">인디고</span>
+                                                </button>
+                                                <button type="button" class="swiper-slide panel--qr-preview__thumb" aria-pressed="false">
+                                                    <span class="panel--qr-preview__thumb-visual">
+                                                        <img src="./assets/images/skin-type04thumb.png" alt="">
+                                                    </span>
+                                                    <span class="panel--qr-preview__thumb-label">오렌지</span>
+                                                </button>
+                                                <button type="button" class="swiper-slide panel--qr-preview__thumb" aria-pressed="false">
+                                                    <span class="panel--qr-preview__thumb-visual">
+                                                        <img src="./assets/images/skin-type05thumb.png" alt="">
+                                                    </span>
+                                                    <span class="panel--qr-preview__thumb-label">베이지</span>
+                                                </button>
+                                                <button type="button" class="swiper-slide panel--qr-preview__thumb" aria-pressed="false">
+                                                    <span class="panel--qr-preview__thumb-visual">
+                                                        <img src="./assets/images/skin-type06thumb.png" alt="">
+                                                    </span>
+                                                    <span class="panel--qr-preview__thumb-label">핑크</span>
+                                                </button>
+                                                <button type="button" class="swiper-slide panel--qr-preview__thumb" aria-pressed="false">
+                                                    <span class="panel--qr-preview__thumb-visual">
+                                                        <img src="./assets/images/skin-type07thumb.png" alt="">
+                                                    </span>
+                                                    <span class="panel--qr-preview__thumb-label">블루그린</span>
+                                                </button>
+                                                <button type="button" class="swiper-slide panel--qr-preview__thumb" aria-pressed="false">
+                                                    <span class="panel--qr-preview__thumb-visual">
+                                                        <img src="./assets/images/skin-type08thumb.png" alt="">
+                                                    </span>
+                                                    <span class="panel--qr-preview__thumb-label">민트</span>
+                                                </button>
                                             </div>
                                         </div>
-                                        <div class="panel--qr-preview__tem-footer" aria-hidden="true">
-                                            <span class="panel--qr-preview__tem-footer-left"><img src="./assets/images/foot-logo-left.png" alt=""></span>
-                                            <span class="panel--qr-preview__tem-footer-right"><img src="./assets/images/foot-logo-right.png" alt=""></span>
+                                        <div class="panel--qr-preview__thumb-nav">
+                                            <button type="button" class="panel--qr-preview__thumb-prev" aria-label="이전 템플릿">
+                                                <img src="./assets/images/qr-chevron-left.svg" alt="">
+                                            </button>
+                                            <button type="button" class="panel--qr-preview__thumb-next" aria-label="다음 템플릿">
+                                                <img src="./assets/images/qr-chevron-right.svg" alt="">
+                                            </button>
+                                        </div>
+                                        <div class="swiper panel--qr-preview__stage" id="qrTemplateStage">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <div class="panel--qr-preview__tem skin-type01">
+                                                        <div class="panel--qr-preview__tem-brand" aria-hidden="true">
+                                                            <img src="./assets/images/skin-type01logo.png" alt="">
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-flex">
+                                                            <div class="panel--qr-preview__tem-name">삼례읍행정복지센터 삼례중입구</div>
+                                                            <div class="panel--qr-preview__tem-qr" aria-label="QR 코드 영역">
+                                                                <div class="panel--qr-preview__tem-qr-inner">QR</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-footer" aria-hidden="true">
+                                                            <img class="panel--qr-preview__tem-footer-logo" src="./assets/images/skin-livebus-logo.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="panel--qr-preview__tem skin-type02">
+                                                        <div class="panel--qr-preview__tem-brand" aria-hidden="true">
+                                                            <img src="./assets/images/skin-wanju-logo.png" alt="">
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-flex">
+                                                            <div class="panel--qr-preview__tem-name">삼례읍행정복지센터 삼례중입구</div>
+                                                            <div class="panel--qr-preview__tem-qr" aria-label="QR 코드 영역">
+                                                                <div class="panel--qr-preview__tem-qr-inner">QR</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-footer" aria-hidden="true">
+                                                            <img class="panel--qr-preview__tem-footer-logo" src="./assets/images/skin-livebus-logo.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="panel--qr-preview__tem skin-type03">
+                                                        <div class="panel--qr-preview__tem-brand" aria-hidden="true">
+                                                            <img src="./assets/images/skin-wanju-logo.png" alt="">
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-flex">
+                                                            <div class="panel--qr-preview__tem-name" style="color:#fff;">삼례읍행정복지센터 삼례중입구</div>
+                                                            <div class="panel--qr-preview__tem-qr" aria-label="QR 코드 영역">
+                                                                <div class="panel--qr-preview__tem-qr-inner">QR</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-footer" aria-hidden="true">
+                                                            <img class="panel--qr-preview__tem-footer-logo" src="./assets/images/skin-livebus-logo.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="panel--qr-preview__tem skin-type04">
+                                                        <div class="panel--qr-preview__tem-brand" aria-hidden="true">
+                                                            <img src="./assets/images/skin-wanju-logo.png" alt="">
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-flex">
+                                                            <div class="panel--qr-preview__tem-name">삼례읍행정복지센터 삼례중입구</div>
+                                                            <div class="panel--qr-preview__tem-qr" aria-label="QR 코드 영역">
+                                                                <div class="panel--qr-preview__tem-qr-inner">QR</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-footer" aria-hidden="true">
+                                                            <img class="panel--qr-preview__tem-footer-logo" src="./assets/images/skin-livebus-logo.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="panel--qr-preview__tem skin-type05">
+                                                        <div class="panel--qr-preview__tem-brand" aria-hidden="true">
+                                                            <img src="./assets/images/skin-wanju-logo.png" alt="">
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-flex">
+                                                            <div class="panel--qr-preview__tem-name">삼례읍행정복지센터 삼례중입구</div>
+                                                            <div class="panel--qr-preview__tem-qr" aria-label="QR 코드 영역">
+                                                                <div class="panel--qr-preview__tem-qr-inner">QR</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-footer" aria-hidden="true">
+                                                            <img class="panel--qr-preview__tem-footer-logo" src="./assets/images/skin-livebus-logo.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="panel--qr-preview__tem skin-type06">
+                                                        <div class="panel--qr-preview__tem-brand" aria-hidden="true">
+                                                            <img src="./assets/images/skin-wanju-logo.png" alt="">
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-flex">
+                                                            <div class="panel--qr-preview__tem-name">삼례읍행정복지센터 삼례중입구</div>
+                                                            <div class="panel--qr-preview__tem-qr" aria-label="QR 코드 영역">
+                                                                <div class="panel--qr-preview__tem-qr-inner">QR</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-footer" aria-hidden="true">
+                                                            <img class="panel--qr-preview__tem-footer-logo" src="./assets/images/skin-livebus-logo.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="panel--qr-preview__tem skin-type07">
+                                                        <div class="panel--qr-preview__tem-brand" aria-hidden="true">
+                                                            <img src="./assets/images/skin-wanju-logo.png" alt="">
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-flex">
+                                                            <div class="panel--qr-preview__tem-name">삼례읍행정복지센터 삼례중입구</div>
+                                                            <div class="panel--qr-preview__tem-qr" aria-label="QR 코드 영역">
+                                                                <div class="panel--qr-preview__tem-qr-inner">QR</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-footer" aria-hidden="true">
+                                                            <img class="panel--qr-preview__tem-footer-logo" src="./assets/images/skin-livebus-logo.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="panel--qr-preview__tem skin-type08">
+                                                        <div class="panel--qr-preview__tem-brand" aria-hidden="true">
+                                                            <img src="./assets/images/skin-wanju-logo.png" alt="">
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-flex">
+                                                            <div class="panel--qr-preview__tem-name">삼례읍행정복지센터 삼례중입구</div>
+                                                            <div class="panel--qr-preview__tem-qr" aria-label="QR 코드 영역">
+                                                                <div class="panel--qr-preview__tem-qr-inner">QR</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel--qr-preview__tem-footer" aria-hidden="true">
+                                                            <img class="panel--qr-preview__tem-footer-logo" src="./assets/images/skin-livebus-logo.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -499,6 +675,74 @@
             document.addEventListener('click', function () {
                 closeAllDownloadDropdowns();
             });
+
+            var stageEl = document.getElementById('qrTemplateStage');
+            var thumbEl = document.getElementById('qrTemplateThumbs');
+            if (stageEl && thumbEl && typeof Swiper !== 'undefined') {
+                var thumbs = thumbEl.querySelectorAll('.panel--qr-preview__thumb');
+                var prevBtn = document.querySelector('.panel--qr-preview__thumb-prev');
+                var nextBtn = document.querySelector('.panel--qr-preview__thumb-next');
+                var visibleThumbs = 4;
+
+                var thumbSwiper = new Swiper(thumbEl, {
+                    slidesPerView: visibleThumbs,
+                    spaceBetween: 3,
+                    watchOverflow: true,
+                    allowTouchMove: true
+                });
+
+                var stageSwiper = new Swiper(stageEl, {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    speed: 320,
+                    allowTouchMove: true,
+                    autoHeight: true
+                });
+
+                function setActiveThumb(index) {
+                    thumbs.forEach(function (thumb, i) {
+                        var active = i === index;
+                        thumb.classList.toggle('is-active', active);
+                        thumb.setAttribute('aria-pressed', active ? 'true' : 'false');
+                    });
+                    if (prevBtn) prevBtn.disabled = index <= 0;
+                    if (nextBtn) nextBtn.disabled = index >= thumbs.length - 1;
+                    if (index < thumbSwiper.activeIndex) {
+                        thumbSwiper.slideTo(index);
+                    } else if (index >= thumbSwiper.activeIndex + visibleThumbs) {
+                        thumbSwiper.slideTo(index - visibleThumbs + 1);
+                    }
+                }
+
+                function goTemplate(index) {
+                    if (index < 0 || index >= thumbs.length) return;
+                    stageSwiper.slideTo(index);
+                    setActiveThumb(index);
+                }
+
+                thumbs.forEach(function (thumb, i) {
+                    thumb.addEventListener('click', function () {
+                        goTemplate(i);
+                    });
+                });
+
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', function () {
+                        goTemplate(stageSwiper.activeIndex - 1);
+                    });
+                }
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', function () {
+                        goTemplate(stageSwiper.activeIndex + 1);
+                    });
+                }
+
+                stageSwiper.on('slideChange', function () {
+                    setActiveThumb(stageSwiper.activeIndex);
+                });
+
+                setActiveThumb(0);
+            }
         });
 	</script>
 
